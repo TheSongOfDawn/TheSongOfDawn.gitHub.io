@@ -134,6 +134,74 @@
       <div class="body-wrap">
         
   
+    <article id="post-搭建博客时遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/30/搭建博客时遇到的问题/">搭建博客时遇到的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="hexo下的分类和表签无法显示，怎么解决？"><a href="#hexo下的分类和表签无法显示，怎么解决？" class="headerlink" title="hexo下的分类和表签无法显示，怎么解决？"></a>hexo下的分类和表签无法显示，怎么解决？</h3><p>参考了知乎上的解决方案，解决问题.</p>
+<ol>
+<li>命令行 hexo new page “tags”,就创建了一个tags文件夹并且里面有一个index.md文件.</li>
+<li><p>编辑index.md文件，页面内容编辑如下:</p>
+<blockquote>
+<p>title: tags</p>
+<p>date: 2016-11-11 21:40:58</p>
+<p>type: “tags”<br>comments: false //这里是关闭评论</p>
+</blockquote>
+</li>
+<li><p>至于后面的menu添加内容我并没有弄，以上做完以上内容我的标签已然可以正常使用.</p>
+</li>
+</ol>
+<h3 id="hexo-ERROR-Deployer-not-found-git"><a href="#hexo-ERROR-Deployer-not-found-git" class="headerlink" title="hexo ERROR Deployer not found: git"></a>hexo ERROR Deployer not found: git</h3><p>解决这个问题需要安装git，配置git的环境变量。然后打开cmd，输入:</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>主配置文件_config.yml下的deploy的type要是git.</p>
+<h3 id="YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-at-line-5-column-1"><a href="#YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-at-line-5-column-1" class="headerlink" title="YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1"></a>YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1</h3><p>我遇到的这一类问题大多是自己写的博客文件格式不对，少了空格之类的.仔细检查自己写过的地方格式是否正确即可.</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/01/30/搭建博客时遇到的问题/" class="archive-article-date">
+  	<time datetime="2017-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客搭建/">博客搭建</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-利用Github-hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,74 +261,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重装/">重装</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-搭建博客时遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/30/搭建博客时遇到的问题/">搭建博客时遇到的问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="hexo下的分类和表签无法显示，怎么解决？"><a href="#hexo下的分类和表签无法显示，怎么解决？" class="headerlink" title="hexo下的分类和表签无法显示，怎么解决？"></a>hexo下的分类和表签无法显示，怎么解决？</h3><p>参考了知乎上的解决方案，解决问题.</p>
-<ol>
-<li>命令行 hexo new page “tags”,就创建了一个tags文件夹并且里面有一个index.md文件.</li>
-<li><p>编辑index.md文件，页面内容编辑如下:</p>
-<blockquote>
-<p>title: tags</p>
-<p>date: 2016-11-11 21:40:58</p>
-<p>type: “tags”<br>comments: false //这里是关闭评论</p>
-</blockquote>
-</li>
-<li><p>至于后面的menu添加内容我并没有弄，以上做完以上内容我的标签已然可以正常使用.</p>
-</li>
-</ol>
-<h3 id="hexo-ERROR-Deployer-not-found-git"><a href="#hexo-ERROR-Deployer-not-found-git" class="headerlink" title="hexo ERROR Deployer not found: git"></a>hexo ERROR Deployer not found: git</h3><p>解决这个问题需要安装git，配置git的环境变量。然后打开cmd，输入:</p>
-<blockquote>
-<p>npm install hexo-deployer-git –save</p>
-</blockquote>
-<p>主配置文件_config.yml下的deploy的type要是git.</p>
-<h3 id="YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-at-line-5-column-1"><a href="#YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-at-line-5-column-1" class="headerlink" title="YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1"></a>YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1</h3><p>我遇到的这一类问题大多是自己写的博客文件格式不对，少了空格之类的.仔细检查自己写过的地方格式是否正确即可.</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/01/30/搭建博客时遇到的问题/" class="archive-article-date">
-  	<time datetime="2016-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客搭建/">博客搭建</a></li></ul>
 	</div>
 
       
