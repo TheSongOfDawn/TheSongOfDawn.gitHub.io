@@ -6,15 +6,48 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tagcloud | Othello&#39;s Blog</title>
+  <title>搭建博客时遇到的问题 | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tagcloud">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="hexo下的分类和表签无法显示，怎么解决？参考了知乎上的解决方案，解决问题.
+
+命令行 hexo new page “tags”,就创建了一个tags文件夹并且里面有一个index.md文件.
+编辑index.md文件，页面内容编辑如下:
+
+title: tags
+date: 2016-11-11 21:40:58
+type: “tags”comments: false //这里是关闭评论
+
+
+至">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建博客时遇到的问题">
+<meta property="og:url" content="http://yoursite.com/2016/01/30/搭建博客时遇到的问题/index.html">
 <meta property="og:site_name" content="Othello's Blog">
-<meta property="og:updated_time" content="2017-01-30T07:14:48.494Z">
+<meta property="og:description" content="hexo下的分类和表签无法显示，怎么解决？参考了知乎上的解决方案，解决问题.
+
+命令行 hexo new page “tags”,就创建了一个tags文件夹并且里面有一个index.md文件.
+编辑index.md文件，页面内容编辑如下:
+
+title: tags
+date: 2016-11-11 21:40:58
+type: “tags”comments: false //这里是关闭评论
+
+
+至">
+<meta property="og:updated_time" content="2017-01-30T08:08:42.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tagcloud">
+<meta name="twitter:title" content="搭建博客时遇到的问题">
+<meta name="twitter:description" content="hexo下的分类和表签无法显示，怎么解决？参考了知乎上的解决方案，解决问题.
+
+命令行 hexo new page “tags”,就创建了一个tags文件夹并且里面有一个index.md文件.
+编辑index.md文件，页面内容编辑如下:
+
+title: tags
+date: 2016-11-11 21:40:58
+type: “tags”comments: false //这里是关闭评论
+
+
+至">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -133,7 +166,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-搭建博客时遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -143,7 +176,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Tagcloud
+      搭建博客时遇到的问题
     </h1>
   
 
@@ -151,15 +184,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="hexo下的分类和表签无法显示，怎么解决？"><a href="#hexo下的分类和表签无法显示，怎么解决？" class="headerlink" title="hexo下的分类和表签无法显示，怎么解决？"></a>hexo下的分类和表签无法显示，怎么解决？</h2><p>参考了知乎上的解决方案，解决问题.</p>
+<ol>
+<li>命令行 hexo new page “tags”,就创建了一个tags文件夹并且里面有一个index.md文件.</li>
+<li><p>编辑index.md文件，页面内容编辑如下:</p>
+<blockquote>
+<p>title: tags</p>
+<p>date: 2016-11-11 21:40:58</p>
+<p>type: “tags”<br>comments: false //这里是关闭评论</p>
+</blockquote>
+</li>
+<li><p>至于后面的menu添加内容我并没有弄，以上做完以上内容我的标签已然可以正常使用.</p>
+</li>
+</ol>
+<p>##hexo ERROR Deployer not found: git<br>解决这个问题需要安装git，配置git的环境变量。然后打开cmd，输入:</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>主配置文件_config.yml下的deploy的type要是git.</p>
+<p>##YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1<br>我遇到的这一类问题大多是自己写的博客文件格式不对，少了空格之类的.仔细检查自己写过的地方格式是否正确即可.</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2017-01-30T06:56:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-30</time>
+      <a href="/2016/01/30/搭建博客时遇到的问题/" class="archive-article-date">
+  	<time datetime="2016-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-30</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客搭建/">博客搭建</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -168,6 +225,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2016/10/28/利用Github-hexo搭建博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          利用Github+hexo搭建博客
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 
 
@@ -217,7 +288,7 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
