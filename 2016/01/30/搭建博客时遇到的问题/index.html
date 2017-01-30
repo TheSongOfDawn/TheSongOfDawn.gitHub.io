@@ -34,7 +34,7 @@ type: “tags”comments: false //这里是关闭评论
 
 
 至">
-<meta property="og:updated_time" content="2017-01-30T08:08:42.271Z">
+<meta property="og:updated_time" content="2017-01-30T08:10:08.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客时遇到的问题">
 <meta name="twitter:description" content="hexo下的分类和表签无法显示，怎么解决？参考了知乎上的解决方案，解决问题.
@@ -184,7 +184,7 @@ type: “tags”comments: false //这里是关闭评论
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="hexo下的分类和表签无法显示，怎么解决？"><a href="#hexo下的分类和表签无法显示，怎么解决？" class="headerlink" title="hexo下的分类和表签无法显示，怎么解决？"></a>hexo下的分类和表签无法显示，怎么解决？</h2><p>参考了知乎上的解决方案，解决问题.</p>
+        <h3 id="hexo下的分类和表签无法显示，怎么解决？"><a href="#hexo下的分类和表签无法显示，怎么解决？" class="headerlink" title="hexo下的分类和表签无法显示，怎么解决？"></a>hexo下的分类和表签无法显示，怎么解决？</h3><p>参考了知乎上的解决方案，解决问题.</p>
 <ol>
 <li>命令行 hexo new page “tags”,就创建了一个tags文件夹并且里面有一个index.md文件.</li>
 <li><p>编辑index.md文件，页面内容编辑如下:</p>
@@ -197,12 +197,12 @@ type: “tags”comments: false //这里是关闭评论
 <li><p>至于后面的menu添加内容我并没有弄，以上做完以上内容我的标签已然可以正常使用.</p>
 </li>
 </ol>
-<p>##hexo ERROR Deployer not found: git<br>解决这个问题需要安装git，配置git的环境变量。然后打开cmd，输入:</p>
+<h3 id="hexo-ERROR-Deployer-not-found-git"><a href="#hexo-ERROR-Deployer-not-found-git" class="headerlink" title="hexo ERROR Deployer not found: git"></a>hexo ERROR Deployer not found: git</h3><p>解决这个问题需要安装git，配置git的环境变量。然后打开cmd，输入:</p>
 <blockquote>
 <p>npm install hexo-deployer-git –save</p>
 </blockquote>
 <p>主配置文件_config.yml下的deploy的type要是git.</p>
-<p>##YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1<br>我遇到的这一类问题大多是自己写的博客文件格式不对，少了空格之类的.仔细检查自己写过的地方格式是否正确即可.</p>
+<h3 id="YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-at-line-5-column-1"><a href="#YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-at-line-5-column-1" class="headerlink" title="YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1"></a>YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key at line 5, column 1</h3><p>我遇到的这一类问题大多是自己写的博客文件格式不对，少了空格之类的.仔细检查自己写过的地方格式是否正确即可.</p>
 
       
     </div>
