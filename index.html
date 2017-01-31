@@ -134,6 +134,287 @@
       <div class="body-wrap">
         
   
+    <article id="post-蓝桥杯在线测试题解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/31/蓝桥杯在线测试题解/">蓝桥杯在线测试题解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>tips:1. 添加代码可以用tab缩进，也可以用&lt; code&gt;\&lt; /code&gt;来放置代码。</p>
+<p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
+<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。<br>思路是，没有必要把每个数都求出来，只需要求每个数除100007的余数</p>
+<pre><code>#include&lt;cstdio&gt;  
+const int mod=10007;  
+const int MAXN=1000000+10;  
+int ans[MAXN];  
+int main()  
+{  
+    ans[1]=ans[2]=1;  
+    int n;  
+     scanf(&quot;%d&quot;,&amp;n);  
+  for(int i=3;i&lt;=n;i++)  
+    ans[i]=(ans[i-1]+ans[i-2])%mod;  
+    printf(&quot;%d\n&quot;,ans[n]);  
+    return 0;  
+}  
+</code></pre><p>16进制转8进制：<br><code>    </code></p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+const int MAXN=100000; 
+char s[MAXN];
+char two[MAXN*4];//二进制 
+int eight[MAXN*4];//八进制 
+int main()
+int t;
+scanf(&quot;%d&quot;,&amp;t);
+while(t--){
+    scanf(&quot;%s&quot;,s);
+    int n=strlen(s),len=0;
+    for(int i=0;i&lt;n;i++){
+        switch(s[i])  
+        {  
+        case &apos;0&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0000&quot;);break;  
+        case &apos;1&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0001&quot;);break;  
+        case &apos;2&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0010&quot;);break;  
+        case &apos;3&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0011&quot;);break;  
+        case &apos;4&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0100&quot;);break;  
+        case &apos;5&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0101&quot;);break;  
+        case &apos;6&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0110&quot;);break;  
+        case &apos;7&apos;:sprintf(two+len,&quot;%s&quot;,&quot;0111&quot;);break;  
+        case &apos;8&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1000&quot;);break;  
+        case &apos;9&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1001&quot;);break;  
+        case &apos;A&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1010&quot;);break;  
+        case &apos;B&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1011&quot;);break;  
+        case &apos;C&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1100&quot;);break;  
+        case &apos;D&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1101&quot;);break;  
+        case &apos;E&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1110&quot;);break;  
+        case &apos;F&apos;:sprintf(two+len,&quot;%s&quot;,&quot;1111&quot;);break;  
+        }  
+        len+=4;  
+    } 
+    int i=len-1,len2=0;
+    for(i=len-1;i&gt;=2;i-=3){
+        eight[len2++]= two[i]-&apos;0&apos;+(two[i-1]-&apos;0&apos;)*2+(two[i-2]-&apos;0&apos;)*4;//转化成八进制 
+    }
+    if(i==2)  
+        eight[len2++]= two[i]-&apos;0&apos;+(two[i-1]-&apos;0&apos;)*2+(two[i-2]-&apos;0&apos;)*4;  
+    else if(i==1)  
+        eight[len2++]= two[i]-&apos;0&apos;+(two[i-1]-&apos;0&apos;)*2;  
+    else if(i==0)  
+        eight[len2++]= two[i]-&apos;0&apos;;  
+
+    i=len2-1;  
+    while(eight[i]==0)  
+        i--;  
+    for(;i&gt;=0;i--)  
+        printf(&quot;%d&quot;,eight[i]);  
+    printf(&quot;\n&quot;);  
+} 
+return 0;
+}
+</code></pre><p></p>
+<p>16进制转10进制：<br><code></code></p>
+<pre><code>    #include &lt;cstdio&gt;
+    #include &lt;iostream&gt;
+    #include &lt;cstring&gt;
+    #include &lt;cmath&gt;
+    const int MAXN=100000;
+    long long Decimal=0;
+    using namespace std;
+    int main() {
+        char s[8]; 
+        scanf(&quot;%s&quot;,s);
+        int n=strlen(s),len=0;
+        for(int i=0; i&lt;n; i++) {
+            switch(s[i]) {
+        case &apos;0&apos;:
+                break;
+        case &apos;1&apos;:
+            Decimal=Decimal+pow(16,n-i-1);
+            break;
+        case &apos;2&apos;:
+            Decimal=Decimal+2*pow(16,n-i-1);
+            break;
+        case &apos;3&apos;:
+            Decimal=Decimal+3*pow(16,n-i-1);
+            break;
+        case &apos;4&apos;:
+            Decimal=Decimal+4*pow(16,n-i-1);
+            break;
+        case &apos;5&apos;:
+            Decimal=Decimal+5*pow(16,n-i-1);
+            break;
+        case &apos;6&apos;:
+            Decimal=Decimal+6*pow(16,n-i-1);
+            break;
+        case &apos;7&apos;:
+            Decimal=Decimal+7*pow(16,n-i-1);
+            break;
+        case &apos;8&apos;:
+            Decimal=Decimal+8*pow(16,n-i-1);
+            break;
+        case &apos;9&apos;:
+            Decimal=Decimal+9*pow(10,n-i-1);
+            break;
+        case &apos;A&apos;:
+            Decimal=Decimal+10*pow(16,n-i-1);
+            break;
+        case &apos;B&apos;:
+            Decimal=Decimal+11*pow(16,n-i-1);
+            break;
+        case &apos;C&apos;:
+            Decimal=Decimal+12*pow(16,n-i-1);
+            break;
+        case &apos;D&apos;:
+            Decimal=Decimal+13*pow(16,n-i-1);
+            break;
+        case &apos;E&apos;:
+            Decimal=Decimal+14*pow(16,n-i-1);
+            break;
+        case &apos;F&apos;:
+            Decimal=Decimal+15*pow(16,n-i-1);
+            break;
+        }
+    }
+    cout&lt;&lt;Decimal&lt;&lt;endl;
+    return 0;
+}
+</code></pre><p></p>
+<p>10进制转16进制:<br><code></code></p>
+<pre><code>#include&lt;cstdio&gt;
+int ans[30]= {0};
+int main() {
+    int a;
+    scanf(&quot;%d&quot;,&amp;a);
+    int len=0;
+    while(a) {
+        ans[len++]=a % 16;
+        a/=16;
+    }
+    while(ans[len]==0 &amp;&amp; len&gt;=0)
+        len--;
+    if(len&gt;=0)
+        for(int i=len; i&gt;=0; i--) {
+            if(ans[i] &gt; 9)
+                printf(&quot;%c&quot;,ans[i]-10+&apos;A&apos;);
+            else
+                printf(&quot;%d&quot;,ans[i]);
+        }
+    else
+        printf(&quot;0&quot;);
+    printf(&quot;\n&quot;);
+    return 0;
+}
+</code></pre><p><br>另外再附一个也通过的,简单点，就是%d  %o   %x      %X<br>分别是 十进制，八进制，十六进制（小写），十六进制（大些）的输出格式！:<br><code></code></p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    long long t;
+    cin&gt;&gt;t;
+    printf(&quot;%X&quot;,t);
+    return 0;
+}
+</code></pre><p></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/01/31/蓝桥杯在线测试题解/" class="archive-article-date">
+  	<time datetime="2017-01-31T07:36:31.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-31</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-大三时候目标" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/31/大三时候目标/">我的目标记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###2017/01/31<br> 不知不觉大学已经到了大三了，第一学期也完了,写一下大三下要完成的目标。希望在大三下的时候有更多的进步，一分耕耘一分收获，谨记此条踏实前行.</p>
+<ol>
+<li>大三下不挂科,物理也不能挂.</li>
+<li>蓝桥杯争取进入国赛。</li>
+<li>暑假的时候要学开车考驾照，这个事情不能再拖了。</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/01/31/大三时候目标/" class="archive-article-date">
+  	<time datetime="2017-01-31T07:19:57.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-31</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标/">目标</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-搭建博客时遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -339,7 +620,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/博客搭建/" style="font-size: 20px;">博客搭建</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
+    				<a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/博客搭建/" style="font-size: 20px;">博客搭建</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
     			</div>
     	</section>
     
