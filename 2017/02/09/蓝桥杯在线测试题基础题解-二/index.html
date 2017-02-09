@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/1 | Othello&#39;s Blog</title>
+  <title>蓝桥杯在线测试题基础题解(二) | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Othello's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/01/index.html">
+  <meta name="description" content="Huffman树在编码中有着广泛的应用。在这里，我们只关心Huffman树的构造过程。　　给出一列数{pi}={p0, p1, …, pn-1}，用这列数构造Huffman树的过程如下：　　1. 找到{pi}中最小的两个数，设为pa和pb，将pa和pb从{pi}中删除掉，然后将它们的和加入到{pi}中。这个过程的费用记为pa + pb。　　2. 重复步骤1，直到{pi}中只剩下一个数。　　在上面的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯在线测试题基础题解(二)">
+<meta property="og:url" content="http://yoursite.com/2017/02/09/蓝桥杯在线测试题基础题解-二/index.html">
 <meta property="og:site_name" content="Othello's Blog">
+<meta property="og:description" content="Huffman树在编码中有着广泛的应用。在这里，我们只关心Huffman树的构造过程。　　给出一列数{pi}={p0, p1, …, pn-1}，用这列数构造Huffman树的过程如下：　　1. 找到{pi}中最小的两个数，设为pa和pb，将pa和pb从{pi}中删除掉，然后将它们的和加入到{pi}中。这个过程的费用记为pa + pb。　　2. 重复步骤1，直到{pi}中只剩下一个数。　　在上面的">
+<meta property="og:updated_time" content="2017-02-09T06:46:56.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Othello's Blog">
+<meta name="twitter:title" content="蓝桥杯在线测试题基础题解(二)">
+<meta name="twitter:description" content="Huffman树在编码中有着广泛的应用。在这里，我们只关心Huffman树的构造过程。　　给出一列数{pi}={p0, p1, …, pn-1}，用这列数构造Huffman树的过程如下：　　1. 找到{pi}中最小的两个数，设为pa和pb，将pa和pb从{pi}中删除掉，然后将它们的和加入到{pi}中。这个过程的费用记为pa + pb。　　2. 重复步骤1，直到{pi}中只剩下一个数。　　在上面的">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -132,118 +136,202 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-蓝桥杯在线测试题基础题解-二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/蓝桥杯在线测试题基础题解/" class="archive-article-date">
-  	<time datetime="2017-01-31T07:36:31.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/蓝桥杯在线测试题基础题解/">蓝桥杯在线测试题基础题解</a>
+    <h1 class="article-title" itemprop="name">
+      蓝桥杯在线测试题基础题解(二)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Huffman树在编码中有着广泛的应用。在这里，我们只关心Huffman树的构造过程。<br>　　给出一列数{pi}={p0, p1, …, pn-1}，用这列数构造Huffman树的过程如下：<br>　　1. 找到{pi}中最小的两个数，设为pa和pb，将pa和pb从{pi}中删除掉，然后将它们的和加入到{pi}中。这个过程的费用记为pa + pb。<br>　　2. 重复步骤1，直到{pi}中只剩下一个数。<br>　　在上面的操作过程中，把所有的费用相加，就得到了构造Huffman树的总费用。<br>　　本题任务：对于给定的一个数列，现在请你求出用该数列构造Huffman树的总费用。</p>
+<p>　　例如，对于数列{pi}={5, 3, 8, 2, 9}，Huffman树的构造过程如下：</p>
+<p>　　1. 找到{5, 3, 8, 2, 9}中最小的两个数，分别是2和3，从{pi}中删除它们并将和5加入，得到{5, 8, 9, 5}，费用为5。<br>　　<br>　　2. 找到{5, 8, 9, 5}中最小的两个数，分别是5和5，从{pi}中删除它们并将和10加入，得到{8, 9, 10}，费用为10。<br>　　<br>　　3. 找到{8, 9, 10}中最小的两个数，分别是8和9，从{pi}中删除它们并将和17加入，得到{10, 17}，费用为17。</p>
+<p>　　4. 找到{10, 17}中最小的两个数，分别是10和17，从{pi}中删除它们并将和27加入，得到{27}，费用为27。<br>　　<br>　　5. 现在，数列中只剩下一个数27，构造过程结束，总费用为5+10+17+27=59。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+using namespace std;
+//缺省是升序排序。sort中一个改变排序顺序的例子如下（降序）
+//sort(huf.begin(), huf.end(), cmp);
+bool cmp (const int a, const int b)
+{
+    return a &gt; b;
+}
+int main()
+{
+    int n;
+    while (~scanf(&quot;%d&quot;, &amp;n)) {
+        vector&lt;int&gt; huf;
+        while (n--) {
+            int t;
+            scanf(&quot;%d&quot;, &amp;t);
+            huf.push_back(t);
+        }
+        vector&lt;int&gt;::size_type size = huf.size();
+        int cost = 0;
+        while (size &gt;= 2) {
+            sort(huf.begin(), huf.end(), cmp);
+            int t = huf[size - 1] + huf[size - 2];
+            cost += t;
+            huf.pop_back();
+            huf.pop_back();
+            huf.push_back(t);
+            size = huf.size();
+        }
+        printf(&quot;%d\n&quot;, cost);
+    }
+    return 0;
+}
+</code></pre><p>输入两个整数a和b，输出这两个整数的和。a和b都不超过100位。</p>
+<pre><code>#include&lt;iostream&gt;  
+#include&lt;cstdio&gt;  
+#include&lt;cstring&gt;  
+using namespace std;  
+int main()  
+{  
+    char a1[100],b1[100];  
+    int a[100],b[100],c[100];  
+    int a1_len,b1_len,lenc,i,x;  
+    memset(a,0,sizeof(a));   
+    memset(b,0,sizeof(b));   
+    memset(c,0,sizeof(c));  
+
+    gets(a1);   
+    gets(b1); //输入加数与被加数   
+
+    a1_len=strlen(a1);   
+    b1_len=strlen(b1);   
+
+    for (i=0;i&lt;=a1_len-1;i++)   
+    {  
+        a[a1_len-i]=a1[i]-48; //将操作数放入a数组 　  
+    }  
+
+    for (i=0;i&lt;=b1_len-1;i++)  
+    {  
+        b[b1_len-i]=b1[i]-48; //将操作数放入b数组   
+    }   
+
+    lenc =1;   
+    x=0;   
+
+   while(lenc &lt;=a1_len || lenc &lt;=b1_len)   
+   {   
+        c[lenc]=a[lenc]+b[lenc]+x; //两数相加 　  
+        x=c[lenc]/10;   //要进的位  
+        c[lenc]=c[lenc]%10;     //进位后的数  
+        lenc++;     //数组下标加1  
+    }  
+
+    c[lenc]=x;  
+    if (c[lenc]==0)  
+    {  
+        lenc--; //处理最高进位   
+    }   
+
+    for (i=lenc;i&gt;=1;i--)  
+    {  
+        cout&lt;&lt;c[i]; //输出结果      
+    }  
+    cout&lt;&lt;endl;  
+
+    return 0;  
+}  
+</code></pre><p>输入一个正整数n，输出n!的值。<br>　　其中n!=1<em>2</em>3<em>…</em>n。</p>
+<pre><code>#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;  
+#include &lt;string.h&gt;  
+#define MAX 4000  
+int main() {  
+    int n,a[MAX],i,j,s,r=0;  
+    scanf(&quot;%d&quot;,&amp;n);  
+    memset(a,0,sizeof(a));  
+    a[0]=1;  
+    for(i=2;i&lt;=n;i++){  
+        for(j=0;j&lt;MAX;j++){  
+            s=a[j]*i+r;  
+            r=s/10;//进位  
+            a[j]=s%10;  
+        }  
+    }  
+    for(i=MAX-1;i&gt;=0;i--){  
+        if(a[i])  
+            break;  
+    }  
+    for(j=i;j&gt;=0;j--)//倒序输出  
+        printf(&quot;%d&quot;,a[j]);  
+    return 0;  
+}  
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/09/蓝桥杯在线测试题基础题解-二/" class="archive-article-date">
+  	<time datetime="2017-02-09T02:59:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
+</a>
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/大三时候目标/" class="archive-article-date">
-  	<time datetime="2017-01-31T07:19:57.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/大三时候目标/">我的目标记录</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标/">目标</a></li></ul>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/31/蓝桥杯在线测试题基础题解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝桥杯在线测试题基础题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/30/搭建博客时遇到的问题/" class="archive-article-date">
-  	<time datetime="2017-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/30/搭建博客时遇到的问题/">搭建博客时遇到的问题</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客搭建/">博客搭建</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
 
 
       </div>
@@ -266,8 +354,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
