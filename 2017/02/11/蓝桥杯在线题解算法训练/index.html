@@ -6,14 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 基础 | Othello&#39;s Blog</title>
+  <title>蓝桥杯在线题解算法训练 | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Othello's Blog">
-<meta property="og:url" content="http://yoursite.com/tags/基础/index.html">
+  <meta name="description" content="感觉现在只能写水题。
+ 6-1 递归求二项式系数值  
+#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+using namespace std;
+int getck(int k,int n){">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯在线题解算法训练">
+<meta property="og:url" content="http://yoursite.com/2017/02/11/蓝桥杯在线题解算法训练/index.html">
 <meta property="og:site_name" content="Othello's Blog">
+<meta property="og:description" content="感觉现在只能写水题。
+ 6-1 递归求二项式系数值  
+#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+using namespace std;
+int getck(int k,int n){">
+<meta property="og:updated_time" content="2017-02-11T02:02:24.885Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Othello's Blog">
+<meta name="twitter:title" content="蓝桥杯在线题解算法训练">
+<meta name="twitter:description" content="感觉现在只能写水题。
+ 6-1 递归求二项式系数值  
+#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+using namespace std;
+int getck(int k,int n){">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -132,86 +160,105 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-蓝桥杯在线题解算法训练" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/09/蓝桥杯在线测试题基础题解-二/" class="archive-article-date">
-  	<time datetime="2017-02-09T02:59:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/09/蓝桥杯在线测试题基础题解-二/">蓝桥杯在线测试题基础题解(二)</a>
+    <h1 class="article-title" itemprop="name">
+      蓝桥杯在线题解算法训练
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/蓝桥杯在线测试题基础题解/" class="archive-article-date">
-  	<time datetime="2017-01-31T07:36:31.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-31</time>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>感觉现在只能写水题。</p>
+<p> 6-1 递归求二项式系数值  </p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int getck(int k,int n){
+    if(k==0||n==k){
+            return 1;
+    }else{
+        return getck(k,n-1)+getck(k-1,n-1);
+    }
+}
+int main()
+{
+    int k,n;
+    cin&gt;&gt;k&gt;&gt;n;
+    cout&lt;&lt;getck(k,n);           
+    return 0;
+}
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/11/蓝桥杯在线题解算法训练/" class="archive-article-date">
+  	<time datetime="2017-02-11T01:59:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/蓝桥杯在线测试题基础题解/">蓝桥杯在线测试题基础题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/09/蓝桥杯在线测试题基础题解-二/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝桥杯在线测试题基础题解(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -234,9 +281,9 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
