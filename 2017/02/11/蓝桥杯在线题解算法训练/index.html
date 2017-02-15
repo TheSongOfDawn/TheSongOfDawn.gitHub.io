@@ -6,42 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>慕课程序与算法设计(二) | Othello&#39;s Blog</title>
+  <title>蓝桥杯在线题解算法训练 | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="递归(一)递归的作用：
-1. 替代多重循环
-2. 解决本来就是用递归形式定义的问题
-3. 将问题分解为更小规模的子问题进行求解
-例题1 求阶乘#include &amp;lt;iostream&amp;gt;  
+  <meta name="description" content="感觉现在只能写水题。水题爱好者。表达式求值
+#include &amp;lt;iostream&amp;gt;  
 #include &amp;lt;cstdio&amp;gt;
 #include &amp;lt;cstdlib&amp;gt;
 #include &amp;lt;cstring&amp;gt; 
-#include &amp;lt;algorithm&amp;gt;">
+using namespace std;  
+int factor_value();//读入一个因子
+int term_value();//读入一项">
 <meta property="og:type" content="article">
-<meta property="og:title" content="慕课程序与算法设计(二)">
-<meta property="og:url" content="http://yoursite.com/2017/02/15/慕课程序与算法设计-二/index.html">
+<meta property="og:title" content="蓝桥杯在线题解算法训练">
+<meta property="og:url" content="http://yoursite.com/2017/02/11/蓝桥杯在线题解算法训练/index.html">
 <meta property="og:site_name" content="Othello's Blog">
-<meta property="og:description" content="递归(一)递归的作用：
-1. 替代多重循环
-2. 解决本来就是用递归形式定义的问题
-3. 将问题分解为更小规模的子问题进行求解
-例题1 求阶乘#include &amp;lt;iostream&amp;gt;  
+<meta property="og:description" content="感觉现在只能写水题。水题爱好者。表达式求值
+#include &amp;lt;iostream&amp;gt;  
 #include &amp;lt;cstdio&amp;gt;
 #include &amp;lt;cstdlib&amp;gt;
 #include &amp;lt;cstring&amp;gt; 
-#include &amp;lt;algorithm&amp;gt;">
-<meta property="og:updated_time" content="2017-02-15T02:54:31.819Z">
+using namespace std;  
+int factor_value();//读入一个因子
+int term_value();//读入一项">
+<meta property="og:updated_time" content="2017-02-15T02:55:58.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="慕课程序与算法设计(二)">
-<meta name="twitter:description" content="递归(一)递归的作用：
-1. 替代多重循环
-2. 解决本来就是用递归形式定义的问题
-3. 将问题分解为更小规模的子问题进行求解
-例题1 求阶乘#include &amp;lt;iostream&amp;gt;  
+<meta name="twitter:title" content="蓝桥杯在线题解算法训练">
+<meta name="twitter:description" content="感觉现在只能写水题。水题爱好者。表达式求值
+#include &amp;lt;iostream&amp;gt;  
 #include &amp;lt;cstdio&amp;gt;
 #include &amp;lt;cstdlib&amp;gt;
 #include &amp;lt;cstring&amp;gt; 
-#include &amp;lt;algorithm&amp;gt;">
+using namespace std;  
+int factor_value();//读入一个因子
+int term_value();//读入一项">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -160,7 +157,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-慕课程序与算法设计-二" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-蓝桥杯在线题解算法训练" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -170,7 +167,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      慕课程序与算法设计(二)
+      蓝桥杯在线题解算法训练
     </h1>
   
 
@@ -178,85 +175,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="递归-一"><a href="#递归-一" class="headerlink" title="递归(一)"></a>递归(一)</h2><pre><code>递归的作用：
-1. 替代多重循环
-2. 解决本来就是用递归形式定义的问题
-3. 将问题分解为更小规模的子问题进行求解
-</code></pre><h3 id="例题1-求阶乘"><a href="#例题1-求阶乘" class="headerlink" title="例题1 求阶乘"></a>例题1 求阶乘</h3><pre><code>#include &lt;iostream&gt;  
-#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-#include &lt;cstring&gt; 
-#include &lt;algorithm&gt;
-using namespace std;  
-int Factorial(int n){
-    if(n==0)
-        return 1;
-    else
-        return n*Factorial(n-1); 
-} 
-int main()  
-{  
-    int n;
-    cin&gt;&gt;n;
-    cout&lt;&lt;Factorial(n)&lt;&lt;endl;
-    return 0;
-}
-</code></pre><h3 id="例题2-汉诺塔问题"><a href="#例题2-汉诺塔问题" class="headerlink" title="例题2 汉诺塔问题"></a>例题2 汉诺塔问题</h3><pre><code>#include &lt;iostream&gt;  
-#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-#include &lt;cstring&gt; 
-#include &lt;algorithm&gt;
-using namespace std;  
-void Hanoi(int n,char src,char mid , char dest){
-    if(n==1){//只需移动一个盘子 
-        cout&lt;&lt;src&lt;&lt;&quot;-&gt;&quot;&lt;&lt;dest&lt;&lt;endl;
-        //直接将盘子从src移动到dest即可
-        return;//递归终止 
-    }
-    Hanoi(n-1,src,dest,mid);//先将n-1个盘子从src移动到mid
-    cout&lt;&lt;src&lt;&lt;&quot;-&gt;&quot;&lt;&lt;dest&lt;&lt;endl;
-    //再将一个盘子从src移动到dest 
-    Hanoi(n-1,mid,src,dest);//最后将n-1个盘子移动到dest
-    return; 
-
-}
-int main()  
-{  
-    int n;
-    cin&gt;&gt;n;
-    Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;); 
-    return 0;
-}
-</code></pre><h3 id="例题3-N皇后问题"><a href="#例题3-N皇后问题" class="headerlink" title="例题3 N皇后问题"></a>例题3 N皇后问题</h3><h3 id="例题4-逆波兰表达式求值"><a href="#例题4-逆波兰表达式求值" class="headerlink" title="例题4 逆波兰表达式求值"></a>例题4 逆波兰表达式求值</h3><p>逆波兰表达式的定义：</p>
-<ol>
-<li>一个数是逆波兰表达式，值为该数</li>
-<li>“运算符 逆波兰表达式 逆波兰表达式 ”是逆波兰表达式，值为两个逆波兰表达式的值的运算结果</li>
-</ol>
+        <p>感觉现在只能写水题。<br>水题爱好者。<br>表达式求值</p>
 <pre><code>#include &lt;iostream&gt;  
-#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-#include &lt;cstring&gt; 
-#include &lt;algorithm&gt;
-using namespace std;  
-
-double exp(){
-    char s[20];
-    cin&gt;&gt;s;
-    switch(s[0]){
-        case &apos;+&apos;: return exp()+exp();break;
-        case &apos;-&apos;: return exp()-exp();break;
-        case &apos;*&apos;: return exp()*exp();break;
-        case &apos;/&apos;: return exp()/exp();break;
-        default: return atof(s);break;
-        //atof 头文件 &lt;cstdlib&gt; 将字符串浮点数转化为double 
-    }
-}
-int main()  
-{  
-    printf(&quot;%lf&quot;,exp()); 
-    return 0;
-}
-</code></pre><h2 id="递归-二"><a href="#递归-二" class="headerlink" title="递归(二)"></a>递归(二)</h2><h3 id="例题1-表达式求值"><a href="#例题1-表达式求值" class="headerlink" title="例题1 表达式求值"></a>例题1 表达式求值</h3><pre><code>#include &lt;iostream&gt;  
 #include &lt;cstdio&gt;
 #include &lt;cstdlib&gt;
 #include &lt;cstring&gt; 
@@ -318,35 +238,230 @@ int factor_value(){//求一个因子的值
     }
     return result;
 }
-</code></pre><h3 id="例题2-爬楼梯"><a href="#例题2-爬楼梯" class="headerlink" title="例题2 爬楼梯"></a>例题2 爬楼梯</h3><pre><code>#include &lt;iostream&gt;  
+</code></pre><p>编写一函数lcm，求两个正整数的最小公倍数。</p>
+<pre><code>#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-#include &lt;cstring&gt; 
-using namespace std;  
-int upstaris(int n){
-    if(n==0)
-        return 1;
-    else if(n&lt;0)
-        return 0;
-    else 
-        return upstaris(n-1)+upstaris(n-2);
-}
-int main()  
-{  
-    int n;
-    while(cin&gt;&gt;n)
-    {
-        cout&lt;&lt;upstaris(n)&lt;&lt;endl; 
-    }
+#include &lt;vector&gt;
+#define pi 3.1415926
+
+using namespace std;
+
+ int get_gcd(int x,int y)//最大公因数 
+  {
+      int r;
+      if(x&lt;y)
+      {
+          r=x;
+          x=y;
+         y=r;
+      }
+     r=x%y;
+     while(r)
+     {
+        x=y;
+         y=r;
+         r=x%y;
+     }
+         return y;
+ }
+ int get_lcm(int x,int y)//最小公倍数 
+ {
+  return (x*y)/(get_gcd(x,y));
+ }
+int main() {
+    int m,n;
+    scanf(&quot;%d %d&quot;,&amp;m,&amp;n);
+
+    cout&lt;&lt;get_lcm(m,n)&lt;&lt;endl;
     return 0;
 }
-</code></pre><h3 id="例题3-放苹果"><a href="#例题3-放苹果" class="headerlink" title="例题3 放苹果"></a>例题3 放苹果</h3>
+</code></pre><p>从键盘读入n个整数，使用动态数组存储所读入的整数，并计算它们的和与平均值分别输出。要求尽可能使用函数实现程序代码。平均值为小数的只保留其整数部分。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; ans;
+    int n;
+    int t;
+    int sum=0;
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++){
+        cin&gt;&gt;t;
+        ans.push_back(t);
+        sum+=t;
+    }
+    cout&lt;&lt;sum&lt;&lt;&quot; &quot;&lt;&lt;sum/n&lt;&lt;endl;
+    return 0;
+}
+</code></pre><p>使用宏实现计算球体体积的功能。用户输入半径，系统输出体积。不能使用函数，pi=3.1415926,结果精确到小数点后五位。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#define pi 3.1415926
+using namespace std;
+int main() {
+    double a;
+    cin&gt;&gt;a;
+    printf(&quot;%.5f&quot;,a*4/3.0*pi*a*a);
+    return 0;
+}
+</code></pre><p>已知一个正整数N，问从1~N中任选出三个数，他们的最小公倍数最大可以为多少。</p>
+<pre><code>#include &lt;iostream&gt;  
+#include &lt;algorithm&gt;  
+#include &lt;queue&gt;  
+#include &lt;vector&gt;  
+#include &lt;stdio.h&gt;  
+using namespace std;  
+int main()  
+{  
+    long long int n,ans;  
+    cin&gt;&gt;n;  
+    if(n&lt;3)  
+        ans=n;  
+    else{  
+    if(n%2!=0)  
+        ans=n*(n-1)*(n-2);  
+    else if(n%3!=0)  
+        ans=n*(n-1)*(n-3);  
+    else  
+        ans=(n-1)*(n-2)*(n-3);  
+    }  
+     cout&lt;&lt;ans&lt;&lt;endl;  
+    return  0;  
+}  
+</code></pre><p>编写一个程序，首先输入一个整数，例如5，然后在屏幕上显示如下的图形（5表示行数）：<br>　　<em> </em> <em> </em> <em>
+　　</em> <em> </em> <em>
+　　</em> <em> </em><br>　　<em> </em><br>　　*</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+int main() {
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=n;i&gt;=1;i--){
+        for(int j=i;j&gt;=1;j--){
+            printf(&quot;* &quot;);
+        }
+        printf(&quot;\n&quot;);
+    } 
+    return 0;
+}
+</code></pre><p>编写一个程序，输入一个字符串（长度不超过20），然后把这个字符串内的每一个字符进行大小写变换，即将大写字母变成小写，小写字母变成大写，然后把这个新的字符串输出。<br>　　输入格式：输入一个字符串，而且这个字符串当中只包含英文字母，不包含其他类型的字符，也没有空格。<br>　　输出格式：输出经过转换后的字符串。</p>
+<pre><code>#include &lt;iostream&gt;  
+
+using namespace std;  
+
+int main()  
+{  
+    char a[20];  
+    int i = 0;  
+    cin&gt;&gt;a;  
+    for(;a[i];i++)  
+    {  
+        if(a[i] &gt;= &apos;a&apos;&amp;&amp;a[i] &lt;= &apos;z&apos;)  
+            a[i] -= 32;  
+        else if(a[i] &gt;= &apos;A&apos;&amp;&amp;a[i] &lt;= &apos;Z&apos;)  
+            a[i] += 32;  
+    }  
+    for(i = 0;a[i];i++)  
+        cout&lt;&lt;a[i];  
+    return 0;
+}
+</code></pre><p>Anagrams指的是具有如下特性的两个单词：在这两个单词当中，每一个英文字母（不区分大小写）所出现的次数都是相同的。例如，“Unclear”和“Nuclear”、“Rimon”和“MinOR”都是Anagrams。编写一个程序，输入两个单词，然后判断一下，这两个单词是否是Anagrams。每一个单词的长度不会超过80个字符，而且是大小写无关的。<br>　　输入格式：输入有两行，分别为两个单词。<br>　　输出格式：输出只有一个字母Y或N，分别表示Yes和No。<br>　　输入输出样例</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt; 
+#include &lt;algorithm&gt;
+using namespace std;
+bool cmp(int a,int b){return a&gt;b;
+}
+int main()
+{
+    string a,b;
+    map&lt;char,int&gt; zm;//字母映射
+    cin&gt;&gt;a&gt;&gt;b;
+    for(int i=0;i&lt;a.size();i++){
+        zm[a[i]]++;
+    }
+    if(a.size()!=b.size()){
+        cout&lt;&lt;&quot;N&quot;&lt;&lt;endl;
+    }else{
+        map&lt;char,int&gt;::iterator   it;
+        for(it=zm.begin();it!=zm.end();it++){
+            char ac=it-&gt;first;
+            char bc;
+            if(ac&gt;=&apos;a&apos;&amp;&amp;ac&lt;= &apos;z&apos;) 
+             bc=ac-32;
+            else
+                 bc=ac+32; 
+            int aci=0;
+            for(int j=0;j&lt;b.size();j++){
+                if(b[j]==ac||b[j]==bc){
+                    aci++;
+                }
+            }
+            if(aci==it-&gt;second)
+                continue;
+            else
+            {
+                cout&lt;&lt;&quot;N&quot;&lt;&lt;endl;
+                break;
+            }
+        }
+        if(it==zm.end()){
+            cout&lt;&lt;&quot;Y&quot;&lt;&lt;endl;
+        }
+
+    }
+
+    return 0;
+}
+</code></pre><p>编写一个程序，输入3个整数，然后程序将对这三个整数按照从大到小进行排列。<br>　　输入格式：输入只有一行，即三个整数，中间用空格隔开。<br>　　输出格式：输出只有一行，即排序后的结果。<br>　　输入输出样例</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+bool cmp(int a,int b){return a&gt;b;
+}
+int main()
+{
+    int a[3];
+    scanf(&quot;%d %d %d&quot;,&amp;a[0],&amp;a[1],&amp;a[2]);
+    sort(a,a+3,cmp);
+    cout&lt;&lt;a[0]&lt;&lt;&quot; &quot;&lt;&lt;a[1]&lt;&lt;&quot; &quot;&lt;&lt;a[2];           
+    return 0;
+}
+</code></pre><p> 6-1 递归求二项式系数值  </p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int getck(int k,int n){
+    if(k==0||n==k){
+            return 1;
+    }else{
+        return getck(k,n-1)+getck(k-1,n-1);
+    }
+}
+int main()
+{
+    int k,n;
+    cin&gt;&gt;k&gt;&gt;n;
+    cout&lt;&lt;getck(k,n);           
+    return 0;
+}
+</code></pre>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/15/慕课程序与算法设计-二/" class="archive-article-date">
-  	<time datetime="2017-02-15T01:59:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-15</time>
+      <a href="/2017/02/11/蓝桥杯在线题解算法训练/" class="archive-article-date">
+  	<time datetime="2017-02-11T01:59:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-11</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -364,9 +479,18 @@ int main()
   
 <nav id="article-nav">
   
+    <a href="/2017/02/15/慕课程序与算法设计-二/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          慕课程序与算法设计(二)
+        
+      </div>
+    </a>
   
-    <a href="/2017/02/11/蓝桥杯在线题解算法训练/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">蓝桥杯在线题解算法训练</div>
+  
+    <a href="/2017/02/09/蓝桥杯在线测试题基础题解-二/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝桥杯在线测试题基础题解(二)</div>
       <i class="icon-circle-right"></i>
     </a>
   
