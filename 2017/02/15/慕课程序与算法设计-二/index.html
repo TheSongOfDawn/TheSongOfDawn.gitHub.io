@@ -30,7 +30,7 @@
 #include &amp;lt;cstdlib&amp;gt;
 #include &amp;lt;cstring&amp;gt; 
 #include &amp;lt;algorithm&amp;gt;">
-<meta property="og:updated_time" content="2017-02-15T02:50:56.771Z">
+<meta property="og:updated_time" content="2017-02-15T02:54:31.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="慕课程序与算法设计(二)">
 <meta name="twitter:description" content="递归(一)递归的作用：
@@ -230,91 +230,117 @@ int main()
 </code></pre><h3 id="例题3-N皇后问题"><a href="#例题3-N皇后问题" class="headerlink" title="例题3 N皇后问题"></a>例题3 N皇后问题</h3><h3 id="例题4-逆波兰表达式求值"><a href="#例题4-逆波兰表达式求值" class="headerlink" title="例题4 逆波兰表达式求值"></a>例题4 逆波兰表达式求值</h3><p>逆波兰表达式的定义：</p>
 <ol>
 <li>一个数是逆波兰表达式，值为该数</li>
-<li><p>“运算符 逆波兰表达式 逆波兰表达式 ”是逆波兰表达式，值为两个逆波兰表达式的值的运算结果</p>
-<p> #include <iostream><br> #include <cstdio><br> #include <cstdlib><br> #include <cstring><br> #include <algorithm><br> using namespace std;  </algorithm></cstring></cstdlib></cstdio></iostream></p>
-<p> double exp(){</p>
-<pre><code>char s[20];
-cin&gt;&gt;s;
-switch(s[0]){
-    case &apos;+&apos;: return exp()+exp();break;
-    case &apos;-&apos;: return exp()-exp();break;
-    case &apos;*&apos;: return exp()*exp();break;
-    case &apos;/&apos;: return exp()/exp();break;
-    default: return atof(s);break;
-    //atof 头文件 &lt;cstdlib&gt; 将字符串浮点数转化为double 
-}
-</code></pre><p> }<br> int main()<br> {  </p>
-<pre><code>printf(&quot;%lf&quot;,exp()); 
-return 0;
-</code></pre><p> }</p>
-<h2 id="递归-二"><a href="#递归-二" class="headerlink" title="递归(二)"></a>递归(二)</h2><h3 id="例题1-表达式求值"><a href="#例题1-表达式求值" class="headerlink" title="例题1 表达式求值"></a>例题1 表达式求值</h3><p> #include <iostream><br> #include <cstdio><br> #include <cstdlib><br> #include <cstring><br> using namespace std;<br> int factor_value();//读入一个因子<br> int term_value();//读入一项<br> int expression_value();//读入表达式<br> int main()<br> {  </cstring></cstdlib></cstdio></iostream></p>
-<pre><code>cout&lt;&lt;expression_value()&lt;&lt;endl;
-return 0;
-</code></pre><p> }<br> int expression_value(){</p>
-<pre><code>int result=term_value();//求一项的值
-bool more=true;//还有没有其他项
-while(more){
-    char op=cin.peek();//看第一个字符，不取走
-    if(op==&apos;+&apos;||op==&apos;-&apos;){
-        cin.get();//从输入中取走一个字符
-        int value=term_value();//求出第二项的值
-        if(op==&apos;+&apos;) result+=value;
-        else result-=value; 
-    } 
-    else more=false;
-} 
-return result;
-</code></pre><p> }<br> int term_value(){</p>
-<pre><code>int result=factor_value();
-while(true){
-    char op=cin.peek();
-    if(op==&apos;*&apos;||op==&apos;/&apos;){
-        cin.get();//去掉*号或者/除号
-        int value=factor_value();
-        if(op==&apos;*&apos;) 
-            result*=value;
-        else
-            result/=value;
-    }else{
-        break;
-    }
-}
-return result;
-</code></pre><p> }<br> int factor_value(){//求一个因子的值 </p>
-<pre><code>int result=0;
-char c=cin.peek();
-if(c==&apos;(&apos;){
-    cin.get();
-    result=expression_value();
-    cin.get();
-}
-else{
-    while(isdigit(c)){
-        result=10*result+c-&apos;0&apos;;
-        cin.get();
-        c=cin.peek();
-    }
-}
-return result;
-</code></pre><p> }</p>
-<h3 id="例题2-爬楼梯"><a href="#例题2-爬楼梯" class="headerlink" title="例题2 爬楼梯"></a>例题2 爬楼梯</h3><p> #include <iostream><br> #include <cstdio><br> #include <cstdlib><br> #include <cstring><br> using namespace std;<br> int upstaris(int n){</cstring></cstdlib></cstdio></iostream></p>
-<pre><code>if(n==0)
-    return 1;
-else if(n&lt;0)
-    return 0;
-else 
-    return upstaris(n-1)+upstaris(n-2);
-</code></pre><p> }<br> int main()<br> {  </p>
-<pre><code>int n;
-while(cin&gt;&gt;n)
-{
-    cout&lt;&lt;upstaris(n)&lt;&lt;endl; 
-}
-return 0;
-</code></pre><p> }</p>
-<h3 id="例题3-放苹果"><a href="#例题3-放苹果" class="headerlink" title="例题3 放苹果"></a>例题3 放苹果</h3></li>
+<li>“运算符 逆波兰表达式 逆波兰表达式 ”是逆波兰表达式，值为两个逆波兰表达式的值的运算结果</li>
 </ol>
+<pre><code>#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt; 
+#include &lt;algorithm&gt;
+using namespace std;  
 
+double exp(){
+    char s[20];
+    cin&gt;&gt;s;
+    switch(s[0]){
+        case &apos;+&apos;: return exp()+exp();break;
+        case &apos;-&apos;: return exp()-exp();break;
+        case &apos;*&apos;: return exp()*exp();break;
+        case &apos;/&apos;: return exp()/exp();break;
+        default: return atof(s);break;
+        //atof 头文件 &lt;cstdlib&gt; 将字符串浮点数转化为double 
+    }
+}
+int main()  
+{  
+    printf(&quot;%lf&quot;,exp()); 
+    return 0;
+}
+</code></pre><h2 id="递归-二"><a href="#递归-二" class="headerlink" title="递归(二)"></a>递归(二)</h2><h3 id="例题1-表达式求值"><a href="#例题1-表达式求值" class="headerlink" title="例题1 表达式求值"></a>例题1 表达式求值</h3><pre><code>#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt; 
+using namespace std;  
+int factor_value();//读入一个因子
+int term_value();//读入一项
+int expression_value();//读入表达式 
+int main()  
+{  
+    cout&lt;&lt;expression_value()&lt;&lt;endl;
+    return 0;
+}
+int expression_value(){
+    int result=term_value();//求一项的值
+    bool more=true;//还有没有其他项
+    while(more){
+        char op=cin.peek();//看第一个字符，不取走
+        if(op==&apos;+&apos;||op==&apos;-&apos;){
+            cin.get();//从输入中取走一个字符
+            int value=term_value();//求出第二项的值
+            if(op==&apos;+&apos;) result+=value;
+            else result-=value; 
+        } 
+        else more=false;
+    } 
+    return result;
+}
+int term_value(){
+    int result=factor_value();
+    while(true){
+        char op=cin.peek();
+        if(op==&apos;*&apos;||op==&apos;/&apos;){
+            cin.get();//去掉*号或者/除号
+            int value=factor_value();
+            if(op==&apos;*&apos;) 
+                result*=value;
+            else
+                result/=value;
+        }else{
+            break;
+        }
+    }
+    return result;
+}
+int factor_value(){//求一个因子的值 
+    int result=0;
+    char c=cin.peek();
+    if(c==&apos;(&apos;){
+        cin.get();
+        result=expression_value();
+        cin.get();
+    }
+    else{
+        while(isdigit(c)){
+            result=10*result+c-&apos;0&apos;;
+            cin.get();
+            c=cin.peek();
+        }
+    }
+    return result;
+}
+</code></pre><h3 id="例题2-爬楼梯"><a href="#例题2-爬楼梯" class="headerlink" title="例题2 爬楼梯"></a>例题2 爬楼梯</h3><pre><code>#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt; 
+using namespace std;  
+int upstaris(int n){
+    if(n==0)
+        return 1;
+    else if(n&lt;0)
+        return 0;
+    else 
+        return upstaris(n-1)+upstaris(n-2);
+}
+int main()  
+{  
+    int n;
+    while(cin&gt;&gt;n)
+    {
+        cout&lt;&lt;upstaris(n)&lt;&lt;endl; 
+    }
+    return 0;
+}
+</code></pre><h3 id="例题3-放苹果"><a href="#例题3-放苹果" class="headerlink" title="例题3 放苹果"></a>例题3 放苹果</h3>
       
     </div>
     <div class="article-info article-info-index">
