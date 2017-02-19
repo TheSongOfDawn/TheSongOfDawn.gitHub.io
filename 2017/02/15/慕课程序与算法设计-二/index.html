@@ -8,40 +8,43 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>慕课程序与算法设计(二) | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="递归(一)递归的作用：
-1. 替代多重循环
-2. 解决本来就是用递归形式定义的问题
-3. 将问题分解为更小规模的子问题进行求解
-例题1 求阶乘#include &amp;lt;iostream&amp;gt;  
-#include &amp;lt;cstdio&amp;gt;
-#include &amp;lt;cstdlib&amp;gt;
-#include &amp;lt;cstring&amp;gt; 
-#include &amp;lt;algorithm&amp;gt;">
+  <meta name="description" content="第一周 枚举基于逐个尝试答案的一种问题求解策略
+例题1 完美立方#include &amp;lt;iostream&amp;gt;  
+using namespace std;  
+
+int main()  
+{  
+    int N;
+    cin&amp;gt;&amp;gt;N;
+    for(int a=2;a&amp;lt;=N;a++){
+        for(int b=2;b&amp;lt;a-1;b++){">
 <meta property="og:type" content="article">
 <meta property="og:title" content="慕课程序与算法设计(二)">
 <meta property="og:url" content="http://yoursite.com/2017/02/15/慕课程序与算法设计-二/index.html">
 <meta property="og:site_name" content="Othello's Blog">
-<meta property="og:description" content="递归(一)递归的作用：
-1. 替代多重循环
-2. 解决本来就是用递归形式定义的问题
-3. 将问题分解为更小规模的子问题进行求解
-例题1 求阶乘#include &amp;lt;iostream&amp;gt;  
-#include &amp;lt;cstdio&amp;gt;
-#include &amp;lt;cstdlib&amp;gt;
-#include &amp;lt;cstring&amp;gt; 
-#include &amp;lt;algorithm&amp;gt;">
-<meta property="og:updated_time" content="2017-02-15T02:54:31.819Z">
+<meta property="og:description" content="第一周 枚举基于逐个尝试答案的一种问题求解策略
+例题1 完美立方#include &amp;lt;iostream&amp;gt;  
+using namespace std;  
+
+int main()  
+{  
+    int N;
+    cin&amp;gt;&amp;gt;N;
+    for(int a=2;a&amp;lt;=N;a++){
+        for(int b=2;b&amp;lt;a-1;b++){">
+<meta property="og:updated_time" content="2017-02-17T03:39:52.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="慕课程序与算法设计(二)">
-<meta name="twitter:description" content="递归(一)递归的作用：
-1. 替代多重循环
-2. 解决本来就是用递归形式定义的问题
-3. 将问题分解为更小规模的子问题进行求解
-例题1 求阶乘#include &amp;lt;iostream&amp;gt;  
-#include &amp;lt;cstdio&amp;gt;
-#include &amp;lt;cstdlib&amp;gt;
-#include &amp;lt;cstring&amp;gt; 
-#include &amp;lt;algorithm&amp;gt;">
+<meta name="twitter:description" content="第一周 枚举基于逐个尝试答案的一种问题求解策略
+例题1 完美立方#include &amp;lt;iostream&amp;gt;  
+using namespace std;  
+
+int main()  
+{  
+    int N;
+    cin&amp;gt;&amp;gt;N;
+    for(int a=2;a&amp;lt;=N;a++){
+        for(int b=2;b&amp;lt;a-1;b++){">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -178,7 +181,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="递归-一"><a href="#递归-一" class="headerlink" title="递归(一)"></a>递归(一)</h2><pre><code>递归的作用：
+        <h2 id="第一周-枚举"><a href="#第一周-枚举" class="headerlink" title="第一周 枚举"></a>第一周 枚举</h2><pre><code>基于逐个尝试答案的一种问题求解策略
+</code></pre><h3 id="例题1-完美立方"><a href="#例题1-完美立方" class="headerlink" title="例题1 完美立方"></a>例题1 完美立方</h3><pre><code>#include &lt;iostream&gt;  
+using namespace std;  
+
+int main()  
+{  
+    int N;
+    cin&gt;&gt;N;
+    for(int a=2;a&lt;=N;a++){
+        for(int b=2;b&lt;a-1;b++){
+            for(int c=b;c&lt;a-1;c++){
+                for(int d=c;d&lt;a-1;d++){
+                    if(a*a*a==(b*b*b+c*c*c+d*d*d))
+                        cout&lt;&lt;&quot;Cube = &quot;&lt;&lt;a&lt;&lt;&quot;,Triple = (&quot;&lt;&lt;b&lt;&lt;&quot;,&quot;&lt;&lt;c&lt;&lt;&quot;,&quot;&lt;&lt;d&lt;&lt;&quot;)&quot;&lt;&lt;endl; 
+                }
+            }
+        }
+    } 
+    return 0;
+}
+</code></pre><h3 id="例题2-生理周期"><a href="#例题2-生理周期" class="headerlink" title="例题2 生理周期"></a>例题2 生理周期</h3><pre><code>#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;
+using namespace std;  
+#define N 21252
+int main()  
+{  
+    //体力 情感 智力高峰出现的日子
+    // d是给定的日子 
+    //caseNo表示第几组测试用例 
+    int p,e,i,d,caseNo=0;
+    while(cin&gt;&gt;p&gt;&gt;e&gt;&gt;i&gt;&gt;d&amp;&amp;p!=-1){
+        caseNo++;
+        int k;
+        for(k=d+1;(k-p)%23;k++);
+        for(;(k-e)%28;k+=23);
+        for(;(k-i)%33;k+=23*28);
+        cout&lt;&lt;&quot;Case &quot;&lt;&lt;caseNo&lt;&lt;
+            &quot;:the next triple peak occurs in &quot;&lt;&lt;
+            k-d&lt;&lt;&quot;days.&quot;&lt;&lt;endl; 
+    }
+    return 0;
+}
+</code></pre><h3 id="POJ103称硬币"><a href="#POJ103称硬币" class="headerlink" title="POJ103称硬币"></a>POJ103称硬币</h3><p>思路：对于每一枚硬币先假设它是轻的，看这样是否符合称量结果。如果符合，则问题解决。如果不符合，则假设它是重的，看是否符合称量结果。把所有硬币都试一遍，一定能找到特殊硬币。</p>
+<h2 id="递归-一"><a href="#递归-一" class="headerlink" title="递归(一)"></a>递归(一)</h2><pre><code>递归的作用：
 1. 替代多重循环
 2. 解决本来就是用递归形式定义的问题
 3. 将问题分解为更小规模的子问题进行求解
@@ -340,7 +386,7 @@ int main()
     }
     return 0;
 }
-</code></pre><h3 id="例题3-放苹果"><a href="#例题3-放苹果" class="headerlink" title="例题3 放苹果"></a>例题3 放苹果</h3>
+</code></pre><h3 id="例题3-放苹果"><a href="#例题3-放苹果" class="headerlink" title="例题3 放苹果"></a>例题3 放苹果</h3><h3 id="例题4-算24"><a href="#例题4-算24" class="headerlink" title="例题4 算24"></a>例题4 算24</h3>
       
     </div>
     <div class="article-info article-info-index">
