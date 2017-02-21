@@ -8,7 +8,7 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>慕课程序与算法设计(二) | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一周 枚举基于逐个尝试答案的一种问题求解策略
+  <meta name="description" content="枚举基于逐个尝试答案的一种问题求解策略
 例题1 完美立方#include &amp;lt;iostream&amp;gt;  
 using namespace std;  
 
@@ -22,7 +22,7 @@ int main()
 <meta property="og:title" content="慕课程序与算法设计(二)">
 <meta property="og:url" content="http://yoursite.com/2017/02/15/慕课程序与算法设计-二/index.html">
 <meta property="og:site_name" content="Othello's Blog">
-<meta property="og:description" content="第一周 枚举基于逐个尝试答案的一种问题求解策略
+<meta property="og:description" content="枚举基于逐个尝试答案的一种问题求解策略
 例题1 完美立方#include &amp;lt;iostream&amp;gt;  
 using namespace std;  
 
@@ -32,10 +32,10 @@ int main()
     cin&amp;gt;&amp;gt;N;
     for(int a=2;a&amp;lt;=N;a++){
         for(int b=2;b&amp;lt;a-1;b++){">
-<meta property="og:updated_time" content="2017-02-17T03:39:52.796Z">
+<meta property="og:updated_time" content="2017-02-21T14:32:23.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="慕课程序与算法设计(二)">
-<meta name="twitter:description" content="第一周 枚举基于逐个尝试答案的一种问题求解策略
+<meta name="twitter:description" content="枚举基于逐个尝试答案的一种问题求解策略
 例题1 完美立方#include &amp;lt;iostream&amp;gt;  
 using namespace std;  
 
@@ -181,7 +181,7 @@ int main()
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一周-枚举"><a href="#第一周-枚举" class="headerlink" title="第一周 枚举"></a>第一周 枚举</h2><pre><code>基于逐个尝试答案的一种问题求解策略
+        <h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><pre><code>基于逐个尝试答案的一种问题求解策略
 </code></pre><h3 id="例题1-完美立方"><a href="#例题1-完美立方" class="headerlink" title="例题1 完美立方"></a>例题1 完美立方</h3><pre><code>#include &lt;iostream&gt;  
 using namespace std;  
 
@@ -386,7 +386,63 @@ int main()
     }
     return 0;
 }
-</code></pre><h3 id="例题3-放苹果"><a href="#例题3-放苹果" class="headerlink" title="例题3 放苹果"></a>例题3 放苹果</h3><h3 id="例题4-算24"><a href="#例题4-算24" class="headerlink" title="例题4 算24"></a>例题4 算24</h3>
+</code></pre><h3 id="例题3-放苹果"><a href="#例题3-放苹果" class="headerlink" title="例题3 放苹果"></a>例题3 放苹果</h3><h3 id="例题4-算24"><a href="#例题4-算24" class="headerlink" title="例题4 算24"></a>例题4 算24</h3><h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><h2 id="动态规划-一"><a href="#动态规划-一" class="headerlink" title="动态规划(一)"></a>动态规划(一)</h2><h3 id="例题1-数字三角形-1"><a href="#例题1-数字三角形-1" class="headerlink" title="例题1.数字三角形(1)"></a>例题1.数字三角形(1)</h3><p>数字三角形递归超时版本</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#define MAX 101
+using namespace std;
+
+int D[MAX][MAX];
+int n;
+int MaxSum(int i,int j){
+    if(i==n)
+        return D[i][j];    
+    int x=MaxSum(i+1,j);
+    int y=MaxSum(i+1,j+1);
+    return max(x,y)+D[i][j];
+}
+int main(){
+    int i,j;
+    cin&gt;&gt;n;
+    for(i=1;i&lt;=n;i++)
+        for（j=1;j&lt;=i;j++）
+            cin&gt;&gt;D[i][j];
+    cout&lt;&lt;MaxSum(1,1)&lt;&lt;endl;
+    return 0;
+}
+</code></pre><p>数字三角形的记忆递归型动归程序：</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#define MAX 101
+using namespace std;
+int maxSum[MAX][MAX];
+int D[MAX][MAX];
+int n;
+int MaxSum(int i,int j){
+    if(maxSum[i][j]!=-1)
+        return maxSum[i][j];
+    if(i==n)
+        maxSum[i][j]= D[i][j];
+    else {
+    int x=MaxSum(i+1,j);
+    int y=MaxSum(i+1,j+1);
+    maxSum[i][j]=max(x,y)+D[i][j];
+    }    
+
+    return maxSum[i][j];
+}
+int main(){
+    int i,j;
+    cin&gt;&gt;n;
+    for(i=1;i&lt;=n;i++)
+        for(j=1;j&lt;=i;j++){
+            cin&gt;&gt;D[i][j];
+            maxSum[i][j]=-1;
+        }
+    cout&lt;&lt;MaxSum(1,1)&lt;&lt;endl;
+    return 0;
+}
+</code></pre><h3 id="例题1-数字三角形-2"><a href="#例题1-数字三角形-2" class="headerlink" title="例题1.数字三角形(2)"></a>例题1.数字三角形(2)</h3>
       
     </div>
     <div class="article-info article-info-index">
