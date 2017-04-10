@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tagcloud | Othello&#39;s Blog</title>
+  <title>基于Unity引擎的游戏开发基础-课程笔记1 | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tagcloud">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="初始开始学习Unity时，在知乎上查看了Unity话题内的内容，于是准备先找课去上。本来第一个准备在Coursera上看的无奈寝室的网连视频加载不出来，退而求其次在慕课网上去找。听的基础课程真的是乱的一匹。怒开一波vpn上Coursera的课。讲真，课程讲的超级细致，非常适合初学者。非常感谢复旦大学的老师和学长们录制的这门基础课！
+//本文档为Coursera 基于Unity引擎的游戏开发基础个人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Unity引擎的游戏开发基础-课程笔记1">
+<meta property="og:url" content="http://yoursite.com/2017/04/10/基于Unity引擎的游戏开发基础-课程笔记1/index.html">
 <meta property="og:site_name" content="Othello's Blog">
-<meta property="og:updated_time" content="2017-01-30T07:14:48.494Z">
+<meta property="og:description" content="初始开始学习Unity时，在知乎上查看了Unity话题内的内容，于是准备先找课去上。本来第一个准备在Coursera上看的无奈寝室的网连视频加载不出来，退而求其次在慕课网上去找。听的基础课程真的是乱的一匹。怒开一波vpn上Coursera的课。讲真，课程讲的超级细致，非常适合初学者。非常感谢复旦大学的老师和学长们录制的这门基础课！
+//本文档为Coursera 基于Unity引擎的游戏开发基础个人">
+<meta property="og:updated_time" content="2017-04-10T14:42:10.739Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tagcloud">
+<meta name="twitter:title" content="基于Unity引擎的游戏开发基础-课程笔记1">
+<meta name="twitter:description" content="初始开始学习Unity时，在知乎上查看了Unity话题内的内容，于是准备先找课去上。本来第一个准备在Coursera上看的无奈寝室的网连视频加载不出来，退而求其次在慕课网上去找。听的基础课程真的是乱的一匹。怒开一波vpn上Coursera的课。讲真，课程讲的超级细致，非常适合初学者。非常感谢复旦大学的老师和学长们录制的这门基础课！
+//本文档为Coursera 基于Unity引擎的游戏开发基础个人">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -133,7 +139,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-基于Unity引擎的游戏开发基础-课程笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -143,7 +149,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Tagcloud
+      基于Unity引擎的游戏开发基础-课程笔记1
     </h1>
   
 
@@ -151,15 +157,72 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="初始"><a href="#初始" class="headerlink" title="初始"></a>初始</h3><pre><code>开始学习Unity时，在知乎上查看了Unity话题内的内容，于是准备先找课去上。本来第一个准备在Coursera上看的无奈寝室的网连视频加载不出来，退而求其次在慕课网上去找。听的基础课程真的是乱的一匹。怒开一波vpn上Coursera的课。讲真，课程讲的超级细致，非常适合初学者。非常感谢复旦大学的老师和学长们录制的这门基础课！
+</code></pre><p>//本文档为Coursera 基于Unity引擎的游戏开发基础个人笔记.</p>
+<h3 id="游戏引擎功能模块："><a href="#游戏引擎功能模块：" class="headerlink" title="游戏引擎功能模块："></a>游戏引擎功能模块：</h3><ul>
+<li>游戏中实时光影绘制</li>
+<li>动画系统 </li>
+<li>物理模拟系统</li>
+<li>游戏场景渲染机制</li>
+<li>网络通信 AI系统</li>
+<li>平台移植功能</li>
+</ul>
+<h3 id="Unity编辑器界面介绍："><a href="#Unity编辑器界面介绍：" class="headerlink" title="Unity编辑器界面介绍："></a>Unity编辑器界面介绍：</h3><ol>
+<li><p>Project（项目）视图</p>
+<p> Project视图是整个项目的资源汇总，包含了游戏项目中的场景 模型 材质 脚本 外部导入的网络模型等所有资源文件</p>
+</li>
+<li><p>Hierarchy（层级）视图</p>
+<p> ierarchy（层级）视图包含了当前场景中所有的游戏对象</p>
+</li>
+<li><p>Inspector（检视）视图</p>
+<p> Inspector（检视）视图用于显示当前选定的游戏对象的详细信息，包括游戏对象的名称，标签，几何属性以及其他组件信息，也可用于显示Edit菜单栏中与项目相关的参数设置</p>
+</li>
+<li><p>Scene（场景）视图<br> Scene（场景）视图用于显示场景中所有模型，光源，摄像机，材质，音效等游戏对象。在场景视图中，可以通过可视化的方式对场景中的游戏对象进行编辑</p>
+</li>
+</ol>
+<h3 id="Unity编辑器菜单栏："><a href="#Unity编辑器菜单栏：" class="headerlink" title="Unity编辑器菜单栏："></a>Unity编辑器菜单栏：</h3><ul>
+<li>File（文件）菜单 主要包含项目与场景的创建 保存及输出等功能</li>
+<li>Edit（编辑）菜单 主要包括对场景进行一系列的编辑及环境设置操作等命令</li>
+<li><p>Asset（资源）菜单 主要用于对项目视图中的资源进行管理  在Project视图中点击右键打开相似的Asset菜单</p>
+</li>
+<li><p>GameObject（游戏对象）菜单 对层级视图中的游戏对象进行管理</p>
+</li>
+<li>Component(组件)菜单 管理选中游戏对象的组件</li>
+<li>Window（窗口）菜单 包含各种窗口的切换 布局等操作 还可以通过它打开各种视图以及访问Asset Store资源商店</li>
+<li>Help（帮助）菜单 包含Unitu用户手册与脚本参考菜单项，能够帮助开发者学习和掌握Unity</li>
+</ul>
+<h3 id="Transform-Tools（变化工具）"><a href="#Transform-Tools（变化工具）" class="headerlink" title="Transform Tools（变化工具）"></a>Transform Tools（变化工具）</h3><p>（菜单栏下面的五个按钮）</p>
+<ul>
+<li>手型工具：用于整体平移Scene视图</li>
+<li>移动工具：对选中的对象进行平移操作</li>
+<li>旋转工具：对选中的对象进行旋转操作</li>
+<li>缩放工具：对选中的对象进行缩放操作</li>
+<li>二维缩放工具：对二维物体和uGUI进行缩放</li>
+</ul>
+<h3 id="Transform-Gizmo-Tools（辅助变换工具）"><a href="#Transform-Gizmo-Tools（辅助变换工具）" class="headerlink" title="Transform Gizmo Tools（辅助变换工具）"></a>Transform Gizmo Tools（辅助变换工具）</h3><p>（Center-Global）</p>
+<p>游戏对象的轴心点设置：</p>
+<pre><code>Center:以所有选中游戏对象的中心为轴心点；
+Pivot：以最后一个选中游戏对象的中心为轴心点（ps：枢轴; 中心点，中枢; [物] 支点，支枢;）
+</code></pre><p>游戏对象坐标的显示方式</p>
+<pre><code>Global：以全局坐标显示游戏对象坐标；
+Local：以自身坐标显示游戏对象坐标
+</code></pre><h3 id="Play（播放控制）"><a href="#Play（播放控制）" class="headerlink" title="Play（播放控制）"></a>Play（播放控制）</h3><p> 播放/暂停/逐帧播放<br>运行游戏按钮：控制游戏的运行与结束，Game视图实时地显示游戏的运行效果<br>暂停游戏按钮：暂停/继续游戏 控制游戏的暂停与继续运行；<br>逐帧播放按钮：逐帧播放游戏，主要用于开发者逐帧调试游戏项目</p>
+<h3 id="Layers（分层下拉列表）"><a href="#Layers（分层下拉列表）" class="headerlink" title="Layers（分层下拉列表）"></a>Layers（分层下拉列表）</h3><p>Layers（分层下拉列表）用于控制Scene视图中游戏对象的显示，睁眼符号表示属于该层的游戏对象在场景中可见，闭眼表示不可见</p>
+<h3 id="Layout（布局下拉列表）"><a href="#Layout（布局下拉列表）" class="headerlink" title="Layout（布局下拉列表）"></a>Layout（布局下拉列表）</h3><p>Layout（布局下拉列表）控制Unity编辑器包含的多个视图布局方式，支持用户自定义布局</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2017-01-30T06:56:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-30</time>
+      <a href="/2017/04/10/基于Unity引擎的游戏开发基础-课程笔记1/" class="archive-article-date">
+  	<time datetime="2017-04-10T14:24:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-10</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -168,6 +231,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/09/博弈论最后一章摘录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博弈论最后一章摘录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -217,7 +290,7 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
