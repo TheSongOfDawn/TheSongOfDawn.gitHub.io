@@ -134,6 +134,203 @@
       <div class="body-wrap">
         
   
+    <article id="post-基于Unity引擎的游戏开发基础-课程笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/基于Unity引擎的游戏开发基础-课程笔记2/">基于Unity引擎的游戏开发基础-课程笔记2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="图形资源分类"><a href="#图形资源分类" class="headerlink" title="图形资源分类"></a>图形资源分类</h4><p>简单地可以分为2D和3D</p>
+<p>图形 2D 图形是平面图形，只有长宽两个维度。 三维图形是立体图形 拥有长宽高三个维度。</p>
+<p>2D 图形在计算机中有两种表示形式：位图与矢量 位图图像通常称为点阵图像 它是由多个单点的像素组成的，每个像素具有 RGBA 颜色值 所有像素按照矩形进行排列，构成一幅图像 我们用 扫描仪、 手机、 照相机，拍摄获得的照片都是位图</p>
+<p>矢量图 矢量图也称为面向对象的图像，或者叫绘图图像 在数学上面可以定义为一系列的点，点之间以线作为连接 矢量文件中的图形元素称为对象 每个对象都是一个自成一体的实体 具有颜色、 形状、 轮廓、 大小和屏幕位置等属性<br>与位图不同，矢量图在放大过程中不会失真 不会出现颗粒感。 矢量图的显示效果与分辨率无关</p>
+<h4 id="游戏对象-（GameObject）"><a href="#游戏对象-（GameObject）" class="headerlink" title="游戏对象 （GameObject）"></a>游戏对象 （GameObject）</h4><p>游戏场景中存在的物体都可以称为游戏对象。游戏对象是一个非常广泛的概念，场景中的物体环境元素 特效都是一个游戏对象</p>
+<h4 id="标签-tag"><a href="#标签-tag" class="headerlink" title="标签(tag)"></a>标签(tag)</h4><p>游戏对象标签可以方便我们区分一些特殊种类的游戏对象</p>
+<h4 id="组件-Component"><a href="#组件-Component" class="headerlink" title="组件(Component)"></a>组件(Component)</h4><p> 在游戏场景中，游戏对象之间的表现与行为差异。Unity使用组件来表示游戏对象的某种属性或行为</p>
+<h4 id="Transform组件"><a href="#Transform组件" class="headerlink" title="Transform组件"></a>Transform组件</h4><p>用于设置游戏对象在场景中的位置 朝向以及尺寸<br>绝大部分游戏对象（UI游戏对象除外）都包含Transform组件<br>Transformz组件无法手动添加或删除，创建游戏对象时自带的组件</p>
+<ul>
+<li>Position：游戏对象相对于其父对象的坐标位置</li>
+<li>Rotation：游戏对象相对于其父对象的x y z轴的旋转角度（顺时针为正）</li>
+<li>Scale 游戏对象相对于其父对象的x y z轴方向的缩放倍数 1表示原始长度</li>
+</ul>
+<p>父子关系与Transform组件 当游戏对象称为另一个游戏对象的子对象，该游戏对象的Transform组件会发生改变</p>
+<h4 id="预制件（prefab）"><a href="#预制件（prefab）" class="headerlink" title="预制件（prefab）"></a>预制件（prefab）</h4><p>预制件（prefab）是一种资源类型 存储在Project（项目）视图中的游戏对象原型。预制件可以多次放入到多个场景中。当你拖拽一个预制件到场景中，就在该场景中创建了该预制件的一个实例。所有的预制件实例连接到原始预制件。当你对预制件进行任何更改·这些改动都会自动应用于所有预制件实例</p>
+<h4 id="物理系统基础"><a href="#物理系统基础" class="headerlink" title="物理系统基础"></a>物理系统基础</h4><p>物理系统 ：在虚拟世界中使用物理引擎，运用物理算法对游戏对象的运动进行模拟，例如重力 摩擦力 碰撞等 ，让游戏更加真实</p>
+<h4 id="物理系统组件"><a href="#物理系统组件" class="headerlink" title="物理系统组件"></a>物理系统组件</h4><ul>
+<li>刚体（Rigidbody）</li>
+<li>恒定力（Constant Force）</li>
+<li>碰撞体（Collider）</li>
+</ul>
+<h4 id="物理系统管理器（Physics-Manager）"><a href="#物理系统管理器（Physics-Manager）" class="headerlink" title="物理系统管理器（Physics Manager）"></a>物理系统管理器（Physics Manager）</h4><ul>
+<li><p>刚体（Rigidbody）是物理学中一个重要的概念，它是指一个物体在受力的情况下 其外形 尺寸 内部结构组织等都不受影响的一个特性<br>在Unity中，刚体用于模拟世界中物体受力之后的行为.每个游戏对象只能添加一个刚体组件。</p>
+</li>
+<li><p>Mass表示对象的质量</p>
+</li>
+<li>Drag对象运动时的阻力 </li>
+<li>Angular Drag对象旋转时的角阻力</li>
+<li>Use Gravity：是否应用重力（默认勾选应用重力）</li>
+<li>Constraints 表示刚体约束</li>
+<li>freeze position 表示位置约束 选择x项表示刚体受力后沿X轴不发生位移</li>
+<li>Freeze Rotation 表示旋转约束 勾选x项 表示刚体受力后绕x轴不发生旋转</li>
+</ul>
+<h4 id="碰撞体（Collider）"><a href="#碰撞体（Collider）" class="headerlink" title="碰撞体（Collider）"></a>碰撞体（Collider）</h4><p>碰撞体定义了对象在物理系统中的碰撞形状，对象的碰撞形状用于物理模拟中的碰撞检测。当两个物体都有碰撞体组件时，物理引擎才会计算碰撞，否则物体会相互穿过。Unity中的内置对象 （Cube，Sphere）都默认添加了缺省形状的碰撞体组件，若无特殊要求我们不需要为其添加新的碰撞体组件</p>
+<p>碰撞体的常用属性<br>（以球型碰撞体举例）</p>
+<ul>
+<li>Edit Collider ：碰撞体形状编辑按钮，点击后可在Scene（场景）视图中编辑碰撞体的形状</li>
+<li>is Trigger：该碰撞体是否为触发器（默认不勾选，不是触发器）用于检测是否有物体进入该触发器的区域。碰撞体变成触发器以后，不再具有碰撞体的功能 </li>
+<li>Material：碰撞体的物理材质（设置游戏对象受力后的相应）</li>
+</ul>
+<p>碰撞体形状尺寸设置：</p>
+<ul>
+<li>Center：球型碰撞体的球心位置</li>
+<li>Radius：球型碰撞体的半径</li>
+</ul>
+<p>碰撞体勾选</p>
+<ul>
+<li>Is Trigger属性后会变成触发器<br>*一个物体可以拥有多个碰撞体</li>
+</ul>
+<h4 id="物理材质（Physic-Material）："><a href="#物理材质（Physic-Material）：" class="headerlink" title="物理材质（Physic Material）："></a>物理材质（Physic Material）：</h4><ul>
+<li>Dynamic Friction：动摩擦力</li>
+<li>Static Friction：静摩擦力</li>
+<li>Bounciness:弹力<br>*Friction/Bounce Combine:定义两个碰撞体之间的摩擦力/弹力如何相互作用</li>
+</ul>
+<h4 id="物理系统管理器-（PhysicsManager）"><a href="#物理系统管理器-（PhysicsManager）" class="headerlink" title="物理系统管理器 （PhysicsManager）"></a>物理系统管理器 （PhysicsManager）</h4><ul>
+<li>Gravity：设置物理系统中的重力</li>
+<li>Default Material：碰撞体组件默认使用的物理材质</li>
+<li>Bounce Threshold：弹性阈值</li>
+<li>Default Contact Offset ：两个对象发生碰撞的距离，即当两个对象的距离小于该距离时才会发生碰撞</li>
+</ul>
+<h4 id="网格（Mesh）"><a href="#网格（Mesh）" class="headerlink" title="网格（Mesh）"></a>网格（Mesh）</h4><p>游戏中三维物体使用网格来描述自身的形状和尺寸。一个模型由若干网格面组成，每一个面由若干个三角形组成</p>
+<p>在计算机图形学中 经常使用三角形网格来描述物体的几何信息，可以采用图形卡GPU对三角形网格有关的计算进行加速</p>
+<h4 id="网格过滤器（Mesh-Filter）"><a href="#网格过滤器（Mesh-Filter）" class="headerlink" title="网格过滤器（Mesh Filter）"></a>网格过滤器（Mesh Filter）</h4><p>网格过滤器（Mesh Filter）存放游戏对象的网格信息，并把网格信息传递到网络渲染器中，最后将网格渲染到屏幕中。此组件的目的主要用于确定模型的形状与尺寸<br>网络渲染器（Mesh Renderer）</p>
+<h4 id="网络渲染器（Mesh-Renderer）"><a href="#网络渲染器（Mesh-Renderer）" class="headerlink" title="网络渲染器（Mesh Renderer）"></a>网络渲染器（Mesh Renderer）</h4><p>从网格过滤器中获取几何形状，用于渲染场景中的模型</p>
+<p>网格过滤器与网格过滤器必须成对使用，缺少任意一个都会导致游戏对象的渲染失败。我们可以将网格过滤器看做一个人的骨骼，把网格渲染器看做一个人的血肉。前者决定了游戏对象的几何形状，后者决定了游戏对象的外貌，颜色等表面特质</p>
+<h4 id="材质Material"><a href="#材质Material" class="headerlink" title="材质Material"></a>材质Material</h4><p>网格只绘制物体的形状与尺寸，物体表面的颜色，质感特性则需要用材质Material来呈现，材质在物体的网格渲染器中设置。我们可以创建自己的材质<br>材质编辑包括 着色器（Shader）的选择 着色器的相关属性设置 Inspector视图下方有材质预览</p>
+<h4 id="着色器（Shader）"><a href="#着色器（Shader）" class="headerlink" title="着色器（Shader）"></a>着色器（Shader）</h4><p>着色器主要用于图像的渲染过程，它具有可编辑性，不受显卡的固定渲染管线限制，可以实现丰富的图像效果。这极大的提高了图像的品质<br>我们可以使用着色器语言来编写相应的着色器脚本，以实现图像渲染的不同效果</p>
+<h4 id="标准着色器（Standard-Shader）"><a href="#标准着色器（Standard-Shader）" class="headerlink" title="标准着色器（Standard Shader）"></a>标准着色器（Standard Shader）</h4><p>对于大多数表面效果的渲染（包括人物，风景，环境等），Unity内置的标准着色器（Standard Shader）通常是最好的选择。标准着色器是一个高度可定制的着色器，它能够呈现多种类型的表面效果<br>参数设定：</p>
+<ul>
+<li>REndering Mode 预设值</li>
+<li>Opaque ，不透明</li>
+<li>Transparent 透明效果</li>
+<li>Fade 淡入淡出的效果</li>
+<li><p>cutout 透明与不透明效果</p>
+</li>
+<li><p>Albedo：表示光的反照率 描述物体的基本颜色</p>
+</li>
+<li>NormalMap：法向贴图，可以通过改变光的反射角度，使物体显得凹凸不平</li>
+<li>Emission：自发光 使得物体看起来“自发光”</li>
+</ul>
+<h4 id="天空盒（Skybox）"><a href="#天空盒（Skybox）" class="headerlink" title="天空盒（Skybox）"></a>天空盒（Skybox）</h4><p>除了标准着色器外，天空盒也是一种常用的着色器类型。它用于设置场景中的天空背景图案<br>Skybox/6 sided：一种常用的天空盒类型，其通常由x+ x- y+ y- z+ z-六个方向的贴图构成</p>
+<h4 id="光源（Light）"><a href="#光源（Light）" class="headerlink" title="光源（Light）"></a>光源（Light）</h4><p>光源是场景的重要组成部分，它决定了场景的明暗，色彩和氛围<br>Light组件 ：type 光源类型 Color：光源颜色 Intensity 光照强度 Bounce Intensity ：反射光强度</p>
+<h4 id="光源类型-用途"><a href="#光源类型-用途" class="headerlink" title="光源类型 用途"></a>光源类型 用途</h4><ul>
+<li>方向光（Directional）：模拟极远处的光照，如地球上的太阳光</li>
+<li>点光源（Point）：模拟光源向四周发出均匀的光线，例如生活中的灯泡</li>
+<li>聚光灯（Spot）：模拟光源向某方向发出圆锥体光线，例如手电筒 路灯</li>
+<li>面光源（Area）：无法模拟实时光照，用于光照烘焙 </li>
+</ul>
+<h4 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h4><p>除了光源对象外，场景中还存在环境光，环境光奠定了一个场景的基本色调。环境光的效果在Lighting视图中设置</p>
+<h4 id="环境光来源："><a href="#环境光来源：" class="headerlink" title="环境光来源："></a>环境光来源：</h4><ul>
+<li>天空盒（Skybox） 若Skybox材质设置，使用该材质所产生的光效果；若Skybox没有选定材质，效果同单色光（Color）</li>
+<li>梯度光（Gradient） 拥有Sky，Equator，Ground三个颜色参数，分别对应天空 赤道 地面的光颜色，两两之间光颜色呈梯度分布</li>
+<li>单色光（Color）根据选定的颜色作为环境光颜色</li>
+</ul>
+<h4 id="摄像机（Camera）"><a href="#摄像机（Camera）" class="headerlink" title="摄像机（Camera）"></a>摄像机（Camera）</h4><p>在Unity场景中，必须有一个摄像机用于绘制场景。引擎对摄像机可以看到的游戏世界中的空间区域进行渲染，生成最终的游戏画面。</p>
+<p>场景中可以存在多个摄像机：<br>单人模式中只有一个摄像机 多人游戏中有两个摄像机同时渲染画面</p>
+<h4 id="摄像机组件"><a href="#摄像机组件" class="headerlink" title="摄像机组件"></a>摄像机组件</h4><ul>
+<li>Insector（检视）视图中的摄像机组件 Clear Flags：摄像机清除标记</li>
+<li>projection：摄像机投射方式</li>
+<li>Field of view：摄像机视角</li>
+<li>Clipping Planes：摄像机远近剪切平面</li>
+<li><p>Depth：摄像机深度值</p>
+<p>清除标记用于填充屏幕中摄像机未绘制的部分（四个可选类）：</p>
+</li>
+<li><p>Skybox （预设） 以天空盒作为摄像机的清除标记</p>
+</li>
+<li>Solid Color 以某种颜色作为摄像机的 清除标记</li>
+<li>Depth Only 以深度值较低的摄像机渲染的图案作为该摄像机的清除标记（用于多个摄像机的同时绘制）</li>
+<li>Dont Clear 不清除，摄像机的清楚标记为上次渲染过的图像</li>
+</ul>
+<p>Projection（摄像机投影方式）</p>
+<ul>
+<li>Perspective 透视，在该模式下，摄像机显示的场景画面为我们日常生活中所看到的远小近大现象</li>
+<li>Orthograhic 正交，在该模式下，场景中的物体大小不会因为与摄像机的距离不同而发生大小变化 </li>
+</ul>
+<p>摄像机其他组件</p>
+<p><em>　GUI Layer：GUI（Unity4.6之前的旧版）显示组件，使摄像机中能够显示旧版GUI控件
+</em>　Flare Layer：镜头耀斑显示组件，使镜头耀斑特效显示在摄像机所渲染的图形中<br>*　Audio Listener：音频监听组件，用于收集游戏场景中的声音并播放 </p>
+<h4 id="音频（Audio）"><a href="#音频（Audio）" class="headerlink" title="音频（Audio）"></a>音频（Audio）</h4><p>音频在游戏中的地位至关重要，它给游戏添加视觉效果。优质恰当的音频使得场景更加生动</p>
+<p>Unity中的音频系统通过Audio Source，音频源组件和Audio Listener音频监听组件实现</p>
+<p>音频源组件用于场景中声音的播放<br>AudioListener，音频监听组件收集场景中发出的声音并播放</p>
+<p>如果场景中存在多个音频监听组件，Unity编辑器会随机选择其中的一个音频监听组件生效 其余的音频监听组件均保持静默<br>Unity摄像机对象默认添加了AudioListener组件，<br>inspector视图中音频源组件</p>
+<ul>
+<li>AudioClip<br>表示音频片段，是音频源组件播放的音频资源 Mute保持音频源播放时是否静音，默认不勾选，表示不静音 Play On Awake表示是否在该音频源组件启动时，自动播放音频片段 默认勾选，表示自动播放；Loop，表示音频源是否循环播放音频片段<br>默认不勾选，表示不循环。 Volume 表示音频片段播放时声音的大小；Pitch，表示音频片段播放时音调的高低 </li>
+</ul>
+<p>音频系统管理器，AudioManager<br>音频系统管理器管理整个项目中音频系统的相关参数</p>
+<p>Edit菜单栏 点击Project<br>Settings中的Audio选项，即可在inspector视图中显示项目的音频系- 统管理器<br>部分参数，Global Volume表示项目的全局音量大小 Disable Unity<br>Audio表示是否使用Unity的音频系统，默认不勾选，即使用Unity的音频系统</p>
+<h4 id="项目构建（Build）"><a href="#项目构建（Build）" class="headerlink" title="项目构建（Build）"></a>项目构建（Build）</h4><p>当Unity项目制作完毕，需要对Unity项目进行构建，才能使项目脱离Unity编辑器独立运行。<br>项目构建：File菜单栏-》Build Setting<br>项目构建参数：</p>
+<ol>
+<li>把场景添加到构建列表<br> 打开需要构建的场景<br> 点击Add Current按钮</li>
+<li>选择项目发布的平台<br> 名字后面带有Unity图标的平台表示当前项目所在的平台<br>ps：切换平台：<br>选中项目发布的平台 点击Switch Platform按钮，即可完成项目平台的切换工作</li>
+<li>设置平台参数</li>
+</ol>
+<p>点击player Setting即可设置参数：</p>
+<ol>
+<li>分辨率与演示设置</li>
+<li>项目图标设置</li>
+<li>项目启动图像设置</li>
+<li>其他设置</li>
+<li>生成游戏项目</li>
+<li>点击Build即可生成</li>
+</ol>
+<p>在进行Android平台的项目构建时，需：</p>
+<p>1.Android SDK与JDK的下载设置<br>在完成SDK与JDK的下载后 需要在Unity编辑器中，Unity Preference(Edit-&gt;Preference)点击<br>Extends Tools把JDK与SDK目录设置即可<br>2.Android项目参数设置<br>player Setting 中进行 Default Orientation 设置屏幕默认朝向</p>
+<p>Status Bar Hidden选项用于隐藏Android 手机的状态栏</p>
+<p>Other Sittings需要设置 Identification中的Bundle Identifier该属性表示Android应用的标识符，用于区别该Android应用与其他Android应用 默认为com.Company.ProductName</p>
+<p>《多米诺骨牌》项目总结</p>
+<p>1.　Unity编辑器基础操作<br>    包括项目的创建，资源的导入，以及游戏对象的创建<br>2.　物理操作系统基础<br>    模拟真实世界的重力 碰撞效果<br>3.　图形系统基础<br>    给场景添加视觉效果<br>4.　音频基础<br>    给场景添加声音效果<br>5.　项目部署<br>    部署到Windows平台与安卓平台独立于Unity编辑器独立运行</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/12/基于Unity引擎的游戏开发基础-课程笔记2/" class="archive-article-date">
+  	<time datetime="2017-04-12T03:55:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-12</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-基于Unity引擎的游戏开发基础-课程笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2170,7 +2367,7 @@ int main() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/C-C/" style="font-size: 20px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/博客搭建/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 16.67px;">基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 13.33px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
+    				<a href="/tags/C-C/" style="font-size: 20px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/博客搭建/" style="font-size: 15px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
     			</div>
     	</section>
     
