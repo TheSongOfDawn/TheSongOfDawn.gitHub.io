@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>基于Unity引擎的游戏开发基础-课程笔记3 | Othello&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="//还没有调整格式//今天晚上写了一道bfs 没写出来。太容易沉迷其中不能脱身用大局观看这种东西。费脑子也费时间！！！阿西吧
+第二周学习是C#基础。因为我有编程基础且本学期正在学习这门语言，故跳过。但要学习脚本必须要有C#的基础知识！补上了再看脚本！
+Unity脚本基本概念
+交互是游戏开发中必不可少的概念，它使玩家能根据自己的意愿改变游戏场景中的某些元素与行为交互包括玩家通过输入系统与游戏场景进行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Unity引擎的游戏开发基础-课程笔记3">
+<meta property="og:url" content="http://yoursite.com/2017/04/12/基于Unity引擎的游戏开发基础-课程笔记3/index.html">
+<meta property="og:site_name" content="Othello's Blog">
+<meta property="og:description" content="//还没有调整格式//今天晚上写了一道bfs 没写出来。太容易沉迷其中不能脱身用大局观看这种东西。费脑子也费时间！！！阿西吧
+第二周学习是C#基础。因为我有编程基础且本学期正在学习这门语言，故跳过。但要学习脚本必须要有C#的基础知识！补上了再看脚本！
+Unity脚本基本概念
+交互是游戏开发中必不可少的概念，它使玩家能根据自己的意愿改变游戏场景中的某些元素与行为交互包括玩家通过输入系统与游戏场景进行">
+<meta property="og:updated_time" content="2017-04-12T14:49:30.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Unity引擎的游戏开发基础-课程笔记3">
+<meta name="twitter:description" content="//还没有调整格式//今天晚上写了一道bfs 没写出来。太容易沉迷其中不能脱身用大局观看这种东西。费脑子也费时间！！！阿西吧
+第二周学习是C#基础。因为我有编程基础且本学期正在学习这门语言，故跳过。但要学习脚本必须要有C#的基础知识！补上了再看脚本！
+Unity脚本基本概念
+交互是游戏开发中必不可少的概念，它使玩家能根据自己的意愿改变游戏场景中的某些元素与行为交互包括玩家通过输入系统与游戏场景进行">
+  
+    <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="https://avatars2.githubusercontent.com/u/18623875?v=3&amp;s=466" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">晨曦的葬歌</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">天上半阴半暗的云</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主 页</a></li>
+	        
+				<li><a href="/archives">归 档</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/TheSongOfDawn" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/u/3943183234?refer_flag=1001030101_" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/li-ke-19-67" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">晨曦的葬歌</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="https://avatars2.githubusercontent.com/u/18623875?v=3&amp;s=466" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">晨曦的葬歌</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">天上半阴半暗的云</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主 页</a></li>
+		        
+					<li><a href="/archives">归 档</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/TheSongOfDawn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3943183234?refer_flag=1001030101_" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/li-ke-19-67" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-基于Unity引擎的游戏开发基础-课程笔记3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      基于Unity引擎的游戏开发基础-课程笔记3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//还没有调整格式<br>//今天晚上写了一道bfs 没写出来。太容易沉迷其中不能脱身用大局观看这种东西。费脑子也费时间！！！阿西吧</p>
+<p>第二周学习是C#基础。因为我有编程基础且本学期正在学习这门语言，故跳过。但要学习脚本必须要有C#的基础知识！补上了再看脚本！</p>
+<p>Unity脚本基本概念</p>
+<p>交互是游戏开发中必不可少的概念，它使玩家能根据自己的意愿改变游戏场景中的某些元素与行为<br>交互包括玩家通过输入系统与游戏场景进行互动，也包括游戏场景中游戏对象之间的交互<br>开发者实现游戏交互功能的主要手段，实现交互的主要工具就是脚本 （Script）</p>
+<p>在 Project 视图中 点击鼠标右键，选择 Create 菜单下面的 C# 即可完成脚本的创建 </p>
+<p>根据脚本的实际功能 将脚本绑定到场景中与脚本相关的游戏对象 绑定前的脚本作为游戏资源保存在项目目录下，绑定后的脚本成为该游戏对象的组件</p>
+<p>Unity 编辑器中创建的脚本 都默认继承了 MonoBehaviour 类，并带有 MonoBehaviour 类中的定义的两个 Unity 事件函数 Start 和 Update</p>
+<p>修改 Unity 脚本默认开发工具的流程 首先点击 Edit 菜单栏中的 Preferences，打开 Unity Preferences 窗口 接着点击 Unity Preferences 窗口中的外部工具标签 将外部编辑工具改为 Visual Studio 2015<br>在 Unity 脚本中使用 Debug.Log Debug.LogWarning、 Debug.LogError 等函数 在控制台输出我们所需要的脚本调试信息</p>
+<p>Console（控制台）视图</p>
+<p>Clear 点击将删除控制台当前所有信息<br>Collapse 按钮起用时。相同的信息在控制台只显示一次（消息尾部显示它出现的次数）<br>Clear On play 在每次游戏预览时，Unity 清除控制台显示的所有消息<br>Error Pause 按钮，在游戏预览过程中，如果脚本出现错误 Unity 中断本次游戏预览</p>
+<p>脚本生命周期：<br>初始化阶段：<br>1.Awake() 在脚本绑定到的游戏对象激活时执行 这里需要注意：即使包含 Awake 函数的脚本组已禁用状态 该脚本中的 Awake 函数也会被 Unity 调用<br>2.OnEnable() 当对象变为可用或激活状态时 该函数执行一次<br>3.Start () 第一次Update之前调用；Start 在每个场景中只执行一次，如果在场景中已经执行过 Start 函数 即使 OnEnable 函数再次执行，Start 函数也不会执行<br>循环阶段:<br>4.FixedUpdate 固定更新<br>物理循环，物理循环用于处理游戏中与物理相关的逻辑 FixedUpdate 函数是物理循环中最先执行的函数 它每隔固定时间执行一次，我们通常与把物理模拟有关的代码 写在 FixedUpdate 函数中</p>
+<p>5.OnTrigger 函数，它用于 Trigger 触发器检测 每隔固定时间检测一次。 触发器检测函数包括 OnTriggerEnter，OnTriggerStay，OnTriggerExit 当物体进入，停留，离开 Trigger 触发器范围时执行</p>
+<p>6.OnCollision 碰撞检测函数 它用于 Collider 碰撞体的相关检测，每隔固定时间检测一次。 碰撞检测函数包括 OnCollisionEnter OnCollisionStay，OnCollisionExit，当物体进入，停- 留，离开 Collider 碰撞体范围时执行 OnTrigger 函数与 OnCollision 函数通常用于与碰撞检测有关的游戏逻辑</p>
+<ol>
+<li>OnMouse 函数，处理鼠标的输入事件</li>
+</ol>
+<p>游戏逻辑循环<br>7.Update 函数 它在每帧执行一次，该函数主要处理游戏对象在游戏世界的行为逻辑 例如游戏角色的控制和游戏状态的控制<br>8.LateUpdate 函数，它也是每帧执行一次，在 Update 函数后执行。 在实际开发过程中 Update 函数与 LateUpdate 函数通常共同使用，例如在第三人称射击游戏中 我们在 Update 函数中处理玩家角色的移动，在 LateUpdate 函数中处理摄像机跟随玩家 这样能防止摄像机出现抖动现象。</p>
+<p>游戏逻辑循环结束后<br>9.OnGUI 渲染和处理GUI事件 用到NGUI插件<br>OnGUI 函数每帧可执行多次，用于绘制 Unity 的图形用户界面</p>
+<p>在脚本被禁用前，Unity 循环调用物理循环到游戏循环到OnGUI()函数 实现游戏对象的正常更新<br>脚本被禁用时，Unity跳出循环调用</p>
+<p>10.OnDisable 当前对象不可用或非激活状态时被调用等待命令。若重新启用脚本 脚本将从 OnDisable 函数跳转至 OnEnable 函数 跳转完成后，脚本按照生命周期中函数执行顺序 循环运行，直到下一次脚本被禁用<br>当脚本 被解除绑定时调用<br>11.OnDestory 被销毁时调用<br>脚本的生命周期结束</p>
+<p>Unity脚本之间的执行顺序</p>
+<p>Unity脚本之间默认执行顺序，以堆栈的方式，先设置，后执行。也就是说最先绑定的脚本最后执行</p>
+<p>使用MonoManager对脚本的执行顺序进行排序：<br>MonoManager的打开方式：<br>打开 Edit 菜单，点击 Project Setting 中的 Script Execution Order，即可打开 MonoManager</p>
+<p>使用 MonoManager 管理脚本之间的执行顺序<br>首先点击右下方的加号按钮添加 Unity 脚本，其次修改脚本的优先级 该值越小，脚本越早执行。 若把脚本的优先级设置为 0，脚本将在 Default Time 执行 该脚本从列表中消失。 最后点击 Apply 按钮，应用设置。</p>
+<p>注意：<br>1.如果脚本没有在 MonoManager 中设置优先级，表明脚本的优先级为 0 脚本在 Default Time 缺省时间执行<br>2.对优先级相等的脚本 采用默认的执行顺序为：最先设置的脚本最后执行<br>3.优先级只表示脚本执行顺序的前后 并不表示脚本执行时间的延迟，例如优先级 = 100，不表示脚本执行延迟 100 毫秒 </p>
+<p>在《多米诺骨牌》项目中 实现了大球自转 摄像机围绕金字塔公转<br>实现大球自转需要两个参数，<br>自转的旋转轴<br>每帧的旋转角度<br>摄像机围绕金字塔公转需要四个参数<br>摄像机公转的旋转中心<br>公转的旋转轴<br> 每帧旋转角度<br>摄像机的朝向</p>
+<p>在脚本中设置为公有字段的可以方便我们在Inspector视图中对该字段进行修改</p>
+<p>实现大球自转脚本代码如下</p>
+<p>public class SelfRotate : MonoBehaviour {</p>
+<pre><code>public float rotateSpeed = 40.0f;    //旋转速度  可以在Inspector视图中修改
+</code></pre><p>//若脚本中参数的初始值与 Inspector 视图中的设定的值不相等 则以 Inspector 视图中的设定值为准</p>
+<pre><code>//每帧执行一次：物体自转
+void Update () {
+    //物体以世界坐标系的向上方向（正Y轴）方向，以rotateSpeed的速度进行顺时针自转
+    //Time.deltaTime表示该帧的执行时间，Time.deltaTime * rotateSpeed表示该帧总共自转的角度
+    transform.Rotate (Vector3.up, Time.deltaTime * rotateSpeed);    
+}
+</code></pre><p>}</p>
+<p>transform Rotate 函数实现，该函数需要三个参数 第一个参数是旋转轴向量。 将它设置为 Vector3 的 up 方向，让大球围绕 up 方向，也就是 y 轴进行自转 第二个参数是旋转角度 设置为 Time.deltaTime*rotateSpeed 表示大球在每帧围绕 up 方面的旋转角度 第三个参数是旋转参照系的选择 该参数的缺省值为物体自身的参照系，我们不需要传入这个参数</p>
+<p>摄像机围绕金字塔公转脚本：</p>
+<p>public class RotateAroundAndLookAt : MonoBehaviour {</p>
+<pre><code>public GameObject rotateCenter;        //旋转中心对象
+public float rotateSpeed = 10.0f;    //旋转速度
+
+//每帧执行一次：物体公转
+void Update () {
+    if (rotateCenter) {        //当旋转中心对象设置时才进行物体公转
+        transform.RotateAround (    
+            rotateCenter.transform.position,    //旋转中心点
+            rotateCenter.transform.up,             //旋转轴：此处设置为为旋转中心的向上方向（正Y轴）
+            Time.deltaTime * rotateSpeed        //旋转的角度，rotateSpeed表示旋转的速度，Time.deltaTime表示该帧执行的时间
+        );
+        transform.LookAt(rotateCenter.transform);    //使游戏对象始终朝向旋转中心
+    }
+}
+</code></pre><p>}</p>
+<p>otate Around 函数 该函数有三个参数，分别是公转的旋转中心 旋转轴向量和旋转角度。<br> 公转的旋转中心坐标设置为 rotateCenter.transform.position 该字段表示旋转中心的位置坐标 旋转轴向量设置为 rotateCenter.transform.up 该字段表示旋转中心的 y 轴正方向 旋转角度设置为 Time.deltaTime*rotateSpeed 该字段表示摄像机在每帧旋转的角度。 最后我们使用 transform 类的 LookAt 函数 以 rotateCenter.transform 作为函数的参数，使摄像机始终朝向旋转中心 最后，把 RotateAroundAndLookAt 脚本 绑定到摄像机游戏对象，并在 Inspector 视图中把参数 rotateCenter 设置为 Hierarchy 视图中的 Top 对象</p>
+<p>如何实现骨牌相撞时发出声音？<br>1.如何控制撞击音效的播放时机<br>2.如何播放撞击音效</p>
+<p>该脚本代码实现了多米诺骨牌之间相互撞击时播放撞击音效文件</p>
+<p>public class DominoCollide : MonoBehaviour {</p>
+<pre><code>//当有物体与该物体即将发生碰撞时，调用OnCollisionEnter()函数
+void OnCollisionEnter(Collision collision)    
+{
+    if (collision.gameObject.tag.Equals(&quot;Domino&quot;))    //根据碰撞物体的标签来判断该物体是否为多米诺骨牌
+        GetComponent&lt;AudioSource&gt;().Play();            //获取多米诺骨牌撞击音效的AudioSource组件并播放
+}
+</code></pre><p>}</p>
+<p>如何给大球添加力？<br>如何添加力？<br>如何时刻保持力的作用？</p>
+<p>public class ObjectAddForce : MonoBehaviour {</p>
+<pre><code>public int force;    //作用力大小
+
+//每隔固定时间执行一次，用于物理模拟
+void FixedUpdate () {
+    gameObject.GetComponent&lt;Rigidbody&gt;()        //获取游戏对象上的刚体组件
+        .AddForce (new Vector3(0,-force,0));    //给刚体添加方向向下的作用力
+}
+</code></pre><p>}</p>
+<p> ObjectAddForce 类中，字段 force 表示作用力的大小 使用 public 修饰符。 在FixedUpdate 函数内首先获取物体的刚体组件 在调用刚体组件的 AddForce 函数完成作用力的添加 Addforce 函数需要两个参数 第一个参数为力向量，用以表示作用力的大小与方向 第二个参数为力的模式，缺省表示持续作用力</p>
+<p>多米诺骨牌中的摄像机切换<br> 如何检测S键是否按下<br> 如何切换摄像机</p>
+<p>public class CameraSwitch : MonoBehaviour {</p>
+<pre><code>public Camera mainCamera;    //主摄像机
+public Camera orthCamera;    //正交摄像机
+
+//摄像机状态初始化
+void Start(){
+    mainCamera.enabled = true;    //启用主摄像机
+    orthCamera.enabled = false;    //禁用正交摄像机
+}
+
+//每帧调用一次：摄像机切换
+void Update () {
+    if (Input.GetKeyDown(KeyCode.S)){    //当玩家按下键盘上的“S”键时
+        mainCamera.enabled = !mainCamera.enabled;    //切换主摄像机的启用与禁用状态
+        orthCamera.enabled = !orthCamera.enabled;    //切换正交摄像机的启用与禁用状态
+    }
+}
+</code></pre><p>}</p>
+<p>地形系统（Terrain）<br>5*5</p>
+<p>Unity拥有功能强大且完善的地形编辑器 支持以笔刷的方式，实时绘制多种地形 同时，还提供地表绘制元素，制作树木、 草坪、 石头等地表元素</p>
+<p>地形创建的步骤</p>
+<p>在 Hierarchy 视图中，点击鼠标右键 在弹出的菜单中选择 3D Object 中的 Terrain，完成地形创建</p>
+<p>地形系统的相关组件<br>Transform 组件：<br>更改 Position 属性可以更改地形系统在场景中的位置，而修改 Rotation 与 Scale 属性，并不影响地图系统的朝向与尺寸</p>
+<p>Terrain 组件<br>地形编辑工具<br>该组件包含七个按钮，前六个按钮用于实时编辑地形效果 第七个按钮表示该地形系统的属性设置</p>
+<p>Terrain Collider 组件<br>该组件表示地形的碰撞体，在创建地形体统 时，会在 Project 视图中自动生成一个地形系统碰撞体 并自动应用到 Terrain Data 属性中 地形系统碰撞体的形状，会根据地形的实时编辑发生改变 </p>
+<p>地形系统编辑工具</p>
+<p>Raise/Lower Terrain（升高/降低地形）<br>启用该 按钮，按住鼠标左键拖动，可以升高地形高度，绘制出山脉 按住 shift 键，并按住鼠标左键拖动，可以降低地形高度 绘制出峡谷。 地形高度为 0 时，不再降低<br>相关参数：<br> Brushes，表示绘制地形高度的笔刷样式 Brush Size，表示笔刷尺寸，取值范围为 1 到 100 Opacity 表示绘制强度 用于确定每次点击后地形升高或降低的强度 取值范围为 0 到 100 </p>
+<p>Paint Height（喷涂高度）<br>用于将地形绘制到指定高度<br>启用该按钮，按住鼠标 左键拖动，可以改变地形高度，直到地形高度达到指定值<br>相关参数：<br>Height 表示地形指定的高度 点击 Flatten 按钮，可以将整个地形绘制到指定的高度</p>
+<p>Smooth Height （平滑高度）<br>点击 Terrain 组件的第三个按钮，打开平滑高度工具 首先可以选择笔刷的样式，并设定大小和强度 然后在地形上拖动鼠标左键，即可提高地形的平滑度 </p>
+<p>Paint Texture （绘制纹理）<br>用于绘制地表的纹理<br>启用该按钮，每次点击鼠标左键 进行该区域的纹理绘制。 我们可以点击 Edit Texture 进行纹理设置 第一次添加的纹理会自动应用到整个地形系统 后续添加的纹理将通过笔刷的形式实现绘制</p>
+<p>相关参数：<br>Target Strength 表示纹理绘制的最大影响程度 数值 0 表示纹理绘制完全没有影响 数字 1 表示纹理绘制将完全覆盖之前的纹理图像</p>
+<p>Place Tree（种植树）<br>用于在地形上添加树模型 在种植树之前需要添加树的模型</p>
+<p>树模型的设置步骤：<br>点击 Add Tree 按钮，即可以执行树模型的添加、 编辑 移除操作，选中树模型，选 Mass Place Trees 按钮 可以在整个地形系统中随机种植树木<br>随机种植树的几个相关的参数<br>Number Of Trees，表示随机种植树的个数<br>Keep Existing Trees 选项表示的是是否保留以种植的树<br>设置完成后，点击 Place 按钮 可以在整个地形系统上完成树的随机种植<br>该工具的相关参数<br>Tree Density 表示树绘制的密度，<br>Tree Height，表示绘制的树高度 可以选择随机的范围。<br>Lock Width to Height，确定树的宽高比是否一致<br> Tree Width，表示绘制的树宽度 可以选择随机范围，<br>当 Lock Width to Height 属性不勾选时，可以编辑该属性<br>Random Tree Rotate，用于确定树的朝向是否随机</p>
+<p>Paint Detail（绘制细节）<br> 用于在地形上添加草等 在绘制细节之前，需要设置细节的纹理或网格</p>
+<p>细节的设置步骤<br>点击 Add Detail，开始细节的编辑，分为 Grass Texture 和 Detail Mesh 两种 Grass Texture 用于草纹理的设置，Detail Mesh 用于细节网格的设置</p>
+<p>Terrain Setting （地形设置）<br>用于设置地形系统的相关参数<br>Base Terrain，表示地形系统的基本参数设置<br>其中 Draw 表示是否呈现地形系统<br> Pixel Error 表示像素容差，显示地形网格时允许的像素误差<br> Base Map Dist，用于设置高分辨率地形贴图的显示范围。为了提高效率，与摄像机距离超过该值的纹理，将以较低的分辨率显示<br>Cast Shadows，表示该地形是否投射阴影<br>Tree &amp; Detail Objects 表示树和细节的相关参数的设置，其中 Draw 表示是否呈现树 和细节，<br>Detail Distance 用于设置超过摄像机多少距离的细节 将会停止渲染，<br>Tree Distance 表示树的显示距离 树与摄像机距离超过 Tree Distance，不对树进行渲染<br> Resolution，表示地形系统的分辨率设置 其中 Terrain Width 表示地形系统的宽度，Terrain Length 表示地形系统的长度，Terrain Height，表示地形系统的高度</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/12/基于Unity引擎的游戏开发基础-课程笔记3/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:47:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-12</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/12/基于Unity引擎的游戏开发基础-课程笔记2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于Unity引擎的游戏开发基础-课程笔记2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 晨曦的葬歌
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/C-C/" style="font-size: 17.5px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/博客搭建/" style="font-size: 12.5px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">勇敢地做梦，并向着那个梦去奔跑！</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
