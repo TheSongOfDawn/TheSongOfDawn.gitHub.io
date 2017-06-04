@@ -8,22 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>基于Unity引擎的游戏开发基础-课程笔记4 | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动画状态机（Animaation State Machine）
- Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画给游戏对象添加 Animator 组件 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加
-Animator 组件的常用属性， Control">
+  <meta name="description" content="动画状态机（Animaation State Machine） Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画给游戏对象添加 Animator 组件 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加
+Animator 组件的常用属性， Controll">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Unity引擎的游戏开发基础-课程笔记4">
 <meta property="og:url" content="http://yoursite.com/2017/04/20/基于Unity引擎的游戏开发基础-课程笔记4/index.html">
 <meta property="og:site_name" content="Othello's Blog">
-<meta property="og:description" content="动画状态机（Animaation State Machine）
- Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画给游戏对象添加 Animator 组件 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加
-Animator 组件的常用属性， Control">
-<meta property="og:updated_time" content="2017-04-20T10:39:31.952Z">
+<meta property="og:description" content="动画状态机（Animaation State Machine） Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画给游戏对象添加 Animator 组件 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加
+Animator 组件的常用属性， Controll">
+<meta property="og:updated_time" content="2017-06-04T01:58:01.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Unity引擎的游戏开发基础-课程笔记4">
-<meta name="twitter:description" content="动画状态机（Animaation State Machine）
- Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画给游戏对象添加 Animator 组件 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加
-Animator 组件的常用属性， Control">
+<meta name="twitter:description" content="动画状态机（Animaation State Machine） Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画给游戏对象添加 Animator 组件 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加
+Animator 组件的常用属性， Controll">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -160,289 +157,293 @@ Animator 组件的常用属性， Control">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>动画状态机（Animaation State Machine）</p>
-<p> Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画<br>给游戏对象添加 Animator 组件<br> 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加</p>
-<p>Animator 组件的常用属性，<br> Controller 表示游戏对象的动画控制器的设置 Avatar 表示游戏对象的 Avatar 设置，Apply Root Motion 表示游戏对象的位移或旋转是否由动画片段控制 该属性勾选表示游戏对象的位移和旋转由动画片段控制 该属性不勾选表示游戏对象的位移和旋转由脚本控制<br>通常情况下，一个游戏对象拥有多个动画片段 Animator Controller (动画控制器)，允许开发者管理游戏对象的一系列动画片段</p>
+        <h3 id="动画状态机（Animaation-State-Machine）"><a href="#动画状态机（Animaation-State-Machine）" class="headerlink" title="动画状态机（Animaation State Machine）"></a>动画状态机（Animaation State Machine）</h3><p> Animator 组件：用于控制游戏对象的动画包括建立状态机 调整动画参数以及使用代码控制动画<br>给游戏对象添加 Animator 组件<br> 首先选中游戏对象，再选择 Component 的菜单栏，点击 Mis 菜单项目中的 Animator，即可完成游戏对象 Animator 组件的添加</p>
+<h3 id="Animator-组件的常用属性，"><a href="#Animator-组件的常用属性，" class="headerlink" title="Animator 组件的常用属性，"></a>Animator 组件的常用属性，</h3><p> Controller 表示游戏对象的动画控制器的设置 Avatar 表示游戏对象的 Avatar 设置，Apply Root Motion 表示游戏对象的位移或旋转是否由动画片段控制 该属性勾选表示游戏对象的位移和旋转由动画片段控制 该属性不勾选表示游戏对象的位移和旋转由脚本控制<br>通常情况下，一个游戏对象拥有多个动画片段 Animator Controller (动画控制器)，允许开发者管理游戏对象的一系列动画片段</p>
 <p>Animation State Machine (动画状态机) 用于管理动画的播放与动画之间的过渡。<br> Animation Layers &amp; Avatar Mask 动画层和身体蒙版用于管理不同身体部位的动画。</p>
 <p>在游 戏中，我们使用键盘控制角色的行为，例如 WSAD 控制角色移动，空格键控制角色的跳跃<br> 角色的行为影响动画片段的播放与切换，例如角色在移动时 播放移动动画，在跳跃时播放跳跃动画<br>在 Unity 中，我们使用 Animation State Machine (动画状态机) 控制角色动画片段的播放与切换 </p>
 <p>动画状态机的基本思想是 让角色在给定的状态执行特定的动作 状态执行存在过渡，用于改变角色所处的状态 状态过渡需要满足一定的条件：动画状态机使用参数，控制状态之间的过渡</p>
-<p>Animation State Machine示例</p>
-<p>首先导入 Unity 标准资源中的角色和动画资源。<br>在 Project 视图中点击鼠标右键，选择 Import Package 中的 Characters 完成角色和动画资源的导入</p>
+<h3 id="Animation-State-Machine示例"><a href="#Animation-State-Machine示例" class="headerlink" title="Animation State Machine示例"></a>Animation State Machine示例</h3><p>首先导入 Unity 标准资源中的角色和动画资源。<br>在 Project 视图中点击鼠标右键，选择 Import Package 中的 Characters 完成角色和动画资源的导入</p>
 <p>取消掉动画过度线中的Has Exit Time 这样过度的更快</p>
-<p>Animator Controller （动画控制器）</p>
-<p>通常情况下 一个游戏对象拥有多个动画片段，Animator Controller（动画控制器）允许开发者管理游戏对象的一系列动画片段</p>
+<h3 id="Animator-Controller-（动画控制器）"><a href="#Animator-Controller-（动画控制器）" class="headerlink" title="Animator Controller （动画控制器）"></a>Animator Controller （动画控制器）</h3><p>通常情况下 一个游戏对象拥有多个动画片段，Animator Controller（动画控制器）允许开发者管理游戏对象的一系列动画片段</p>
 <p>射击类游戏中，我们需要实现”奔跑时射击” “跳跃时射击”、 “行走时射击”等动作 有两种方法可以实现该功能。 第一种方法是分别为这些动作制定 对应的动画，这种方法在动画数量很多的工程项目中带来很大的工作量 另一种方法是将”奔跑”、 “跳跃”等动画与”射击”动画相结合 身体的下半部分使用”奔跑”动画，上半部分使用”射击”动画 这种方法使用了 Unity 中动画层与身体遮罩的技术 Animation Layer 动画层与 Avatar Mask 身体遮罩可以用于合成身体不同部位的动画</p>
 <p>Animator Layers&amp;Avatar Mask（动画层和身体遮罩）<br>用于合成身体不同部位的动画</p>
 <p>Unity使用Animation Layer（动画层）来管理身体不同部分的动画</p>
-<p>动画层的参数设置</p>
-<p>首先是 Weight，表示该动画层对角色整体动画的影响程度 取值范围 0 到 1，动画最底层的位置值，固定为 1<br>其次是 Mask 动画层的身体遮罩设置，表示该动画层影响人形角色的身体关节</p>
-<p>Avatar Mask身体遮罩</p>
-<p>可以使得开发者选择性的起用或禁用人形角色相关的关节，以控制动画片段对人形角色的影响；启用的关节受动画的控制而产生动作，禁用的关节不受动画的控制</p>
+<h3 id="动画层的参数设置"><a href="#动画层的参数设置" class="headerlink" title="动画层的参数设置"></a>动画层的参数设置</h3><p>首先是 Weight，表示该动画层对角色整体动画的影响程度 取值范围 0 到 1，动画最底层的位置值，固定为 1<br>其次是 Mask 动画层的身体遮罩设置，表示该动画层影响人形角色的身体关节</p>
+<h3 id="Avatar-Mask身体遮罩"><a href="#Avatar-Mask身体遮罩" class="headerlink" title="Avatar Mask身体遮罩"></a>Avatar Mask身体遮罩</h3><p>可以使得开发者选择性的起用或禁用人形角色相关的关节，以控制动画片段对人形角色的影响；启用的关节受动画的控制而产生动作，禁用的关节不受动画的控制</p>
 <p>身体遮罩创建步骤<br>在 Project 视图中点击鼠标右键，选择 Create 下面的 Avatar Mask，即可完成身体遮罩的创建<br>以在 Inspector 视图中进行身体遮罩的设置</p>
 <p>在 Humanoid 标签中，我们点击人形关节 控制人形关节的启用和禁止</p>
 <p>绿色表示启用，红色表示禁用</p>
-<p>游戏逻辑-玩家与敌人设置</p>
-<p>玩家运动实现</p>
-<p>在游戏项目 中，我们使用键盘输入来控制玩家的运动， W、 S 键 控制玩家向前、 向后运动，A、 D 键控制玩家的左转、 右转行为<br>空格键控制玩家的跳跃。<br>游戏中摄像机采用第三人称视角 摄像机设定为玩家对象的子对象，摄像机与玩家之间的相对位置和朝向保持不变 跟随玩家一起进行平移、 旋转和跳跃</p>
-<p>控制玩家运动的技术要点<br>使用 PresentationSetting 的 InputSystem 中默认的参数 获得玩家键盘、 鼠标、 游戏手柄等输入设备的值<br>前后运动<br>使用 Input 类的 GetAxisRaw 函数 并使用参数 “Vertical” 来获取键盘垂直轴方向上的输入 同时根据垂直输入使用 Transform 类的 Translate 函数实现角色的位移<br>左右转向<br>使用 Input 类的 GetAxisRaw 函数 并使用参数 “Horizontal” 来获取玩家键盘水平轴方向上的输入 同时根据水平输入使用 Transform 类的 Rotate 函数实现角色的旋转 </p>
-<p>控制玩家跳跃的技术细节<br>首先需要检测玩家是否按下跳跃键 这里将空格定义为跳跃键，还需要判断玩家是否在地面上 我们使用 InputDot GetKeyDown 函数对玩家键盘输入进行检测 玩家是否在地面上使用 Physics 类的 Raycast 函数 以玩家位置为起点向下发射一条射线 根据射线与地面的碰撞检测结果来确定玩家是否在地面上 玩家跳跃逻辑实现玩家向上跳跃 播放玩家跳跃的动画。 玩家向上跳跃使用 RigidBody 类的 AddForce 函数 给玩家添加一个向上的瞬时速度来实现跳跃的效果 玩家跳跃动作发生时需要使用 Animator 类的 SetBool 函数 来控制跳跃动画的播放 下面在 PlayerMove 脚本中实现玩家跳跃的代码 我们使用 Physics RayCast 函数从玩家位置向下 发射一条射线，如果射线在很短的距离内与地面发生碰撞 表示玩家在地面上，Jump（isGrounded）参数设备处 接着我们调用 Jump 函数实现玩家跳跃的相关逻辑 在 Jump 函数中，若玩家按下了跳跃键，且玩家处于地面上 执行玩家跳跃逻辑 我们通过给玩家的刚体组件施加一个向上的力 改变玩家的瞬时速度，实现玩家的跳跃行为 我们使用 Animator 类的 SetBool 函数设置布尔类型的动画参数与其 Jump 值 控制玩家跳跃动画的播放</p>
-<p>摄像机行为<br>三人称设计游戏，我们将摄像机设置为玩家角色的子对象 调整摄像机与玩家之间的相对位置和朝向 使玩家出现在游戏画面的合适区域。 游戏过程中摄像机与玩家之间的相对位置和朝向保持不变 跟随玩家一起进行平移、 旋转和跳跃</p>
+<h3 id="游戏逻辑-玩家与敌人设置"><a href="#游戏逻辑-玩家与敌人设置" class="headerlink" title="游戏逻辑-玩家与敌人设置"></a>游戏逻辑-玩家与敌人设置</h3><h4 id="玩家运动实现"><a href="#玩家运动实现" class="headerlink" title="玩家运动实现"></a>玩家运动实现</h4><p>在游戏项目 中，我们使用键盘输入来控制玩家的运动， W、 S 键 控制玩家向前、 向后运动，A、 D 键控制玩家的左转、 右转行为<br>空格键控制玩家的跳跃。<br>游戏中摄像机采用第三人称视角 摄像机设定为玩家对象的子对象，摄像机与玩家之间的相对位置和朝向保持不变 跟随玩家一起进行平移、 旋转和跳跃</p>
+<h4 id="控制玩家运动的技术要点"><a href="#控制玩家运动的技术要点" class="headerlink" title="控制玩家运动的技术要点"></a>控制玩家运动的技术要点</h4><p>使用 PresentationSetting 的 InputSystem 中默认的参数 获得玩家键盘、 鼠标、 游戏手柄等输入设备的值<br>前后运动<br>使用 Input 类的 GetAxisRaw 函数 并使用参数 “Vertical” 来获取键盘垂直轴方向上的输入 同时根据垂直输入使用 Transform 类的 Translate 函数实现角色的位移<br>左右转向<br>使用 Input 类的 GetAxisRaw 函数 并使用参数 “Horizontal” 来获取玩家键盘水平轴方向上的输入 同时根据水平输入使用 Transform 类的 Rotate 函数实现角色的旋转 </p>
+<h4 id="控制玩家跳跃的技术细节"><a href="#控制玩家跳跃的技术细节" class="headerlink" title="控制玩家跳跃的技术细节"></a>控制玩家跳跃的技术细节</h4><p>首先需要检测玩家是否按下跳跃键 这里将空格定义为跳跃键，还需要判断玩家是否在地面上 我们使用 InputDot GetKeyDown 函数对玩家键盘输入进行检测 玩家是否在地面上使用 Physics 类的 Raycast 函数 以玩家位置为起点向下发射一条射线 根据射线与地面的碰撞检测结果来确定玩家是否在地面上 玩家跳跃逻辑实现玩家向上跳跃 播放玩家跳跃的动画。 玩家向上跳跃使用 RigidBody 类的 AddForce 函数 给玩家添加一个向上的瞬时速度来实现跳跃的效果 玩家跳跃动作发生时需要使用 Animator 类的 SetBool 函数 来控制跳跃动画的播放 下面在 PlayerMove 脚本中实现玩家跳跃的代码 我们使用 Physics RayCast 函数从玩家位置向下 发射一条射线，如果射线在很短的距离内与地面发生碰撞 表示玩家在地面上，Jump（isGrounded）参数设备处 接着我们调用 Jump 函数实现玩家跳跃的相关逻辑 在 Jump 函数中，若玩家按下了跳跃键，且玩家处于地面上 执行玩家跳跃逻辑 我们通过给玩家的刚体组件施加一个向上的力 改变玩家的瞬时速度，实现玩家的跳跃行为 我们使用 Animator 类的 SetBool 函数设置布尔类型的动画参数与其 Jump 值 控制玩家跳跃动画的播放</p>
+<h3 id="摄像机行为"><a href="#摄像机行为" class="headerlink" title="摄像机行为"></a>摄像机行为</h3><p>三人称设计游戏，我们将摄像机设置为玩家角色的子对象 调整摄像机与玩家之间的相对位置和朝向 使玩家出现在游戏画面的合适区域。 游戏过程中摄像机与玩家之间的相对位置和朝向保持不变 跟随玩家一起进行平移、 旋转和跳跃</p>
 <p>按照老师的操作步骤添加了playerMove脚本运行，但是我的角色跑动时没有正常播放跑动动画，第一时间检测了Animator里的参数是-否有错，结果发现自己的isMove参数写成了isMoov导致不能正常播放动画，改正后正确。</p>
 <p>playMove脚本：</p>
-<p>using UnityEngine;<br>using System.Collections;</p>
-<p>public class PlayerMove : MonoBehaviour {</p>
-<pre><code>public float moveSpeed = 10.0f;        //玩家移动速度
-public float rotateSpeed = 40.0f;    //玩家旋转速度
-public float jumpVelocity = 2.0f;    //玩家起跳速度
+<pre><code>using UnityEngine;
+using System.Collections;
 
-private Animator animator;        //玩家的Animator组件，用于控制玩家动画的播放
-private Rigidbody rigidbody;    //玩家的刚体组件
+public class PlayerMove : MonoBehaviour {
 
-private float h;                //获取玩家横轴输入
-private float v;                //获取玩家纵轴输入
-private bool isGrounded;        //玩家是否在地面上
-private float groundedRaycastDistance = 0.1f;    //表示向地面发射射线的射线长度
+    public float moveSpeed = 10.0f;        //玩家移动速度
+    public float rotateSpeed = 40.0f;    //玩家旋转速度
+    public float jumpVelocity = 2.0f;    //玩家起跳速度
 
-//初始化，获取玩家组件
-void Start () {
-    animator= GetComponent&lt;Animator&gt; ();    //获取玩家Animator组件
-    rigidbody = GetComponent&lt;Rigidbody&gt;();    //获取玩家刚体组件
-}
+    private Animator animator;        //玩家的Animator组件，用于控制玩家动画的播放
+    private Rigidbody rigidbody;    //玩家的刚体组件
 
-//每个固定时间执行一次，用于物理模拟
-void FixedUpdate()
-{
-    //从玩家的位置垂直向下发出长度为groundedRaycastDistance的射线，返回值表示玩家是否该射线是否碰撞到物体，该句代码用于检测玩家是否在地面上
-    isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundedRaycastDistance);
-    Jump(isGrounded);    //调用跳跃函数
-}
+    private float h;                //获取玩家横轴输入
+    private float v;                //获取玩家纵轴输入
+    private bool isGrounded;        //玩家是否在地面上
+    private float groundedRaycastDistance = 0.1f;    //表示向地面发射射线的射线长度
 
-//跳跃函数，用于FixedUpdate()中调用
-void Jump(bool isGround)
-{
-    //当玩家按下跳跃键Space，并且玩家在地面上时执行跳跃相关函数
-    if (Input.GetKey(KeyCode.Space) &amp;&amp; isGround)
-    {
-        //给玩家刚体组件添加向上的作用力，以改变玩家的运动速度，改变值为jumpVelocity
-        rigidbody.AddForce(Vector3.up * jumpVelocity, ForceMode.VelocityChange);    
-        animator.SetBool(&quot;isJump&quot;, true);    //设置动画参数，将isJump布尔型参数设置为true，播放玩家跳跃动画
+    //初始化，获取玩家组件
+    void Start () {
+        animator= GetComponent&lt;Animator&gt; ();    //获取玩家Animator组件
+        rigidbody = GetComponent&lt;Rigidbody&gt;();    //获取玩家刚体组件
     }
-    else if(isGround) animator.SetBool(&quot;isJump&quot;, false);    //设置动画参数，将isJump布尔型参数设置为false，停止播放玩家跳跃动画
+
+    //每个固定时间执行一次，用于物理模拟
+    void FixedUpdate()
+    {
+        //从玩家的位置垂直向下发出长度为groundedRaycastDistance的射线，返回值表示玩家是否该射线是否碰撞到物体，该句代码用于检测玩家是否在地面上
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundedRaycastDistance);
+        Jump(isGrounded);    //调用跳跃函数
+    }
+
+    //跳跃函数，用于FixedUpdate()中调用
+    void Jump(bool isGround)
+    {
+        //当玩家按下跳跃键Space，并且玩家在地面上时执行跳跃相关函数
+        if (Input.GetKey(KeyCode.Space) &amp;&amp; isGround)
+        {
+            //给玩家刚体组件添加向上的作用力，以改变玩家的运动速度，改变值为jumpVelocity
+            rigidbody.AddForce(Vector3.up * jumpVelocity, ForceMode.VelocityChange);    
+            animator.SetBool(&quot;isJump&quot;, true);    //设置动画参数，将isJump布尔型参数设置为true，播放玩家跳跃动画
+        }
+        else if(isGround) animator.SetBool(&quot;isJump&quot;, false);    //设置动画参数，将isJump布尔型参数设置为false，停止播放玩家跳跃动画
+    }
+
+    //每帧执行一次，用于玩家的位移与旋转
+    void Update () {
+        float h = Input.GetAxisRaw(&quot;Horizontal&quot;);    //获取玩家水平轴上的输入
+        float v = Input.GetAxisRaw(&quot;Vertical&quot;);        //获取玩家垂直轴上的输入
+        MoveAndRotate(h, v);        //根据玩家在水平、垂直轴上的输入，调用玩家的位移与旋转函数
+    }
+
+    //玩家的位移与旋转函数
+    void MoveAndRotate(float h, float v)
+    {
+        //v&gt;0表示获取玩家向前的输入，玩家以moveSpeed的速度向前运动
+        if (v &gt; 0) transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);    
+        //v&lt;0表示获取玩家向后的输入，玩家以moveSpeed的速度向后运动
+        else if (v &lt; 0) transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);    
+
+        //若玩家垂直轴上有输入，则表示玩家进行位移，设置动画参数，将isMove布尔型参数设置为true，播放玩家奔跑动画
+        if (v != 0.0f) animator.SetBool(&quot;isMove&quot;, true);
+        //若玩家垂直轴上无输入，则表示玩家没有位移，设置动画参数，将isMove布尔型参数设置为false，停止播放玩家奔跑动画
+        else animator.SetBool(&quot;isMove&quot;, false);
+
+        //根据玩家水平轴的输入进行旋转，顺时针为正方向
+        transform.Rotate(Vector3.up * h * rotateSpeed * Time.deltaTime);
+    }
+
 }
+</code></pre><p>玩家生命值管理</p>
+<p>脚本代码实现如下：</p>
+<pre><code>using UnityEngine;
+using System.Collections;
 
-//每帧执行一次，用于玩家的位移与旋转
-void Update () {
-    float h = Input.GetAxisRaw(&quot;Horizontal&quot;);    //获取玩家水平轴上的输入
-    float v = Input.GetAxisRaw(&quot;Vertical&quot;);        //获取玩家垂直轴上的输入
-    MoveAndRotate(h, v);        //根据玩家在水平、垂直轴上的输入，调用玩家的位移与旋转函数
+public class PlayerHealth : MonoBehaviour {
+
+    public int health = 10;            //玩家的生命值
+    public bool isAlive = true;        //玩家是否存活
+
+    //每帧执行一次，检测玩家是否存活
+    void Update () {    
+        if (health &lt;= 0)
+            isAlive = false;
+    }
+
+    //玩家扣血函数，用于GameManager脚本中调用
+    public void TakeDamage(int damage){
+        health -= damage;
+        if (health &lt; 0) 
+            health = 0;
+    }
 }
-
-//玩家的位移与旋转函数
-void MoveAndRotate(float h, float v)
-{
-    //v&gt;0表示获取玩家向前的输入，玩家以moveSpeed的速度向前运动
-    if (v &gt; 0) transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);    
-    //v&lt;0表示获取玩家向后的输入，玩家以moveSpeed的速度向后运动
-    else if (v &lt; 0) transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);    
-
-    //若玩家垂直轴上有输入，则表示玩家进行位移，设置动画参数，将isMove布尔型参数设置为true，播放玩家奔跑动画
-    if (v != 0.0f) animator.SetBool(&quot;isMove&quot;, true);
-    //若玩家垂直轴上无输入，则表示玩家没有位移，设置动画参数，将isMove布尔型参数设置为false，停止播放玩家奔跑动画
-    else animator.SetBool(&quot;isMove&quot;, false);
-
-    //根据玩家水平轴的输入进行旋转，顺时针为正方向
-    transform.Rotate(Vector3.up * h * rotateSpeed * Time.deltaTime);
-}
-</code></pre><p>}</p>
-<p>玩家生命值管理</p>
-<p>脚本代码实现如下：<br>using UnityEngine;<br>using System.Collections;</p>
-<p>public class PlayerHealth : MonoBehaviour {</p>
-<pre><code>public int health = 10;            //玩家的生命值
-public bool isAlive = true;        //玩家是否存活
-
-//每帧执行一次，检测玩家是否存活
-void Update () {    
-    if (health &lt;= 0)
-        isAlive = false;
-}
-
-//玩家扣血函数，用于GameManager脚本中调用
-public void TakeDamage(int damage){
-    health -= damage;
-    if (health &lt; 0) 
-        health = 0;
-}
-</code></pre><p>}</p>
-<p>玩家攻击实现<br>玩家按下键盘的 J 键 游戏画面中玩家抬手向屏幕中央准星内的目标进行攻击<br> 同时枪口发出激光射线，播放射击音效<br>我们限制了玩家的攻击频率，玩家的两次射击动作之间需要一定的时间间隔<br>（屏幕准星的实现涉及图形用户界面）</p>
+</code></pre><h3 id="玩家攻击实现"><a href="#玩家攻击实现" class="headerlink" title="玩家攻击实现"></a>玩家攻击实现</h3><p>玩家按下键盘的 J 键 游戏画面中玩家抬手向屏幕中央准星内的目标进行攻击<br> 同时枪口发出激光射线，播放射击音效<br>我们限制了玩家的攻击频率，玩家的两次射击动作之间需要一定的时间间隔<br>（屏幕准星的实现涉及图形用户界面）</p>
 <p>玩家射击需要满足两个条件<br>按下射击键J（使用Input类的GetKeyDown函数来检测是否按下）<br>2.检查本次设计与上次的攻击间隔，该时间间隔必须大于预定的时间间隔（使用Time类的delta Time来进行时间累加）</p>
 <p>满足射击条件后，脚本执行射击逻辑:<br>1.准星射击<br>（Physice类的RayCast函数检测射线是否接触到敌人，执行敌人扣血等相关动作）</p>
 <p>2.射击动画<br>Animator类的SetBool函数控制动画的播放<br>3.枪口射线<br>(线渲染器)<br>4.射击音效<br>(AudioSource类的PlayClipAtPoint函数)</p>
 <p>PlayerAttack 实现攻击代码</p>
-<p>public class PlayerAttack : MonoBehaviour {</p>
-<pre><code>public int shootingDamage = 1;                //玩家射击伤害
-public float shootingRange=50.0f;            //玩家射击范围
-public AudioClip shootingAudio;                //玩家射击音效
-public float timeBetweenShooting = 1.0f;    //射击之间的最小时间间隔（玩家射击动画为1秒，为了使得动画正常播放，该值最好&gt;=1.0f）
+<pre><code>public class PlayerAttack : MonoBehaviour {
 
-private Animator animator;            //玩家的Animator组件，用于控制玩家动画的播放
-private LineRenderer gunLine;        //玩家的线渲染器组件，用于控制玩家开枪发出的激光射线效果
+    public int shootingDamage = 1;                //玩家射击伤害
+    public float shootingRange=50.0f;            //玩家射击范围
+    public AudioClip shootingAudio;                //玩家射击音效
+    public float timeBetweenShooting = 1.0f;    //射击之间的最小时间间隔（玩家射击动画为1秒，为了使得动画正常播放，该值最好&gt;=1.0f）
 
-private float timer;                //攻击时间间隔，记录玩家从上次射击到现在经过的时间
-private Ray ray;
-private RaycastHit hitInfo;
+    private Animator animator;            //玩家的Animator组件，用于控制玩家动画的播放
+    private LineRenderer gunLine;        //玩家的线渲染器组件，用于控制玩家开枪发出的激光射线效果
 
-//初始化，获取对象组件，以及初始化变量
-void Start () {
-    animator = GetComponentInParent&lt;Animator&gt;();    //获取玩家的Animator组件
-    gunLine = GetComponent&lt;LineRenderer&gt;();            //获取玩家的线渲染器组件
-    timer = 0.0f;        //将攻击时间间隔清零
-}
+    private float timer;                //攻击时间间隔，记录玩家从上次射击到现在经过的时间
+    private Ray ray;
+    private RaycastHit hitInfo;
 
-//每帧执行一次，用于玩家的射击行为
-void Update () {
-    //当玩家按下攻击键J，并且攻击间隔大于射击之间的最小时间间隔，执行射击相关行为
-    if (Input.GetKeyDown(KeyCode.J) &amp;&amp; timer&gt;timeBetweenShooting)
-    {
-        timer = 0.0f;                            //射击后将攻击时间间隔清零
-        animator.SetBool(&quot;isShooting&quot;, true);    //设置动画参数，将isShooting布尔型参数设置为true，播放玩家射击动画
-        Invoke(&quot;shoot&quot;, 0.5f);                    //0.5秒后调用shoot() 射击函数
+    //初始化，获取对象组件，以及初始化变量
+    void Start () {
+        animator = GetComponentInParent&lt;Animator&gt;();    //获取玩家的Animator组件
+        gunLine = GetComponent&lt;LineRenderer&gt;();            //获取玩家的线渲染器组件
+        timer = 0.0f;        //将攻击时间间隔清零
     }
-    //否则，表示射击条件未满足
-    else
-    {
-        timer += Time.deltaTime;    //更新攻击间隔，增加上一帧所花费的时间
-        gunLine.enabled = false;    //将线渲染器设为禁用
-        animator.SetBool(&quot;isShooting&quot;, false);    //设置动画参数，将isShooting布尔型参数设置为false，停止播放玩家射击动画
-    }
-}
 
-//射击函数
-void shoot()
-{
-    AudioSource.PlayClipAtPoint(shootingAudio, transform.position);    //在枪口位置播放射击音效
-    ray.origin = Camera.main.transform.position;    //设置射线发射的原点：摄像机所在的位置
-    ray.direction = Camera.main.transform.forward;    //设置射线发射的方向：摄像机的正方向
-    gunLine.SetPosition(0, transform.position);        //设置线渲染器（开枪后的激光射线）第一个端点的位置：玩家枪械的枪口位置（本游戏对象）
-    //发射射线，射线有效长度为shootingRange，若射线击中任何游戏对象，则返回true，否则返回false
-    if (Physics.Raycast(ray, out hitInfo, shootingRange))
-    {
-        if (hitInfo.collider.gameObject.tag == &quot;Enemy&quot;)    //当被击中的游戏对象标签为Enemy，表明射线射中敌人
+    //每帧执行一次，用于玩家的射击行为
+    void Update () {
+        //当玩家按下攻击键J，并且攻击间隔大于射击之间的最小时间间隔，执行射击相关行为
+        if (Input.GetKeyDown(KeyCode.J) &amp;&amp; timer&gt;timeBetweenShooting)
         {
-            //获取该名敌人的EnemyHealth脚本组件
-            EnemyHealth enemyHealth = hitInfo.collider.gameObject.GetComponent&lt;EnemyHealth&gt;();
-            if (enemyHealth != null)
-            {
-                //调用EnemyHealth脚本的TakeDamage()函数，对敌人造成shootingDamage的伤害
-                enemyHealth.TakeDamage(shootingDamage);    
-            }
-            if(enemyHealth.health&gt;0)    //若敌人受伤且未死亡，敌人将会因受到攻击而被击退
-                hitInfo.collider.gameObject.transform.position += transform.forward * 2;
+            timer = 0.0f;                            //射击后将攻击时间间隔清零
+            animator.SetBool(&quot;isShooting&quot;, true);    //设置动画参数，将isShooting布尔型参数设置为true，播放玩家射击动画
+            Invoke(&quot;shoot&quot;, 0.5f);                    //0.5秒后调用shoot() 射击函数
         }
-        gunLine.SetPosition(1, hitInfo.point);    //当射线击中游戏对象时，将线渲染器（开枪后的激光射线）第二个端点设为射线击中游戏对象的点
+        //否则，表示射击条件未满足
+        else
+        {
+            timer += Time.deltaTime;    //更新攻击间隔，增加上一帧所花费的时间
+            gunLine.enabled = false;    //将线渲染器设为禁用
+            animator.SetBool(&quot;isShooting&quot;, false);    //设置动画参数，将isShooting布尔型参数设置为false，停止播放玩家射击动画
+        }
     }
-    //若射线未射中游戏对象，则将线渲染器（开枪后的激光射线）第二个端点设为射线射出后的极限位置
-    else gunLine.SetPosition(1, ray.origin + ray.direction * shootingRange);
-    gunLine.enabled = true;    //将线渲染器（开枪后的激光射线）启用，显示玩家开枪后的效果。
+
+    //射击函数
+    void shoot()
+    {
+        AudioSource.PlayClipAtPoint(shootingAudio, transform.position);    //在枪口位置播放射击音效
+        ray.origin = Camera.main.transform.position;    //设置射线发射的原点：摄像机所在的位置
+        ray.direction = Camera.main.transform.forward;    //设置射线发射的方向：摄像机的正方向
+        gunLine.SetPosition(0, transform.position);        //设置线渲染器（开枪后的激光射线）第一个端点的位置：玩家枪械的枪口位置（本游戏对象）
+        //发射射线，射线有效长度为shootingRange，若射线击中任何游戏对象，则返回true，否则返回false
+        if (Physics.Raycast(ray, out hitInfo, shootingRange))
+        {
+            if (hitInfo.collider.gameObject.tag == &quot;Enemy&quot;)    //当被击中的游戏对象标签为Enemy，表明射线射中敌人
+            {
+                //获取该名敌人的EnemyHealth脚本组件
+                EnemyHealth enemyHealth = hitInfo.collider.gameObject.GetComponent&lt;EnemyHealth&gt;();
+                if (enemyHealth != null)
+                {
+                    //调用EnemyHealth脚本的TakeDamage()函数，对敌人造成shootingDamage的伤害
+                    enemyHealth.TakeDamage(shootingDamage);    
+                }
+                if(enemyHealth.health&gt;0)    //若敌人受伤且未死亡，敌人将会因受到攻击而被击退
+                    hitInfo.collider.gameObject.transform.position += transform.forward * 2;
+            }
+            gunLine.SetPosition(1, hitInfo.point);    //当射线击中游戏对象时，将线渲染器（开枪后的激光射线）第二个端点设为射线击中游戏对象的点
+        }
+        //若射线未射中游戏对象，则将线渲染器（开枪后的激光射线）第二个端点设为射线射出后的极限位置
+        else gunLine.SetPosition(1, ray.origin + ray.direction * shootingRange);
+        gunLine.enabled = true;    //将线渲染器（开枪后的激光射线）启用，显示玩家开枪后的效果。
+    }
 }
-</code></pre><p>}</p>
-<p>敌人的追逐逻辑：<br>在游戏中，敌人不断调整朝向，面向追踪目标，向追踪目标移动<br>当敌人与目标距离小于一定距离时，停止移动，对目标进行攻击</p>
+</code></pre><h3 id="敌人的追逐逻辑："><a href="#敌人的追逐逻辑：" class="headerlink" title="敌人的追逐逻辑："></a>敌人的追逐逻辑：</h3><p>在游戏中，敌人不断调整朝向，面向追踪目标，向追踪目标移动<br>当敌人与目标距离小于一定距离时，停止移动，对目标进行攻击</p>
 <p>具体追踪逻辑：<br>Update函数<br>1.追踪判断条件<br>    包括以下四点：1.敌人是否存活 2.敌人追踪目标是否设置3. 游戏是否处于游戏进行状态4. 敌人与目标距离是否大于追踪的最小值<br>            必须满足四个条件才为True</p>
 <p>为True：<br>    调整朝向面向追踪目标<br>    向追踪目标移动一定距离<br>为False：<br>    本次Update函数结束</p>
 <p>敌人生命值与分数<br>敌人被玩家攻击时，减少生命值<br>敌人受伤时，出现流血效果，并发出受伤的声音<br>若敌人死亡，敌人会倒地并消失，同时玩家得分增加</p>
-<p>敌人生命值管理：</p>
-<p>生命值降低<br>内置字段health值降低<br>敌人受伤音效<br>AudioSource类的PlayClipAtPoint函数</p>
+<h3 id="敌人生命值管理："><a href="#敌人生命值管理：" class="headerlink" title="敌人生命值管理："></a>敌人生命值管理：</h3><p>生命值降低<br>内置字段health值降低<br>敌人受伤音效<br>AudioSource类的PlayClipAtPoint函数</p>
 <p>敌人死亡<br>敌人倒地<br>Animator类的SetBool函数<br>玩家得分<br>GameManger类的AddScore函数实现主角得分<br>敌人消失消失<br>GameObject类的Destory函数</p>
-<p>代码实现<br>using UnityEngine;<br>using System.Collections;</p>
-<p>public class EnemyHealth : MonoBehaviour {</p>
-<pre><code>public int health=2;    //敌人的生命值
-public int value=1;        //玩家击杀敌人后所获得的分数
-public AudioClip enemyHurtAudio;    //敌人的受伤音效
+<p>代码实现</p>
+<pre><code>using UnityEngine;
+using System.Collections;
 
-private Animator animator;            //敌人的Animator组件
-private Collider collider;            //敌人的Collider组件
-private Rigidbody rigidbody;        //敌人的rigidbody组件
+public class EnemyHealth : MonoBehaviour {
 
-//初始化，获取敌人的组件
-void Start(){
-    animator = GetComponent&lt;Animator&gt; ();    //获取敌人的Animator组件
-    collider = GetComponent&lt;Collider&gt; ();    //获取敌人的Collider组件
-    rigidbody = GetComponent&lt;Rigidbody&gt; ();    //获取敌人的Rigidbody组件
-}
+    public int health=2;    //敌人的生命值
+    public int value=1;        //玩家击杀敌人后所获得的分数
+    public AudioClip enemyHurtAudio;    //敌人的受伤音效
 
-//敌人受伤函数，用于PlayerAttack脚本中调用
-public void TakeDamage(int damage){    
-    health -= damage;            //敌人受伤扣血
-    if (enemyHurtAudio != null)    //在敌人位置处播放敌人受伤音效
-        AudioSource.PlayClipAtPoint (enemyHurtAudio, transform.position);
-    if (health &lt;= 0) {            //当敌人生命值小于等于0时，表明敌人已死亡
-        if (GameManager.gm != null) {    
-            GameManager.gm.AddScore (value);//玩家获得击杀敌人后得分
+    private Animator animator;            //敌人的Animator组件
+    private Collider collider;            //敌人的Collider组件
+    private Rigidbody rigidbody;        //敌人的rigidbody组件
+
+    //初始化，获取敌人的组件
+    void Start(){
+        animator = GetComponent&lt;Animator&gt; ();    //获取敌人的Animator组件
+        collider = GetComponent&lt;Collider&gt; ();    //获取敌人的Collider组件
+        rigidbody = GetComponent&lt;Rigidbody&gt; ();    //获取敌人的Rigidbody组件
+    }
+
+    //敌人受伤函数，用于PlayerAttack脚本中调用
+    public void TakeDamage(int damage){    
+        health -= damage;            //敌人受伤扣血
+        if (enemyHurtAudio != null)    //在敌人位置处播放敌人受伤音效
+            AudioSource.PlayClipAtPoint (enemyHurtAudio, transform.position);
+        if (health &lt;= 0) {            //当敌人生命值小于等于0时，表明敌人已死亡
+            if (GameManager.gm != null) {    
+                GameManager.gm.AddScore (value);//玩家获得击杀敌人后得分
+            }
+            animator.applyRootMotion = true;    //设置Animator组件的ApplyRootMotion属性，使敌人的移动与位移受动画的影响
+            animator.SetTrigger (&quot;isDead&quot;);        //设置动画参数，设置isDead的Trigger参数，播放敌人死亡动画
+            collider.enabled = false;            //禁用敌人的collider组件，使其不会与其他物体发生碰撞
+            rigidbody.useGravity = false;        //因为敌人的collider组件被禁用，敌人会因重力穿过地形系统下落，取消敌人受到的重力可以避免该现象
+            Destroy (gameObject, 3.0f);            //3秒后删除敌人对象
         }
-        animator.applyRootMotion = true;    //设置Animator组件的ApplyRootMotion属性，使敌人的移动与位移受动画的影响
-        animator.SetTrigger (&quot;isDead&quot;);        //设置动画参数，设置isDead的Trigger参数，播放敌人死亡动画
-        collider.enabled = false;            //禁用敌人的collider组件，使其不会与其他物体发生碰撞
-        rigidbody.useGravity = false;        //因为敌人的collider组件被禁用，敌人会因重力穿过地形系统下落，取消敌人受到的重力可以避免该现象
-        Destroy (gameObject, 3.0f);            //3秒后删除敌人对象
     }
 }
-</code></pre><p>}</p>
-<p>敌人攻击实现<br>当玩家进入敌人攻击范围，敌人攻击玩家，玩家受到伤害<br>当敌人攻击时抬手，脚本播放敌人攻击音效<br>敌人不会持续攻击，攻击之间有间隔</p>
+</code></pre><h3 id="敌人攻击实现"><a href="#敌人攻击实现" class="headerlink" title="敌人攻击实现"></a>敌人攻击实现</h3><p>当玩家进入敌人攻击范围，敌人攻击玩家，玩家受到伤害<br>当敌人攻击时抬手，脚本播放敌人攻击音效<br>敌人不会持续攻击，攻击之间有间隔</p>
 <p>敌人攻击逻辑：<br>两个条件<br>检测玩家是否处于敌人攻击范围<br>OnTriggerStay函数检测玩家是否处于敌人的攻击范围<br>距离上次敌人攻击经过了一段时间<br>Time类的Delta Time属性累加时</p>
 <p>攻击时：<br>抬手击打动画<br>    Animator类的SetBool函数<br>攻击音效播放<br>    AudioSource类的PlayClipAtPoint函数<br>玩家受伤掉血<br>    GameManager类中的PlayTakeDamage函数</p>
-<p>在EnemyAttack实现攻击代码<br>public class EnemyAttack : MonoBehaviour {</p>
-<pre><code>public int damage=1;                    //敌人攻击造成的伤害值
-public float timeBetweenAttack=0.8f;    //敌人攻击之间的最小间隔（敌人攻击动画约为0.8秒，为了使得动画正常播放，该值最好设为0.8秒）
-public AudioClip enemyAttackAudio;        //敌人的攻击音效
+<p>在EnemyAttack实现攻击代码<br>    public class EnemyAttack : MonoBehaviour {</p>
+<pre><code>    public int damage=1;                    //敌人攻击造成的伤害值
+    public float timeBetweenAttack=0.8f;    //敌人攻击之间的最小间隔（敌人攻击动画约为0.8秒，为了使得动画正常播放，该值最好设为0.8秒）
+    public AudioClip enemyAttackAudio;        //敌人的攻击音效
 
-private float timer;                //攻击时间间隔，记录敌人从上次攻击到现在经过的时间
-private Animator animator;            //敌人的Animator组件，用于控制敌人动画的播放
-private EnemyHealth enemyHealth;    //敌人的生命值脚本
+    private float timer;                //攻击时间间隔，记录敌人从上次攻击到现在经过的时间
+    private Animator animator;            //敌人的Animator组件，用于控制敌人动画的播放
+    private EnemyHealth enemyHealth;    //敌人的生命值脚本
 
-//初始化，获取对象组件，以及变量初始化
-void Start(){
-    timer = 0.0f;                                //将攻击时间间隔初始化
-    animator = GetComponent&lt;Animator&gt; ();        //获取敌人的Animator组件    
-    enemyHealth = GetComponent&lt;EnemyHealth&gt; ();    //获取敌人的生命值脚本
-}
+    //初始化，获取对象组件，以及变量初始化
+    void Start(){
+        timer = 0.0f;                                //将攻击时间间隔初始化
+        animator = GetComponent&lt;Animator&gt; ();        //获取敌人的Animator组件    
+        enemyHealth = GetComponent&lt;EnemyHealth&gt; ();    //获取敌人的生命值脚本
+    }
 
-//与勾选了isTrigger属性的COllider组件共同用于检测：是否有物体进入敌人的攻击范围
-void OnTriggerStay(Collider collider){
-    if (enemyHealth.health &lt;= 0)     //若敌人生命值小于等于0，则说明敌人已经死亡，不具备攻击能力
-        return;
-    //当攻击间隔大于敌人攻击之间的最小间隔，且进入敌人攻击范围的对象标签是玩家时
-    if (timer&gt;=timeBetweenAttack &amp;&amp; collider.gameObject.tag == &quot;Player&quot;) {
-        //当游戏状态为游戏进行中（Playing）时
-        if(GameManager.gm==null || GameManager.gm.gameState==GameManager.GameState.Playing){
-            timer=0.0f;            //攻击后将攻击时间间隔清零
-            animator.SetBool (&quot;isAttack&quot;, true);    //设置动画参数，将isAttack布尔型参数设置为true，播放敌人攻击动画
-            if(enemyAttackAudio!=null)                //在敌人位置处播放敌人的攻击音效
-                AudioSource.PlayClipAtPoint(enemyAttackAudio,transform.position);
-            if (GameManager.gm != null)
-                GameManager.gm.PlayerTakeDamage (damage);//通过GameManager游戏管理类实现玩家扣血的效果
+    //与勾选了isTrigger属性的COllider组件共同用于检测：是否有物体进入敌人的攻击范围
+    void OnTriggerStay(Collider collider){
+        if (enemyHealth.health &lt;= 0)     //若敌人生命值小于等于0，则说明敌人已经死亡，不具备攻击能力
+            return;
+        //当攻击间隔大于敌人攻击之间的最小间隔，且进入敌人攻击范围的对象标签是玩家时
+        if (timer&gt;=timeBetweenAttack &amp;&amp; collider.gameObject.tag == &quot;Player&quot;) {
+            //当游戏状态为游戏进行中（Playing）时
+            if(GameManager.gm==null || GameManager.gm.gameState==GameManager.GameState.Playing){
+                timer=0.0f;            //攻击后将攻击时间间隔清零
+                animator.SetBool (&quot;isAttack&quot;, true);    //设置动画参数，将isAttack布尔型参数设置为true，播放敌人攻击动画
+                if(enemyAttackAudio!=null)                //在敌人位置处播放敌人的攻击音效
+                    AudioSource.PlayClipAtPoint(enemyAttackAudio,transform.position);
+                if (GameManager.gm != null)
+                    GameManager.gm.PlayerTakeDamage (damage);//通过GameManager游戏管理类实现玩家扣血的效果
+            }
         }
     }
-}
 
-//与勾选了isTrigger属性的COllider组件共同用于检测：是否有物体离开敌人的攻击范围
-void OnTriggerExit(Collider collider){
-    //若离开敌人攻击范围的物体标签是玩家时
-    if (collider.gameObject.tag == &quot;Player&quot;)
-        animator.SetBool (&quot;isAttack&quot;, false);    //设置动画参数，将isAttack布尔型参数设置为false，停止播放敌人攻击动画
-}
+    //与勾选了isTrigger属性的COllider组件共同用于检测：是否有物体离开敌人的攻击范围
+    void OnTriggerExit(Collider collider){
+        //若离开敌人攻击范围的物体标签是玩家时
+        if (collider.gameObject.tag == &quot;Player&quot;)
+            animator.SetBool (&quot;isAttack&quot;, false);    //设置动画参数，将isAttack布尔型参数设置为false，停止播放敌人攻击动画
+    }
 
-//每帧执行一次，更新攻击间隔
-void Update(){
-    timer += Time.deltaTime;    //更新攻击间隔，增加上一帧所花费的时间
+    //每帧执行一次，更新攻击间隔
+    void Update(){
+        timer += Time.deltaTime;    //更新攻击间隔，增加上一帧所花费的时间
+    }
 }
-</code></pre><p>}</p>
-<p>游戏管理器GameManager<br>（脚本）<br>管理游戏的状态（游戏进行中/胜利/失败）<br>管理玩家积分<br>管理场景中对象之间的交互<br>显示游戏的状态（玩家生命值与玩家得分）</p>
+</code></pre><h3 id="游戏管理器GameManager"><a href="#游戏管理器GameManager" class="headerlink" title="游戏管理器GameManager"></a>游戏管理器GameManager</h3><p>（脚本）<br>管理游戏的状态（游戏进行中/胜利/失败）<br>管理玩家积分<br>管理场景中对象之间的交互<br>显示游戏的状态（玩家生命值与玩家得分）</p>
 <p>Unity游戏从场景加载开始 场景加载完成后，游戏从场景加载状态转换到游戏进行状态 在游戏进行状态，游戏不断地检测玩家分数 和玩家生命值。 玩家加分函数AddScore更新玩家的分数 玩家受伤函数PlayerTakeDamage更新玩家生命值 当玩家分数大于等于10，游戏从进行状态转换到游戏胜利状态 如果玩家存活标记isAlive值为false，游戏从进行状态转换到游戏失败状态 在游戏胜利或失败后，都将重新加载场景，开始新一轮的游戏</p>
-<p>GameManageer游戏对象创建</p>
-<p>首先我们在 Hierarchy 视图中创建空游戏对象 将其重命名为 GameManager 同时将 Project 视图中 Scripts 文件夹下的 GameManager 脚本拖入到 GameManager 游戏对象上</p>
+<h3 id="GameManageer游戏对象创建"><a href="#GameManageer游戏对象创建" class="headerlink" title="GameManageer游戏对象创建"></a>GameManageer游戏对象创建</h3><p>首先我们在 Hierarchy 视图中创建空游戏对象 将其重命名为 GameManager 同时将 Project 视图中 Scripts 文件夹下的 GameManager 脚本拖入到 GameManager 游戏对象上</p>
 <p>在检视视图中设置相关参数</p>
-<p>敌人的自动生成<br>在给定地点动态生成敌人<br>每次生成敌人的时间间隔是随机的</p>
+<h3 id="敌人的自动生成"><a href="#敌人的自动生成" class="headerlink" title="敌人的自动生成"></a>敌人的自动生成</h3><p>在给定地点动态生成敌人<br>每次生成敌人的时间间隔是随机的</p>
 <p>敌人自动生成的逻辑 我们使用两个 Float 变量 T1 和 T2，实现敌人生成的随机性 T1 保存从上次敌人生成结束，到游戏当前帧系统经过的时间 T2 保存下次生成敌人的时间阈值 T2 是某个范围的随机数，敌人生成的随机性由 T2 决定 我们在 Update 函数中，编写敌人随机生成的脚本 首先 T1 对前一帧的执行时间进行累加操作，T1 值不断变大 然后将 T1 与 T2 进行比较，若 T1 小于 T2 表示距离敌人生成的时刻还有一段时间，本次 Update 函数执行结束 若 T1 ≥ T2，开始生成敌人对象 执行以下逻辑，创建敌人的对象，将 T1 设置为 0 随机生成下一次敌人生成的时间阈值，将这阈值赋予 T2 上述逻辑执行完毕，开始下一轮 Update 函数的执行</p>
-<p>欢迎大家继续学习 Unity 游戏编程基础 我们已经完成了第二个项目《慕课英雄》第三人称简易版的制作 我们简单回顾一下，整个项目所涉及的知识要点 首先，我们学习了 Unity 中的地形系统，完成项目中的地形的构造 其次，我们学习了 Unity 中动画系统，在项目中添加了玩家模型和敌人模型 并完成他们的动画控制。 接着，我们使用 Unity 脚本，实现了项目中玩家的移动、 射击等功能 我们实现了项目中敌人追踪、 攻击等功能 还实现了项目中游戏管理以及敌人自动生成的功能 接着我们制定了互评作业 以帮助你们能更好的了解，自己是否已经扎实的学会了相应的知识 首先，跟随演示视频完成《慕课英雄》第一人称简易版的项目的制作 接着根据互评作业的要求，在原先项目中添加新的功能 使项目更加完善，然后构建 完整的项目将项目文件与构建文件打包成压缩文件 最后将压缩文件上传至互评系统，完成其他同学作业的互评 给出改进意见的同时，也帮助自己巩固学到的知识 最后恭喜你，已经完成本周的学习 通过本周的学习，你已经对 Unity 脚本编程有了一定的了解 可以根据自己项目的需求，编写相应的 Unity 脚本 下一周，我们将学习 Unity 的一些高级特性 并将这些特性应运到我们的项目开发中，最终完成我们第三个项目 《慕课英雄》第一人称射击完整版的开发 </p>
+<h3 id="《慕课英雄》第三人称简易版的制作"><a href="#《慕课英雄》第三人称简易版的制作" class="headerlink" title="《慕课英雄》第三人称简易版的制作"></a>《慕课英雄》第三人称简易版的制作</h3><p>简单回顾一下，整个项目所涉及的知识要点<br>首先，我们学习了 Unity 中的地形系统，完成项目中的地形的构造 其次，我们学习了 Unity 中动画系统，在项目中添加了玩家模型和敌人模型 并完成他们的动画控制。 接着，我们使用 Unity 脚本，实现了项目中玩家的移动、 射击等功能 我们实现了项目中敌人追踪、 攻击等功能 还实现了项目中游戏管理以及敌人自动生成的功能 </p>
 
       
     </div>
