@@ -134,6 +134,145 @@
       <div class="body-wrap">
         
   
+    <article id="post-基于Unity引擎的游戏开发基础-课程笔记5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/04/基于Unity引擎的游戏开发基础-课程笔记5/">基于Unity引擎的游戏开发基础-课程笔记5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="GUI介绍"><a href="#GUI介绍" class="headerlink" title="GUI介绍"></a>GUI介绍</h3><p>GUI是Graphical User Interface（图形用户界面）的简称，是一种人与计算机通信的界面显示格式。它允许用户使用鼠标等输入设备操纵屏幕上的图标或菜单选项，以选择命令，调用文件，启动程序或执行一些其他日常任务。</p>
+<p>在游戏开发过程中，游戏界面设计具有非常重要的作用，玩家打开游戏后第一个接触的游戏元素，通常是游戏的GUI。游戏的GUI是否友好，美观，在很大程度上影响玩家的游戏体验</p>
+<p>4.6版本以后</p>
+<p>###　uGUI介绍<br>与Unity引擎紧密的结合<br>灵活 快速 可视化编程技术<br>更加强大与易用的屏幕自适应能力<br>全新的布局系统<br>简单易用的UI控件<br>强大的事件处理系统</p>
+<h4 id="uGUI-控件的创建步骤"><a href="#uGUI-控件的创建步骤" class="headerlink" title="uGUI 控件的创建步骤"></a>uGUI 控件的创建步骤</h4><p>在 Hierarchy 视图中 点击鼠标右键，选择 UI 中的 uGUI 控件 即可完成 uGUI 控件的创建</p>
+<h4 id="Canvas与EventSystem"><a href="#Canvas与EventSystem" class="headerlink" title="Canvas与EventSystem"></a>Canvas与EventSystem</h4><p>Canvas表示画布，是uGUI控件的容器，uGUI控件必须是Canvas的子对象<br>EvenSystem是事件处理系统，用于处理与响应用户与uGUI的交互</p>
+<p>Canvas中的对象绘制：靠上的对象先绘制</p>
+<p>Sort Order（表示Canvas之间绘制顺序） 该值越小的Canvas越先绘制</p>
+<h4 id="Anchor（锚点）"><a href="#Anchor（锚点）" class="headerlink" title="Anchor（锚点）"></a>Anchor（锚点）</h4><p>Anchor（锚点）是一种相对定位技术，每个控件都有各自的锚点。<br>我们可以先将锚点设置在屏幕的某个位置，然后设置其相对锚点的位置，这样可以方便的控制uGUI控件的位置。</p>
+<h4 id="uGUI控件介绍"><a href="#uGUI控件介绍" class="headerlink" title="uGUI控件介绍"></a>uGUI控件介绍</h4><h5 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h5><pre><code>Text文本内容；Font：字体样式；Font Style 字体风格；FontSize 字体大小 Line Spacing：行间距
+Alignment 对齐方式 Color 文字颜色 Material 文字材质
+</code></pre><h5 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h5><p>Image 控件用于在图形界面上绘制出一个图像 例如角色头像、 射击准星等<br>    Source Image：图像源<br>    Color图像显示的颜色<br>    Material：材质</p>
+<h5 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h5><p>在Unity中创建的Button控件是复合控件，包括Button背景图案，Button按钮功能以及Button文本信息<br>    在 On Click中设置点击响应事件<br>Button事件设置流程<br>    编写Button按钮触发的事件函数；<br>    将包含该函数的脚本添加到场景中的任意一个游戏对象中；<br>    在Button组件的OnClick中添加事件函数（注意 ：只有修饰符为public的函数才能被Button按钮调用）</p>
+<h5 id="InputField"><a href="#InputField" class="headerlink" title="InputField"></a>InputField</h5><pre><code>在Unity中创建的InputField控件是复合控件，包括输入栏背景图案，输入栏组件，输入栏提示以及输入栏可编辑文本
+Text Component 表示输入框 可编辑的 Text 组件，Text 组件原本不可以在游戏中编辑 只有把 Text 组件赋给 InputField 组件    的 Text Component 属性，我们才可以在游戏中编辑 Text 组件
+laceholder 表示输入框中，用于显示提示信息的 Text 组件
+</code></pre><h5 id="Slider"><a href="#Slider" class="headerlink" title="Slider"></a>Slider</h5><pre><code>在Unty中创建的Slider控件是复合控件，它包含
+滑动条背景（Background），滑动条填充图案（Fill Area），滑动块手柄（Handle Slider Area）
+</code></pre><h5 id="常用属性："><a href="#常用属性：" class="headerlink" title="常用属性："></a>常用属性：</h5><pre><code>Fill Rect:滑动条填充图案
+Handle Rect:滑动条上的滑块图案
+Direction：数值增加的方向
+Min/Max Value：滑动条的最小/最大值
+</code></pre><h5 id="Toggle"><a href="#Toggle" class="headerlink" title="Toggle"></a>Toggle</h5><pre><code>表示开关控件，它包含勾选框背景（Background），勾选图案（Checkmark）以及Toggle文本信息（Label）
+</code></pre><p>常用属性<br>    Is On：Toggle是否勾选<br>    Graphic：设置Toggle背景图案<br>    OnValueChanged：当Toggle勾选情况发生改变时对应的事件响应函数</p>
+<p>用了6节时间来教授如何制作uGUI控件 实践课</p>
+<h3 id="移动平台触摸控制的实现方式"><a href="#移动平台触摸控制的实现方式" class="headerlink" title="移动平台触摸控制的实现方式"></a>移动平台触摸控制的实现方式</h3><ol>
+<li>使用Input移动端输入函数，完成移动端输入的读取</li>
+<li>用Cross Platform Input资源包快速实现跨平台输入UI</li>
+</ol>
+<h4 id="Cross-Platform-Input"><a href="#Cross-Platform-Input" class="headerlink" title="Cross Platform Input"></a>Cross Platform Input</h4><p>Cross Platform Input是Unity Standard Assets中的跨平台输入控制资源，它包含移动端常用的控制UI与控制脚本<br>开发者可以使用这些资源实现移动端控制UI的开发</p>
+<p>Cross Platform Input 的资源包的导入步骤<br> Project 视图中点击鼠标右键，选择 Import Package 菜单项目中的 CrossPlatformInput，即可完成 Cross Platform Input 资源包的导入</p>
+<p>使用 Cross Platform Input制作移动端控制UI的流程</p>
+<ol>
+<li><p>将Unity编辑平台更改为Android平台<br> 点击 File 菜单栏中的 Build Settings 打开项目构建界面 把平台更改为安卓平台，并点击 Switch Platform 按钮 即可完成安卓平台的切换</p>
+</li>
+<li><p>向场景中添加Mobile CortrolRig脚本<br> 在场景视图中，创建 Canvas 对象 把 Canvas 对象重命名为 MobileControlCanvas，表示移动端控制画布 我们把 MobileControlRig 脚本绑定到 MobileControlCanvas 中 该脚本是移动端 UI 输入事件的控制器</p>
+</li>
+<li>在场景中添加用于接受移动端输入的UI对象</li>
+<li>给UI对象绑定Cross Platform Input中的脚本，用于获取移动端输入</li>
+<li>根据获取的输入在角色控制脚本中实现对玩家的控制</li>
+</ol>
+<h4 id="移动平台的-UI-适配"><a href="#移动平台的-UI-适配" class="headerlink" title="移动平台的 UI 适配"></a>移动平台的 UI 适配</h4><p>当项目运行平台的屏幕尺寸与分辨率发生变化时，UI 元素会发生缩放 在画布对象中的 Canvas Scale 的组件中，我们可以设置 UI 的缩放模式</p>
+<p>第一种可选参数是 Constant Pixel Size，</p>
+<p>第二种可选参数是 Scale With Screen Sizse<br>第三种可选参数是 Constant Physical Size，第三种参数中 Constant Physical Size 表示固定物理尺寸，在这种缩放模式下 UI 元素保持固定的物理大小</p>
+<h3 id="粒子系统（Particle-System）"><a href="#粒子系统（Particle-System）" class="headerlink" title="粒子系统（Particle System）"></a>粒子系统（Particle System）</h3><p>粒子是在三维空间中渲染出来的二维图像，用于表现如爆炸，烟，火，水等效果</p>
+<h4 id="Unity的-Shuriken粒子系统"><a href="#Unity的-Shuriken粒子系统" class="headerlink" title="Unity的 Shuriken粒子系统"></a>Unity的 Shuriken粒子系统</h4><p>Shuriken粒子系统采用模块化的管理方式，使用个性化的粒子模块配合粒子曲线编辑器，使用户更容易创作出各种缤纷复杂的粒子效果</p>
+<h4 id="创建粒子系统"><a href="#创建粒子系统" class="headerlink" title="创建粒子系统"></a>创建粒子系统</h4><p>在 Hierarchy 视图中，点击鼠标右键，选择 Particle System，即可完成粒子系统的创建<br>可以在场景中看到粒子系统的初始效果 在 Hierarchy 视图中，点击粒子系统对象 我们发现场景视图中的粒子系统开始播放动画 同时在场景视图的右下角出现了 Particle Effect 它表示粒子系统效果控制器</p>
+<p>Pause 用于控制粒子系统的播放与暂停<br>Stop 按钮用于停止粒子系统的播放<br>layback Speed 表示粒子系统的播放速度<br>Playback Time 表示粒子系统的播放时间。<br>Particle Count 表示粒子系统包含的粒子个数</p>
+<p>粒子系统示例–简易喷泉</p>
+<p>粒子系统初始化模块</p>
+<p>Start Lifetime（粒子初始存活时间)-&gt;Random<br>Between Two Constants：0.5~4</p>
+<p>Start Speed（粒子初始速度）-&gt;Random<br>Between Two Constants：9~10</p>
+<p>Start Size（粒子初始大小）-&gt;Random<br>Between Two Constants：0.1~0.3</p>
+<p>Start Rotation（粒子初始朝向）-&gt;Random<br>Between Two Constants：-180~180</p>
+<p>Gravity（重力）-&gt;1<br>Max Particales（粒子最大个数）-&gt;10000</p>
+<p>Emission（发射模块）<br>Emission（发射模块）<br>    Rate（粒子发射速率）-&gt;5000</p>
+<p>Shape（形状模块）<br>Shape：形状模块</p>
+<ul>
+<li>Shape（粒子喷射形状）-&gt;Cone</li>
+<li>Angle（Cone角度）-&gt;10</li>
+<li>Radius（Cone底部半径）-&gt;0.3</li>
+</ul>
+<p>ColorOverLifetime（粒子生命周期颜色模块）<br>勾选ColorOverLifetime 粒子生命周期颜色模块<br>Color（粒子颜色）-&gt;Gradient；Gradient，梯度变化的方式<br>初始颜色：（R，G,B）-&gt;(0,200,255)<br>末尾颜色：（R，G,B）-&gt;(0,255,255)</p>
+<p>SizeOverLifetime（粒子生命周期尺寸模块）<br>勾选SizeOverLifetime（粒子生命周期尺寸模块）</p>
+<p>Size-&gt;Random Between Two Curves<br>曲线设置：一条从1.0到0.5，另一条从0.8到0.0</p>
+<p>在慕课英雄FPS中应用的粒子系统<br>场景中火焰粒子效果：持续播放<br>枪械开火粒子效果：玩家开枪时播放<br>敌人流血粒子效果：敌人受伤时播放</p>
+<p>线渲染器 Line Renderer 使用一组 3D 点，在相邻两点之间使用材质绘制一条线 渲染器实现了项目中，枪械激光效果</p>
+<h4 id="线渲染器组件的添加步骤"><a href="#线渲染器组件的添加步骤" class="headerlink" title="线渲染器组件的添加步骤"></a>线渲染器组件的添加步骤</h4><p>选择需要添加线渲染器的游戏对象 点击 Component 菜单，选择 Effects 下面的 Line Renderer 即可完成线渲染器的添加</p>
+<p>Materials，表示线渲染器绘制所使用的材质</p>
+<p> Positions 属性 Size 表示线渲染器 3D 点的个数 Element 表示 3D 点的位置，Size 值为 2 表示接下来需要设置两个 3D 点，线渲染 器以这两个 3D 点为首末端点，Size 值为 3 表示接下来需要设置 3 个 3D 点的位置 线渲染器依次连接两个相邻的 3D 点 完成线渲染器的绘制</p>
+<p>Parameters 参数设置 包括线渲染器首尾宽度和首尾颜色的设置<br>start width:始端宽度<br>end width:末端宽度<br>start color：始端颜色<br>end color：末端颜色</p>
+<p>如何解决 近大远小 造成的枪械激光粗细不均<br>由摄像机的投影方式：透视引起<br>如何确定枪械激光的末端位置<br>玩家开枪击中物体，我们将枪械激光的末端位置，设置为玩家开枪击中物体的位置。<br>玩家开枪未击中物体，我们将枪械激光的末端位置，设置为子弹攻击实效的位置</p>
+<h3 id="物品收集"><a href="#物品收集" class="headerlink" title="物品收集"></a>物品收集</h3><p>草地上有血瓶，主教接近血瓶时，将收集血瓶并实现回血功能</p>
+<h4 id="血瓶收集的逻辑"><a href="#血瓶收集的逻辑" class="headerlink" title="血瓶收集的逻辑"></a>血瓶收集的逻辑</h4><p> 首先是玩家接近血瓶，我们给物体设置触发器 使用 OnTriggerEnter 函数，实现玩家接近血瓶的检测，其次是玩家加血 我们访问玩家 player health 脚本中的 health 字段，实现玩家生命值的增加 这里需要注意，加血后玩家的生命值不能超过玩家满血的生命值 然后是播放音频，我们使用 AudioSource 类的 PlayClipAtPoint 函数播放收集音效 这是删除收集物，我们使用 GameObject 类中的 Destrory 函数，实现收集物的删除</p>
+<h4 id="游戏胜利画面"><a href="#游戏胜利画面" class="headerlink" title="游戏胜利画面"></a>游戏胜利画面</h4><p>当玩家获得指定的分数后，游戏结束，此时将进入游戏胜利画面：<br>1.删除场景中的敌人与玩家枪械<br>2.游戏结束摄像机从玩家视角平移到天空，俯视地面</p>
+<h4 id="游戏失败画面"><a href="#游戏失败画面" class="headerlink" title="游戏失败画面"></a>游戏失败画面</h4><p>当玩家生命值小于等于0时，游戏结束，此时将进入游戏失败画面：</p>
+<ol>
+<li><p>删除场景中的敌人与玩家枪械<br>我们使用 GameObject 类的 FindGameObjectWithTag 函数 根据敌人标签 Enemy 获取场景中所有敌人对象 保存在敌人数组中，我们使用 foreach 语句快速便利 敌人数组，使用 GameObject 类的 Destroy 函数逐一删除场景中的所有敌人 我们根据 GameObject 类的 Find 函数 根据玩家枪械的名称 Gun 获取场景中的枪械对象，同时使用 GameObject 类的 Destroy 函数 删除枪械对象</p>
+</li>
+<li><p>游戏结束摄像机从玩家视角平移到天空，俯视地面</p>
+</li>
+<li><p>屏幕瞬间变黑，然后逐渐恢复正常；<br>我们定义 darkImage 字段 表示笼罩在摄像机前的 Image 控件 游戏进行时，darkImage 处于全透明 不遮挡摄像机绘制的场景画面。 游戏失败时，darkImage 的颜色设置为不透明黑色 屏幕瞬间变黑。 我们使用 Color 类的插值函数 采用线性插值的方法，实现 darkImage 的颜色从不透明黑色 到透明无色的界面效果</p>
+</li>
+<li><p>敌人排成一排的欢呼效果<br>首先是敌人对象的生成，我们使用 GameObejct 类的 Instantiate 函数实现 其次是敌人面向摄像机，我们使用 Transform 类的 LookAt 函数实现 最后是敌人的欢呼动画：我们使用动画控制器，设置敌人的动画参数 控制敌人欢呼动画的播放</p>
+</li>
+</ol>
+<h4 id="Project3-慕课英雄第一人称完整版总结"><a href="#Project3-慕课英雄第一人称完整版总结" class="headerlink" title="Project3 慕课英雄第一人称完整版总结"></a>Project3 慕课英雄第一人称完整版总结</h4><p>首先我们更改项目的人称视角，把项目设置为第一人称设计游戏 接着我们学习 Unity 中的 UGI 技术 并使用 UGI 技术制作了游戏界面与移动平台的控制界面 然后我们学习 Unity 中的粒子系统与线渲染器 向场景中添加了火炬、 敌人受伤以及枪械开火等视觉效果 最后我们向项目中添加了物品收集功能，同时制作了游戏胜利和游戏失败的画面</p>
+<p>（你已经掌握了 Unity 的高级特性 可以使用 Unity 编辑器开发移动端和 PC 端的 Unity 项目）</p>
+<h4 id="至此学完本门课程！"><a href="#至此学完本门课程！" class="headerlink" title="至此学完本门课程！"></a>至此学完本门课程！</h4><p>在本门课程中，我们介绍了游戏开发、 游戏引擎和游戏资源等游戏编程的基本概念 并简单的讲解了 C# 基本编程语法。 本门课程 大部分时间用于讲述如何使用 Unity 进行移动平台游戏的开发 本门课程中涉及到 3 个项目的制作 第一个项目，《多米诺骨牌》的开发。 我们使用游戏对象与组件、 物理系统、 图形系统、 音频系统 以及已经编辑好的 Unity 脚本，制作了一个 Unity 场景 在第二个项目《慕课英雄》第三人称简易版的开发过程中 我们讲述如何使用 C# 进行 Unity 脚本编写 实现场景中游戏对象的逻辑与交互。 同时讲解 Unity 中的地形系统与动画系统，完成场景地形的制作 以及角色模型动画的管理 在第三个项目《慕课英雄》第一人称设计版的 开发过程中，我们讲解了游戏人称的变化，Unity 技术中的图形用户界面与移动平台界面 粒子系统与线渲染器，同时完成物品收集功能的实现 以及游戏开始、 结束界面的制作，最后 我们将《慕课英雄》第一人称完整版发布到移动端和 PC 端 相信通过这门课的学习 你已经理解了 Unity 引擎的主要功能，能够自主开发拥有游戏基本元素的 Unity 移动端游戏 你已经在游戏开发的道路上迈出了重要的一步 但是在距离开发以个能进行商业化的 Unity 游戏，仍有很大的差距 这就是我们开设《Unity 游戏编程进阶》课程的原因 在《Unity 游戏编程进阶》课程中，我们在本门课程的基础上，重点讲解 如何进行多人网络手游的开发，同时讲述如何提升游戏的可玩性、 视觉效果，并讲述提升游戏性能的方法 </p>
+<h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3><p>今天是6月4日，然我的笔记是在5月4日就做完的。现在才整理上传，拖延症太严重！要继续学习U3d的进阶课程，并且学一下计算机图形学，这就是剩下的大三下要做的事情了。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/04/基于Unity引擎的游戏开发基础-课程笔记5/" class="archive-article-date">
+  	<time datetime="2017-06-04T02:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-基于Unity引擎的游戏开发基础-课程笔记4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2613,69 +2752,6 @@ int main() {
 
 
   
-    <article id="post-大三时候目标" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/31/大三时候目标/">我的目标记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="2017-05-28"><a href="#2017-05-28" class="headerlink" title="2017/05/28"></a>2017/05/28</h3><p>应该要有所觉悟了！</p>
-<p>现阶段是已经把U3d基础学完了，还有图形学和U3d进阶两个技能没有点。</p>
-<h3 id="2017-04-09"><a href="#2017-04-09" class="headerlink" title="2017/04/09"></a>2017/04/09</h3><p>蓝桥杯已经结束了。考的很差。<br>总结一下：</p>
-<ol>
-<li>虽然自己觉得自己学习和练习题目的时间广度很长，从2月开始，但是 练习题目远远不够，没有攒积足够的量变去引起质变！如果说以前的算法等级10分的话我是4分，经过这两个月变成了4。对于我这个笨蛋来说，在技术超出平凡的首要手段还是量变引起质变。我的重视程度还是不够，吃亏。</li>
-<li>这一场考试，要求的是快速抽象问题，思考问题，解决问题，代码实现。我的考试能力有点下降而且考试的时候太过于紧张，太过于沉浸于题目中，没有冷静思考就开始做题了，然后跳不出来。</li>
-</ol>
-<p>一直准备进入游戏行业，现在准备自学一下Unity。<br>第一阶段 是把mook网上所有有关unity的视频都自己实现一遍。（完成后打勾：）</p>
-<h3 id="2017-01-31"><a href="#2017-01-31" class="headerlink" title="2017/01/31"></a>2017/01/31</h3><p> 不知不觉大学已经到了大三了，第一学期也完了,写一下大三下要完成的目标。希望在大三下的时候有更多的进步，一分耕耘一分收获，谨记此条踏实前行.</p>
-<ol>
-<li>大三下不挂科,物理也不能挂.</li>
-<li>蓝桥杯争取进入国赛。</li>
-<li>暑假的时候要学开车考驾照，这个事情不能再拖了。</li>
-</ol>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/01/31/大三时候目标/" class="archive-article-date">
-  	<time datetime="2017-01-31T07:19:57.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-31</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标/">目标</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -2739,7 +2815,7 @@ int main() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/C-C/" style="font-size: 16.67px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 16.67px;">Unity</a> <a href="/tags/博客搭建/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 13.33px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
+    				<a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 17.5px;">Unity</a> <a href="/tags/博客搭建/" style="font-size: 12.5px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
     			</div>
     	</section>
     
