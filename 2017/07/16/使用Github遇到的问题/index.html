@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/7 | Othello&#39;s Blog</title>
+  <title>使用Github遇到的问题 | Othello&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Othello's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/07/index.html">
+  <meta name="description" content="参考过的文章：http://www.cnblogs.com/specter45/p/github.html
+Q1: Not a git repository (or any of the parent directories): .git这说明你当前的路径并不是一个git库，必须进入到库对应的文件夹内，git的大部分命令才有效.cd进入特定的仓库再进行操作.
+创建新仓库的指令：
+git init">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Github遇到的问题">
+<meta property="og:url" content="http://yoursite.com/2017/07/16/使用Github遇到的问题/index.html">
 <meta property="og:site_name" content="Othello's Blog">
+<meta property="og:description" content="参考过的文章：http://www.cnblogs.com/specter45/p/github.html
+Q1: Not a git repository (or any of the parent directories): .git这说明你当前的路径并不是一个git库，必须进入到库对应的文件夹内，git的大部分命令才有效.cd进入特定的仓库再进行操作.
+创建新仓库的指令：
+git init">
+<meta property="og:updated_time" content="2017-07-16T15:49:22.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Othello's Blog">
+<meta name="twitter:title" content="使用Github遇到的问题">
+<meta name="twitter:description" content="参考过的文章：http://www.cnblogs.com/specter45/p/github.html
+Q1: Not a git repository (or any of the parent directories): .git这说明你当前的路径并不是一个git库，必须进入到库对应的文件夹内，git的大部分命令才有效.cd进入特定的仓库再进行操作.
+创建新仓库的指令：
+git init">
   
     <link rel="alternative" href="/atom.xml" title="Othello&#39;s Blog" type="application/atom+xml">
   
@@ -132,86 +145,120 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-使用Github遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/16/使用Github遇到的问题/" class="archive-article-date">
-  	<time datetime="2017-07-16T15:43:25.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/16/使用Github遇到的问题/">使用Github遇到的问题</a>
+    <h1 class="article-title" itemprop="name">
+      使用Github遇到的问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 参考过的文章：<a href="http://www.cnblogs.com/specter45/p/github.html" target="_blank" rel="external">http://www.cnblogs.com/specter45/p/github.html</a></p>
+<h3 id="Q1-Not-a-git-repository-or-any-of-the-parent-directories-git"><a href="#Q1-Not-a-git-repository-or-any-of-the-parent-directories-git" class="headerlink" title="Q1: Not a git repository (or any of the parent directories): .git"></a>Q1: Not a git repository (or any of the parent directories): .git</h3><pre><code>这说明你当前的路径并不是一个git库，必须进入到库对应的文件夹内，git的大部分命令才有效.cd进入特定的仓库再进行操作.
+</code></pre><p>创建新仓库的指令：</p>
+<pre><code>git init //把这个目录变成Git可以管理的仓库
+git add README.md //文件添加到仓库
+git add . //不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了 
+git commit -m &quot;first commit&quot; //把文件提交到仓库
+git remote add origin git@github.com:wangjiax9/practice.git //关联远程仓库
+git push -u origin master //把本地库的所有内容推送到远程库上
+</code></pre><p>执行指令添加文件-&gt;提交文件-&gt;推送文件<br>git add .</p>
+<p>git commit -m “提交test1.html”</p>
+<p>git push -u origin master<br>执行完成后就可以在网上GitHub上看到相应的变化了</p>
+<h3 id="Q2-在网页端修改了README-md后没有及时更新本地thinkinginjava仓库，不能使用git-push"><a href="#Q2-在网页端修改了README-md后没有及时更新本地thinkinginjava仓库，不能使用git-push" class="headerlink" title="Q2:在网页端修改了README.md后没有及时更新本地thinkinginjava仓库，不能使用git push"></a>Q2:在网页端修改了README.md后没有及时更新本地thinkinginjava仓库，不能使用git push</h3><p> 先git pull 更新本地分支 然后再push到云端<br>引伸：</p>
+<pre><code>Git中从远程的分支获取最新的版本到本地有这样2个命令：
+1. git fetch：相当于是从远程获取最新版本到本地，不会自动merge
+Git fetch origin master
+git log -p master..origin/master
+git merge origin/master
+
+以上命令的含义：
+首先从远程的origin的master主分支下载最新的版本到origin/master分支上
+然后比较本地的master分支和origin/master分支的差别
+最后进行合并
+上述过程其实可以用以下更清晰的方式来进行：
+git fetch origin master:tmp
+git diff tmp 
+git merge tmp
+
+从远程获取最新的版本到本地的test分支上
+ 之后再进行比较合并
+2. git pull：相当于是从远程获取最新版本并merge到本地
+ git pull origin master
+
+上述命令其实相当于git fetch 和 git merge
+在实际使用中，git fetch更安全一些
+因为在merge前，我们可以查看更新情况，然后再决定是否合并
+</code></pre><h3 id="Q3：当我要删除一个存在的目录或者文件夹时"><a href="#Q3：当我要删除一个存在的目录或者文件夹时" class="headerlink" title="Q3：当我要删除一个存在的目录或者文件夹时"></a>Q3：当我要删除一个存在的目录或者文件夹时</h3><pre><code>本地删除该文件夹后，要git add -A 才行，而不能够只使用git add .号，然后再继续后面的操作
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/16/使用Github遇到的问题/" class="archive-article-date">
+  	<time datetime="2017-07-16T15:43:25.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-16</time>
+</a>
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/大学里写的总结/" class="archive-article-date">
-  	<time datetime="2017-07-12T11:01:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/大学里写的总结/">大学里写的总结</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/12/大学里写的总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大学里写的总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
 
 
       </div>
@@ -234,8 +281,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -134,6 +134,496 @@
       <div class="body-wrap">
         
   
+    <article id="post-蓝桥杯在线测试题基础题解-二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/蓝桥杯在线测试题基础题解-二/">蓝桥杯在线测试题基础题解(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>定义一个学生结构体类型student，包括4个字段，姓名、性别、年龄和成绩。然后在主函数中定义一个结构体数组（长度不超过1000），并输入每个元素的值，程序使用冒泡排序法将学生按照成绩从小到大的顺序排序，然后输出排序的结果。<br>输入格式：第一行是一个整数N（N&lt;1000），表示元素个数；接下来N行每行描述一个元素，姓名、性别都是长度不超过20的字符串，年龄和成绩都是整型。<br>输出格式：按成绩从小到大输出所有元素，若多个学生成绩相同则成绩相同的同学之间保留原来的输入顺序。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+struct student {
+    string name;
+    string sex;
+    int age;
+    int grade;
+};
+
+void BubbleSort(student arr[], int n)
+{
+    for (int i = 0; i &lt; n - 1; i++) {
+        for (int j = 0; j &lt; n - i - 1; j++) {
+            if (arr[j].grade &gt; arr[j + 1].grade) {
+                student temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+int main (){
+    int n;
+    cin&gt;&gt;n;
+    student stu[1000];
+    for(int i=0;i&lt;n;i++){
+        cin&gt;&gt;stu[i].name&gt;&gt;stu[i].sex&gt;&gt;stu[i].age&gt;&gt;stu[i].grade;
+    }
+    BubbleSort(stu,n);
+    for(int j=0;j&lt;n;j++){
+        cout&lt;&lt;stu[j].name&lt;&lt;&quot; &quot;&lt;&lt;stu[j].sex&lt;&lt;&quot; &quot;&lt;&lt;stu[j].age&lt;&lt;&quot; &quot;&lt;&lt;stu[j].grade&lt;&lt;endl;
+    }
+    return 0;
+} 
+</code></pre><p>s01串</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main (){
+    string s=&quot;0&quot;;
+    int n;
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++){
+        string t; 
+        for(int j=0;j&lt;s.size();j++){
+            if(s[j]==&apos;1&apos;){
+                t+=&quot;01&quot;;
+            }
+            if(s[j]==&apos;0&apos;){
+                t+=&quot;1&quot;;
+            }
+        } 
+        s=t;
+    }
+    cout&lt;&lt;s&lt;&lt;endl;
+    return 0;
+} 
+</code></pre><p>题目1 最大值最小值</p>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main (){
+    int n;
+    cin&gt;&gt;n;
+    int Max=-1000000;
+    int t[1000000];
+    int Min=1000000;
+    for(int i=0;i&lt;n;i++){
+        cin&gt;&gt;t[i];
+        if(t[i]&gt;Max)
+            Max=t[i];
+        if(t[i]&lt;Min)
+            Min=t[i];
+    }
+    cout&lt;&lt;Max&lt;&lt;&quot; &quot;&lt;&lt;Min&lt;&lt;endl;
+    return 0;
+} 
+</code></pre><p>普通版本九宫格：</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+using namespace std;
+int EA[3][3];
+int main (){
+    for(int i=0;i&lt;3;i++){
+        for(int j=0;j&lt;3;j++){
+            cin&gt;&gt;EA[i][j]; 
+        }
+    }
+    int sum=0;
+    sum=EA[0][0]+EA[0][1]+EA[0][2];
+    if(sum==EA[0][0]+EA[1][0]+EA[2][0]&amp;&amp;
+        sum==EA[0][0]+EA[1][1]+EA[2][2]&amp;&amp;
+        sum==EA[2][0]+EA[2][1]+EA[2][2]&amp;&amp;
+        sum==EA[0][2]+EA[1][2]+EA[2][2])
+        cout&lt;&lt;&quot;1&quot;;
+    else
+        cout&lt;&lt;&quot;0&quot;&lt;&lt;endl; 
+    return 0;
+} 
+</code></pre><p>算法提高 11-1实现strcmp函数</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+using namespace std;
+int myStrcmp(char *s1,char *s2){
+    int ptr1=0;
+    int ptr2=0;//两个指针 
+    while(s1[ptr1]!=&apos;\0&apos;&amp;&amp;s2[ptr2]!=&apos;\0&apos;){
+        //两个字符串比较
+        if(s1[ptr1]!=s2[ptr2])
+            return s1[ptr1]&gt;s2[ptr2];
+        ptr1++;
+        ptr2++; 
+    }
+    if(s1[ptr1]!=&apos;\0&apos;)
+        ptr1++;
+    if(s2[ptr2]!=&apos;\0&apos;)
+        ptr2++;
+    if(ptr1&gt;ptr2){
+        return 1;
+    }else if(ptr1==ptr2){
+        return 0;
+    }else if(ptr1&lt;ptr2){
+        return -1;
+    }
+}
+int main (){
+    char a[100],b[100];
+    cin&gt;&gt;a;
+    cin&gt;&gt;b;
+    cout&lt;&lt;myStrcmp(a,b)&lt;&lt;endl;
+    return 0;
+} 
+</code></pre><p>删除重复元素：</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main (){
+    string s;
+    cin&gt;&gt;s;
+    map&lt;char,int&gt; ch;
+    bool v[101];
+    memset(v,true,s.size());
+    for(int i=0;i&lt;s.size();i++){
+        ch[s[i]]++;//存储出现字符的次数 
+    }
+    map&lt;char,int&gt;::iterator it;
+    for(it=ch.begin();it!=ch.end();it++){
+        if(it-&gt;second&gt;1){
+            for(int t=0;t&lt;s.size();t++){
+                if(s[t]==it-&gt;first){
+                    v[t]=false;
+                }
+            }
+        }
+    }
+    for(int p=0;p&lt;s.size();p++)
+        if(v[p])
+            cout&lt;&lt;s[p];
+    return 0;
+} 
+</code></pre><p>12-1三角形</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+typedef struct{
+    double x,y;
+}Point;
+
+void Perimeter(Point *p){
+    printf(&quot;%.2lf\n&quot;,sqrt((p[1].x - p[0].x)*(p[1].x - p[0].x)+(p[1].y - p[0].y)*(p[1].y - p[0].y))+
+        sqrt((p[2].x - p[0].x)*(p[2].x - p[0].x)+(p[2].y - p[0].y)*(p[2].y - p[0].y)) +
+        sqrt((p[2].x - p[1].x)*(p[2].x - p[1].x)+(p[2].y - p[1].y)*(p[2].y - p[1].y)));
+}
+
+void Area(Point *p){
+    //海伦公式sqrt(p(p-a)(p-b)(p-c))or向量法
+    //这里采用向量法 
+    Point p1[2];
+    double cos_theta,sin_theta,model1,model2;
+    p1[0].x = p[1].x - p[0].x,p1[0].y = p[1].y - p[0].y;
+    p1[1].x = p[2].x - p[0].x,p1[1].y = p[2].y - p[0].y;
+    model1 = sqrt((p[1].x - p[0].x)*(p[1].x - p[0].x)+(p[1].y - p[0].y)*(p[1].y - p[0].y));
+    model2 = sqrt((p[2].x - p[0].x)*(p[2].x - p[0].x)+(p[2].y - p[0].y)*(p[2].y - p[0].y));
+    cos_theta = (p1[0].x * p1[1].x  + p1[0].y * p1[1].y)/(model1*model2);
+    sin_theta = sqrt(1-cos_theta*cos_theta);
+    printf(&quot;%.2lf\n&quot;,0.5*model1*model2*sin_theta); 
+}
+
+void Circumcenter(Point *p){
+    //外接圆,圆心到三个顶点的距离相等列方程,可解出(x,y) 
+    double denominator,delta_x,delta_y;
+    denominator = 2*(p[1].x - p[0].x)*(p[2].y - p[0].y) - 2*(p[1].y - p[0].y)*(p[2].x - p[0].x);
+    delta_x = (p[2].y - p[0].y)*(p[1].x*p[1].x + p[1].y*p[1].y - p[0].x*p[0].x - p[0].y*p[0].y)
+            -(p[1].y - p[0].y)*(p[2].x*p[2].x + p[2].y*p[2].y - p[0].x*p[0].x - p[0].y*p[0].y);
+    delta_y = (p[1].x - p[0].x)*(p[2].x*p[2].x + p[2].y*p[2].y - p[0].x*p[0].x - p[0].y*p[0].y)
+            -(p[2].x - p[0].x)*(p[1].x*p[1].x + p[1].y*p[1].y - p[0].x*p[0].x - p[0].y*p[0].y);
+    printf(&quot;%.2lf %.2lf\n&quot;,delta_x/denominator,delta_y/denominator);
+}
+
+void Center_Of_Gravity(Point *p) {
+    //一个顶点到另一边的中心连线的2/3处 
+    Point p1;
+    p1.x = (p[0].x + p[1].x)/2.0,p1.y = (p[0].y + p[1].y)/2.0;
+    printf(&quot;%.2lf %.2lf\n&quot;,p[2].x+2.0*(p1.x - p[2].x)/3,p[2].y+2.0*(p1.y - p[2].y)/3);//注意哪个减去哪个
+}
+
+int main(){
+    Point p[3];
+    int i;
+    for(i = 0; i &lt; 3; i ++)
+        scanf(&quot;%lf%lf&quot;,&amp;p[i].x,&amp;p[i].y);
+    Perimeter(p);
+    Area(p);
+    Circumcenter(p);
+    Center_Of_Gravity(p);
+    return 0;
+}
+</code></pre><p>扑克排序：</p>
+<pre><code>#include &lt;iostream&gt;  
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt; 
+using namespace std;  
+struct poker{
+    char number;
+    char color;
+};
+bool cmp(poker p0,poker p1){
+    int n0,c0;//第一个p0的number和color 
+    int n1,c1;
+    if(p0.number&gt;=&apos;2&apos;&amp;&amp;p0.number&lt;=&apos;9&apos;){
+        n0=p0.number-&apos;0&apos;;
+    }else if(p0.number==&apos;1&apos;){
+        n0=10;
+    }else if(p0.number==&apos;J&apos;){
+        n0=11;
+    }else if(p0.number==&apos;Q&apos;){
+        n0=12;
+    }else if(p0.number==&apos;K&apos;){
+        n0=13;
+    }else if(p0.number==&apos;A&apos;){
+        n0=14;
+    }
+    //n1赋值 
+    if(p1.number&gt;=&apos;2&apos;&amp;&amp;p1.number&lt;=&apos;9&apos;){
+        n1=p1.number-&apos;0&apos;;
+    }else if(p1.number==&apos;1&apos;){
+        n1=10;
+    }else if(p1.number==&apos;J&apos;){
+        n1=11;
+    }else if(p1.number==&apos;Q&apos;){
+        n1=12;
+    }else if(p1.number==&apos;K&apos;){
+        n1=13;
+    }else if(p1.number==&apos;A&apos;){
+        n1=14;
+    }
+    //c0
+    if(p0.color==&apos;d&apos;)
+        c0=1; 
+    else if(p0.color==&apos;c&apos;){
+        c0=2;
+    }else if(p0.color==&apos;h&apos;){
+        c0=3;
+    }else if(p0.color==&apos;s&apos;){
+        c0=4;
+    }
+    //c1
+        if(p1.color==&apos;d&apos;)
+        c1=1; 
+    else if(p1.color==&apos;c&apos;){
+        c1=2;
+    }else if(p1.color==&apos;h&apos;){
+        c1=3;
+    }else if(p1.color==&apos;s&apos;){
+        c1=4;
+    }
+    if(n0!=n1)
+        return n0&lt;n1;
+    else 
+        return c0&lt;c1;
+}
+int main()  
+{  
+    char a[25];
+    cin&gt;&gt;a;
+    poker p[5];
+    int ptr=0;//用来指向poker数组的指针 
+    for(int i=0;i&lt;20;i++){
+        if(a[i]!=&apos;1&apos;)
+            p[ptr].number=a[i];
+        else {
+            p[ptr].number=&apos;1&apos;;
+            i++;//跳过后面的0 
+        }
+        i++;
+        p[ptr].color=a[i];
+        ptr++;
+    } 
+    sort(p,p+5,cmp);//排序 
+    for(int j=0;j&lt;5;j++){
+        if(p[j].number==&apos;1&apos;)
+            cout&lt;&lt;&quot;10&quot;;
+        else
+            cout&lt;&lt;p[j].number;
+        cout&lt;&lt;p[j].color&lt;&lt;&quot; &quot;;
+    }
+    return 0;
+}
+</code></pre><p>Huffman树在编码中有着广泛的应用。在这里，我们只关心Huffman树的构造过程。<br>　　给出一列数{pi}={p0, p1, …, pn-1}，用这列数构造Huffman树的过程如下：<br>　　1. 找到{pi}中最小的两个数，设为pa和pb，将pa和pb从{pi}中删除掉，然后将它们的和加入到{pi}中。这个过程的费用记为pa + pb。<br>　　2. 重复步骤1，直到{pi}中只剩下一个数。<br>　　在上面的操作过程中，把所有的费用相加，就得到了构造Huffman树的总费用。<br>　　本题任务：对于给定的一个数列，现在请你求出用该数列构造Huffman树的总费用。</p>
+<p>　　例如，对于数列{pi}={5, 3, 8, 2, 9}，Huffman树的构造过程如下：</p>
+<p>　　1. 找到{5, 3, 8, 2, 9}中最小的两个数，分别是2和3，从{pi}中删除它们并将和5加入，得到{5, 8, 9, 5}，费用为5。<br>　　<br>　　2. 找到{5, 8, 9, 5}中最小的两个数，分别是5和5，从{pi}中删除它们并将和10加入，得到{8, 9, 10}，费用为10。<br>　　<br>　　3. 找到{8, 9, 10}中最小的两个数，分别是8和9，从{pi}中删除它们并将和17加入，得到{10, 17}，费用为17。</p>
+<p>　　4. 找到{10, 17}中最小的两个数，分别是10和17，从{pi}中删除它们并将和27加入，得到{27}，费用为27。<br>　　<br>　　5. 现在，数列中只剩下一个数27，构造过程结束，总费用为5+10+17+27=59。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+using namespace std;
+//缺省是升序排序。sort中一个改变排序顺序的例子如下（降序）
+//sort(huf.begin(), huf.end(), cmp);
+bool cmp (const int a, const int b)
+{
+    return a &gt; b;
+}
+int main()
+{
+    int n;
+    while (~scanf(&quot;%d&quot;, &amp;n)) {
+        vector&lt;int&gt; huf;
+        while (n--) {
+            int t;
+            scanf(&quot;%d&quot;, &amp;t);
+            huf.push_back(t);
+        }
+        vector&lt;int&gt;::size_type size = huf.size();
+        int cost = 0;
+        while (size &gt;= 2) {
+            sort(huf.begin(), huf.end(), cmp);
+            int t = huf[size - 1] + huf[size - 2];
+            cost += t;
+            huf.pop_back();
+            huf.pop_back();
+            huf.push_back(t);
+            size = huf.size();
+        }
+        printf(&quot;%d\n&quot;, cost);
+    }
+    return 0;
+}
+</code></pre><p>输入两个整数a和b，输出这两个整数的和。a和b都不超过100位。</p>
+<pre><code>#include&lt;iostream&gt;  
+#include&lt;cstdio&gt;  
+#include&lt;cstring&gt;  
+using namespace std;  
+int main()  
+{  
+    char a1[100],b1[100];  
+    int a[100],b[100],c[100];  
+    int a1_len,b1_len,lenc,i,x;  
+    memset(a,0,sizeof(a));   
+    memset(b,0,sizeof(b));   
+    memset(c,0,sizeof(c));  
+
+    gets(a1);   
+    gets(b1); //输入加数与被加数   
+
+    a1_len=strlen(a1);   
+    b1_len=strlen(b1);   
+
+    for (i=0;i&lt;=a1_len-1;i++)   
+    {  
+        a[a1_len-i]=a1[i]-48; //将操作数放入a数组 　  
+    }  
+
+    for (i=0;i&lt;=b1_len-1;i++)  
+    {  
+        b[b1_len-i]=b1[i]-48; //将操作数放入b数组   
+    }   
+
+    lenc =1;   
+    x=0;   
+
+   while(lenc &lt;=a1_len || lenc &lt;=b1_len)   
+   {   
+        c[lenc]=a[lenc]+b[lenc]+x; //两数相加 　  
+        x=c[lenc]/10;   //要进的位  
+        c[lenc]=c[lenc]%10;     //进位后的数  
+        lenc++;     //数组下标加1  
+    }  
+
+    c[lenc]=x;  
+    if (c[lenc]==0)  
+    {  
+        lenc--; //处理最高进位   
+    }   
+
+    for (i=lenc;i&gt;=1;i--)  
+    {  
+        cout&lt;&lt;c[i]; //输出结果      
+    }  
+    cout&lt;&lt;endl;  
+
+    return 0;  
+}  
+</code></pre><p>输入一个正整数n，输出n!的值。<br>　　其中n!=1<em>2</em>3<em>…</em>n。</p>
+<pre><code>#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;  
+#include &lt;string.h&gt;  
+#define MAX 4000  
+int main() {  
+    int n,a[MAX],i,j,s,r=0;  
+    scanf(&quot;%d&quot;,&amp;n);  
+    memset(a,0,sizeof(a));  
+    a[0]=1;  
+    for(i=2;i&lt;=n;i++){  
+        for(j=0;j&lt;MAX;j++){  
+            s=a[j]*i+r;  
+            r=s/10;//进位  
+            a[j]=s%10;  
+        }  
+    }  
+    for(i=MAX-1;i&gt;=0;i--){  
+        if(a[i])  
+            break;  
+    }  
+    for(j=i;j&gt;=0;j--)//倒序输出  
+        printf(&quot;%d&quot;,a[j]);  
+    return 0;  
+}  
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/09/蓝桥杯在线测试题基础题解-二/" class="archive-article-date">
+  	<time datetime="2017-02-09T02:59:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-蓝桥杯在线测试题基础题解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -875,7 +1365,7 @@ int main() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 17.5px;">Unity</a> <a href="/tags/博客搭建/" style="font-size: 12.5px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
+    				<a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 17.5px;">Unity</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/博客搭建/" style="font-size: 12.5px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
     			</div>
     	</section>
     
