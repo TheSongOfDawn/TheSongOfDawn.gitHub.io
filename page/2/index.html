@@ -134,6 +134,335 @@
       <div class="body-wrap">
         
   
+    <article id="post-蓝桥杯在线题解算法训练" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/11/蓝桥杯在线题解算法训练/">蓝桥杯在线题解算法训练</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>感觉现在只能写水题。<br>水题爱好者。<br>表达式求值</p>
+<pre><code>#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt; 
+using namespace std;  
+int factor_value();//读入一个因子
+int term_value();//读入一项
+int expression_value();//读入表达式 
+int main()  
+{  
+    cout&lt;&lt;expression_value()&lt;&lt;endl;
+    return 0;
+}
+int expression_value(){
+    int result=term_value();//求一项的值
+    bool more=true;//还有没有其他项
+    while(more){
+        char op=cin.peek();//看第一个字符，不取走
+        if(op==&apos;+&apos;||op==&apos;-&apos;){
+            cin.get();//从输入中取走一个字符
+            int value=term_value();//求出第二项的值
+            if(op==&apos;+&apos;) result+=value;
+            else result-=value; 
+        } 
+        else more=false;
+    } 
+    return result;
+}
+int term_value(){
+    int result=factor_value();
+    while(true){
+        char op=cin.peek();
+        if(op==&apos;*&apos;||op==&apos;/&apos;){
+            cin.get();//去掉*号或者/除号
+            int value=factor_value();
+            if(op==&apos;*&apos;) 
+                result*=value;
+            else
+                result/=value;
+        }else{
+            break;
+        }
+    }
+    return result;
+}
+int factor_value(){//求一个因子的值 
+    int result=0;
+    char c=cin.peek();
+    if(c==&apos;(&apos;){
+        cin.get();
+        result=expression_value();
+        cin.get();
+    }
+    else{
+        while(isdigit(c)){
+            result=10*result+c-&apos;0&apos;;
+            cin.get();
+            c=cin.peek();
+        }
+    }
+    return result;
+}
+</code></pre><p>编写一函数lcm，求两个正整数的最小公倍数。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#define pi 3.1415926
+
+using namespace std;
+
+ int get_gcd(int x,int y)//最大公因数 
+  {
+      int r;
+      if(x&lt;y)
+      {
+          r=x;
+          x=y;
+         y=r;
+      }
+     r=x%y;
+     while(r)
+     {
+        x=y;
+         y=r;
+         r=x%y;
+     }
+         return y;
+ }
+ int get_lcm(int x,int y)//最小公倍数 
+ {
+  return (x*y)/(get_gcd(x,y));
+ }
+int main() {
+    int m,n;
+    scanf(&quot;%d %d&quot;,&amp;m,&amp;n);
+
+    cout&lt;&lt;get_lcm(m,n)&lt;&lt;endl;
+    return 0;
+}
+</code></pre><p>从键盘读入n个整数，使用动态数组存储所读入的整数，并计算它们的和与平均值分别输出。要求尽可能使用函数实现程序代码。平均值为小数的只保留其整数部分。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; ans;
+    int n;
+    int t;
+    int sum=0;
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++){
+        cin&gt;&gt;t;
+        ans.push_back(t);
+        sum+=t;
+    }
+    cout&lt;&lt;sum&lt;&lt;&quot; &quot;&lt;&lt;sum/n&lt;&lt;endl;
+    return 0;
+}
+</code></pre><p>使用宏实现计算球体体积的功能。用户输入半径，系统输出体积。不能使用函数，pi=3.1415926,结果精确到小数点后五位。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#define pi 3.1415926
+using namespace std;
+int main() {
+    double a;
+    cin&gt;&gt;a;
+    printf(&quot;%.5f&quot;,a*4/3.0*pi*a*a);
+    return 0;
+}
+</code></pre><p>已知一个正整数N，问从1~N中任选出三个数，他们的最小公倍数最大可以为多少。</p>
+<pre><code>#include &lt;iostream&gt;  
+#include &lt;algorithm&gt;  
+#include &lt;queue&gt;  
+#include &lt;vector&gt;  
+#include &lt;stdio.h&gt;  
+using namespace std;  
+int main()  
+{  
+    long long int n,ans;  
+    cin&gt;&gt;n;  
+    if(n&lt;3)  
+        ans=n;  
+    else{  
+    if(n%2!=0)  
+        ans=n*(n-1)*(n-2);  
+    else if(n%3!=0)  
+        ans=n*(n-1)*(n-3);  
+    else  
+        ans=(n-1)*(n-2)*(n-3);  
+    }  
+     cout&lt;&lt;ans&lt;&lt;endl;  
+    return  0;  
+}  
+</code></pre><p>编写一个程序，首先输入一个整数，例如5，然后在屏幕上显示如下的图形（5表示行数）：<br>　　<em> </em> <em> </em> <em>
+　　</em> <em> </em> <em>
+　　</em> <em> </em><br>　　<em> </em><br>　　*</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+int main() {
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=n;i&gt;=1;i--){
+        for(int j=i;j&gt;=1;j--){
+            printf(&quot;* &quot;);
+        }
+        printf(&quot;\n&quot;);
+    } 
+    return 0;
+}
+</code></pre><p>编写一个程序，输入一个字符串（长度不超过20），然后把这个字符串内的每一个字符进行大小写变换，即将大写字母变成小写，小写字母变成大写，然后把这个新的字符串输出。<br>　　输入格式：输入一个字符串，而且这个字符串当中只包含英文字母，不包含其他类型的字符，也没有空格。<br>　　输出格式：输出经过转换后的字符串。</p>
+<pre><code>#include &lt;iostream&gt;  
+
+using namespace std;  
+
+int main()  
+{  
+    char a[20];  
+    int i = 0;  
+    cin&gt;&gt;a;  
+    for(;a[i];i++)  
+    {  
+        if(a[i] &gt;= &apos;a&apos;&amp;&amp;a[i] &lt;= &apos;z&apos;)  
+            a[i] -= 32;  
+        else if(a[i] &gt;= &apos;A&apos;&amp;&amp;a[i] &lt;= &apos;Z&apos;)  
+            a[i] += 32;  
+    }  
+    for(i = 0;a[i];i++)  
+        cout&lt;&lt;a[i];  
+    return 0;
+}
+</code></pre><p>Anagrams指的是具有如下特性的两个单词：在这两个单词当中，每一个英文字母（不区分大小写）所出现的次数都是相同的。例如，“Unclear”和“Nuclear”、“Rimon”和“MinOR”都是Anagrams。编写一个程序，输入两个单词，然后判断一下，这两个单词是否是Anagrams。每一个单词的长度不会超过80个字符，而且是大小写无关的。<br>　　输入格式：输入有两行，分别为两个单词。<br>　　输出格式：输出只有一个字母Y或N，分别表示Yes和No。<br>　　输入输出样例</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt; 
+#include &lt;algorithm&gt;
+using namespace std;
+bool cmp(int a,int b){return a&gt;b;
+}
+int main()
+{
+    string a,b;
+    map&lt;char,int&gt; zm;//字母映射
+    cin&gt;&gt;a&gt;&gt;b;
+    for(int i=0;i&lt;a.size();i++){
+        zm[a[i]]++;
+    }
+    if(a.size()!=b.size()){
+        cout&lt;&lt;&quot;N&quot;&lt;&lt;endl;
+    }else{
+        map&lt;char,int&gt;::iterator   it;
+        for(it=zm.begin();it!=zm.end();it++){
+            char ac=it-&gt;first;
+            char bc;
+            if(ac&gt;=&apos;a&apos;&amp;&amp;ac&lt;= &apos;z&apos;) 
+             bc=ac-32;
+            else
+                 bc=ac+32; 
+            int aci=0;
+            for(int j=0;j&lt;b.size();j++){
+                if(b[j]==ac||b[j]==bc){
+                    aci++;
+                }
+            }
+            if(aci==it-&gt;second)
+                continue;
+            else
+            {
+                cout&lt;&lt;&quot;N&quot;&lt;&lt;endl;
+                break;
+            }
+        }
+        if(it==zm.end()){
+            cout&lt;&lt;&quot;Y&quot;&lt;&lt;endl;
+        }
+
+    }
+
+    return 0;
+}
+</code></pre><p>编写一个程序，输入3个整数，然后程序将对这三个整数按照从大到小进行排列。<br>　　输入格式：输入只有一行，即三个整数，中间用空格隔开。<br>　　输出格式：输出只有一行，即排序后的结果。<br>　　输入输出样例</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+bool cmp(int a,int b){return a&gt;b;
+}
+int main()
+{
+    int a[3];
+    scanf(&quot;%d %d %d&quot;,&amp;a[0],&amp;a[1],&amp;a[2]);
+    sort(a,a+3,cmp);
+    cout&lt;&lt;a[0]&lt;&lt;&quot; &quot;&lt;&lt;a[1]&lt;&lt;&quot; &quot;&lt;&lt;a[2];           
+    return 0;
+}
+</code></pre><p> 6-1 递归求二项式系数值  </p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int getck(int k,int n){
+    if(k==0||n==k){
+            return 1;
+    }else{
+        return getck(k,n-1)+getck(k-1,n-1);
+    }
+}
+int main()
+{
+    int k,n;
+    cin&gt;&gt;k&gt;&gt;n;
+    cout&lt;&lt;getck(k,n);           
+    return 0;
+}
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/11/蓝桥杯在线题解算法训练/" class="archive-article-date">
+  	<time datetime="2017-02-11T01:59:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-蓝桥杯在线测试题基础题解-二" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1282,7 +1611,7 @@ int main() {
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重装/">重装</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
 	</div>
 
       
@@ -1365,7 +1694,7 @@ int main() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/Unity/" style="font-size: 17.5px;">Unity</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/博客搭建/" style="font-size: 12.5px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a> <a href="/tags/重装/" style="font-size: 10px;">重装</a>
+    				<a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Unity/" style="font-size: 17.5px;">Unity</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/博客搭建/" style="font-size: 10px;">博客搭建</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/目标/" style="font-size: 10px;">目标</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a>
     			</div>
     	</section>
     
