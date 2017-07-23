@@ -291,10 +291,8 @@ private       √        ×      ×      ×
 <li><p>“static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？<br>Static表示静态的意思，可用于修饰成员变量和成员函数，被静态修饰的成员函数只能访问静态成员，不可以访问非静态成员。静态是随着类的加载而加载的，因此可以直接用类进行访问。 重写是子类中的方法和子类继承的父类中的方法一样（函数名，参数，参数类型，反回值类型），但是子类中的访问权限要不低于父类中的访问权限。重写的前提是必须要继承，private修饰不支持继承，因此被私有的方法不可以被重写。静态方法形式上可以被重写，即子类中可以重写父类中静态的方法。但是实际上从内存的角度上静态方法不可以被重写。</p>
 </li>
 <li><p>用递归来写斐波那契数列</p>
-<pre><code>package com.lk.thread;
-
-import java.util.Scanner;
-
+<pre><code>package com.lk.thread;        
+import java.util.Scanner;        
 public class test {
     public static int result(int n) {
         if (n == 1 || n == 2) {
@@ -313,8 +311,7 @@ public class test {
     }
 }
 </code></pre></li>
-<li><p>java中float,double利用BigDecimal运算的区别<br>参考：<a href="https://yq.aliyun.com/articles/19371" target="_blank" rel="external">https://yq.aliyun.com/articles/19371</a><br>参考2：<a href="http://blog.csdn.net/yztezhl/article/details/18699319" target="_blank" rel="external">http://blog.csdn.net/yztezhl/article/details/18699319</a><br>float、double两种基本类型在运算的时候容易引起精度丢失。</p>
-</li>
+<li>java中float,double利用BigDecimal运算的区别<br>参考：<a href="https://yq.aliyun.com/articles/19371" target="_blank" rel="external">https://yq.aliyun.com/articles/19371</a><br>参考2：<a href="http://blog.csdn.net/yztezhl/article/details/18699319" target="_blank" rel="external">http://blog.csdn.net/yztezhl/article/details/18699319</a><br>float、double两种基本类型在运算的时候容易引起精度丢失。</li>
 <li>javaweb中基本框架<br>参考：<a href="http://www.cnblogs.com/byqh/p/5595384.html" target="_blank" rel="external">http://www.cnblogs.com/byqh/p/5595384.html</a></li>
 <li><p>java有什么模板引擎</p>
 <p>引自百度：<br> 模板引擎就是用于制作页面模板的。啥是模板？不就是做好模子，然后套入数据，就成一个产品了吗？模板引擎有很多，常用的有freemarker、velocity等。它们都有自己的语法，只为简化页面数据展示。只要你稍微了解一下freemarker，就能很好的理解什么是模板了。</p>
