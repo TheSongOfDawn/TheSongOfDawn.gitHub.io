@@ -274,6 +274,8 @@ public static void main(String[] args) {
 <li><p>为什么ArrayL查找快，增删慢<br>arraylist类似于数组形式，数据只要给定索引就可以直接得到数字，arraylist也一样，但是如果要增删，就要移动后面的说有元素，这样就慢了，而linklist是使用类似于链表来存储的，与arraylist相反，增删只要添加一个连接就可以了，不要移动后面的所有元素</p>
 </li>
 <li><p>protected，private,public与默认的区别</p>
+</li>
+</ol>
 <p>作用域    当前类  同包 子类 其他</p>
 <p>public        √        √       √      √</p>
 <p>protected  √        √       √      ×</p>
@@ -281,28 +283,30 @@ public static void main(String[] args) {
 <p>private       √        ×      ×      ×</p>
 <p>类的成员不写访问修饰时默认为default。默认对于同一个包中的其他类相当于公开（public），对于不是同一个包中的其他类相当于私有（private）。受保护（protected）对子类相当于公开，对不是同一包中的没有父子关系的类相当于私有。</p>
 <p>Java中访问修饰符public、private、protecte、default的意义讲解：<br>public（接口访问权限）： Java语言中访问限制最宽的修饰符，一般称之为“公共的”。被其修饰的类、属性以及方法不仅可以跨类访问，而且允许跨包（package）访问。<br>private（你无法访问）: Java语言中对访问权限限制的最窄的修饰符，一般称之为“私有的”。被其修饰的类、属性以及方法只能被该类的对象访问，其子类不能访问，更不能允许跨包访问。<br>protected（继承访问权限）: 介于public 和 private 之间的一种访问修饰符，一般称之为“保护形”。被其修饰的类、属性以及方法只能被类本身的方法及子类访问，即使子类在不同的包中也可以访问。<br>default（包访问权限）：即不加任何访问修饰符，通常称为“默认访问模式“。该模式下，只允许在同一个包中进行访问。 </p>
-</li>
+<ol>
 <li><p>“static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？<br>Static表示静态的意思，可用于修饰成员变量和成员函数，被静态修饰的成员函数只能访问静态成员，不可以访问非静态成员。静态是随着类的加载而加载的，因此可以直接用类进行访问。 重写是子类中的方法和子类继承的父类中的方法一样（函数名，参数，参数类型，反回值类型），但是子类中的访问权限要不低于父类中的访问权限。重写的前提是必须要继承，private修饰不支持继承，因此被私有的方法不可以被重写。静态方法形式上可以被重写，即子类中可以重写父类中静态的方法。但是实际上从内存的角度上静态方法不可以被重写。</p>
 </li>
 <li><p>用递归来写斐波那契数列</p>
-<p>package com.lk.thread;<br>import java.util.Scanner;<br>public class test {</p>
-<pre><code>public static int result(int n) {
-    if (n == 1 || n == 2) {
-        return 1;
+<pre><code>package com.lk.thread;        
+import java.util.Scanner;        
+public class test {
+    public static int result(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        return result(n - 1) + result(n - 2);
     }
-    return result(n - 1) + result(n - 2);
-}
 
-public static &lt;result&gt; void main(String[] args) {
-    System.out.println(&quot;Input Number：&quot;);
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    for (int i = 1; i &lt; n; i++) {
-        System.out.print(result(i) + &quot; &quot;);
+    public static &lt;result&gt; void main(String[] args) {
+        System.out.println(&quot;Input Number：&quot;);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for (int i = 1; i &lt; n; i++) {
+            System.out.print(result(i) + &quot; &quot;);
+        }
     }
 }
-</code></pre><p>}</p>
-</li>
+</code></pre></li>
 <li><p>java中float,double利用BigDecimal运算的区别<br>参考：<a href="https://yq.aliyun.com/articles/19371" target="_blank" rel="external">https://yq.aliyun.com/articles/19371</a><br>参考2：<a href="http://blog.csdn.net/yztezhl/article/details/18699319" target="_blank" rel="external">http://blog.csdn.net/yztezhl/article/details/18699319</a><br>float、double两种基本类型在运算的时候容易引起精度丢失。</p>
 </li>
 <li>javaweb中基本框架<br>参考：<a href="http://www.cnblogs.com/byqh/p/5595384.html" target="_blank" rel="external">http://www.cnblogs.com/byqh/p/5595384.html</a></li>
