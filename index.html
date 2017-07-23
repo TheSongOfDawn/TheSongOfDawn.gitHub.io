@@ -152,18 +152,295 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="2017-7-17"><a href="#2017-7-17" class="headerlink" title="2017/7/17"></a>2017/7/17</h3><ol>
-<li>尽管Java是基于C++的，但Java是一种更纯粹的面向对象程序设计(OOP)语言。</li>
-<li>一切被视为对象！操作的标识符实际上是对对象的一个 引用</li>
-<li>New 的意思是 给我一个新对象</li>
-<li>对象存储在堆中。（寄存器，堆栈（对象引用存在其中），堆，常量存储，非ARM存储)</li>
-<li>基本类型是不用new来创建的 ，而是创建一个并非是引用的自动变量。这个变量直接存储值，并放置在堆栈中。</li>
-<li>基本类型 大小-包装器类型:boolean-Boolean,char 16 bits-Character,byte 8 bits-Byte,short 16 bits-Short,int 32 bits-Integer,long 64 bits-Long,float 32 bits-Float,double 64 bits-Double,void-Void </li>
-<li>高精度数字 BigInteger 和BigDecimal</li>
-<li>常用注释方式 //和/<strong>/ 文档注释/</strong> */<br>9.标签实例:<br> 1.@see classname/@see full-qualified-class/@see fully-fully-qualified-classname#method-name引用其他类 ，加入一个具有超链接的条目<br> 2.{@link package.class#member label}用于行内 并是用label作为超链接文本<br> 3.{@docRoot} 该标签产生到文档根目录的相对路径，用于文档树页面的显式超链接<br> 4.@version version-information 版本信息<br> 5.@author author-info<br> 6.{@inheritDoc}从当前这个类最直接的基类中继承相关文档到当前的文档注释中<br> 7.@since 允许指定程序代码最早使用的版本<br> 8.@param parameter-name description 残生标识符<br> 9.@return description 用来描述返回值的含义，可以延续数行<br> 10.@throws fully-qualified-class-name description 异常<br> 11.deprecated 指出一些旧特性已由新特性取代 建议用户不要使用这些旧特性 </li>
-<li>编码风格 类名大驼峰，其余的小驼峰</li>
-<li>Java在进行一个浮点数转化为Int型时候，总是对改数字执行截尾操作。如果想要对数字进行四舍五入操作，就需要使用java.Math.round方法()。</li>
-<li>Math库里静态方法grandom(),产生[0,1)之间的一个double值<h3 id="2017-7-18"><a href="#2017-7-18" class="headerlink" title="2017/7/18"></a>2017/7/18</h3></li>
+        <h3 id="2017-7-21"><a href="#2017-7-21" class="headerlink" title="2017/7/21"></a>2017/7/21</h3><ol>
+<li><p>HashMap,HashTable区别</p>
+<pre><code>HashMap和Hashtable都实现了Map接口，但决定用哪一个之前先要弄清楚它们之间的分别。主要的区别有：线程安全性，同步(synchronization)，以及速度。
+HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则不行)。
+HashMap是非synchronized，而Hashtable是synchronized，这意味着Hashtable是线程安全的，多个线程可以共享一个Hashtable；而如果没有正确的同步的话，多个线程是不能共享HashMap的。Java 5提供了ConcurrentHashMap，它是HashTable的替代，比HashTable的扩展性更好。
+另一个区别是HashMap的迭代器(Iterator)是fail-fast迭代器，而Hashtable的enumerator迭代器不是fail-fast的。所以当有其它线程改变了HashMap的结构（增加或者移除元素），将会抛出ConcurrentModificationException，但迭代器本身的remove()方法移除元素则不会抛出ConcurrentModificationException异常。但这并不是一个一定发生的行为，要看JVM。这条同样也是Enumeration和Iterator的区别。
+由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。如果你不需要同步，只需要单一线程，那么使用HashMap性能要好过Hashtable。
+HashMap不能保证随着时间的推移Map中的元素次序是不变的。
+</code></pre></li>
+<li><p>final,finally,finalize</p>
+<pre><code>final—修饰符（关键字）如果一个类被声明为final，意味着它不能再派生出新的子类，不能作为父类被继承。因此一个类不能既被声明为 abstract的，又被声明为final的。将变量或方法声明为final，可以保证它们在使用中不被改变。被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改。被声明为final的方法也同样只能使用，不能重载。 
+finally—再异常处理时提供 finally 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 catch 子句就会执行，然后控制就会进入 finally 块（如果有的话）。 
+finalize—方法名。Java 技术允许使用 finalize() 方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。它是在 Object 类中定义的，因此所有的类都继承了它。子类覆盖 finalize() 方法以整理系统资源或者执行其他清理工作。finalize() 方法是在垃圾收集器删除对象之前对这个对象调用的。
+</code></pre></li>
+<li><p>JSP内置对象</p>
+<pre><code>jsp内置对象
+ 　　定义：可以不加声明就在JSP页面脚本（Java程序片和Java表达式）中使用的成员变量
+ 　　JSP共有以下9种基本内置组件（可与ASP的6种内部组件相对应）：
+ 　　1.request对象
+ 　　客户端的请求信息被封装在request对象中，通过它才能了解到客户的需求，然后做出响应。它是HttpServletRequest类的实例。
+ 　　序号 方 法 说 明
+ 　　1 object getAttribute(String name) 返回指定属性的属性值
+ 　　2 Enumeration getAttributeNames() 返回所有可用属性名的枚举
+ 　　3 String getCharacterEncoding() 返回字符编码方式
+ 　　4 int getContentLength() 返回请求体的长度（以字节数）
+ 　　5 String getContentType() 得到请求体的MIME类型
+ 　　6 ServletInputStream getInputStream() 得到请求体中一行的二进制流
+ 　　7 String getParameter(String name) 返回name指定参数的参数值
+ 　　8 Enumeration getParameterNames() 返回可用参数名的枚举
+ 　　9 String[] getParameterValues(String name) 返回包含参数name的所有值的数组
+ 　　10 String getProtocol() 返回请求用的协议类型及版本号
+ 　　11 String getScheme() 返回请求用的计划名,如:http.https及ftp等
+ 　　12 String getServerName() 返回接受请求的服务器主机名
+ 　　13 int getServerPort() 返回服务器接受此请求所用的端口号
+ 　　14 BufferedReader getReader() 返回解码过了的请求体
+ 　　15 String getRemoteAddr() 返回发送此请求的客户端IP地址
+ 　　16 String getRemoteHost() 返回发送此请求的客户端主机名
+ 　　17 void setAttribute(String key,Object obj) 设置属性的属性值
+ 　　18 String getRealPath(String path) 返回一虚拟路径的真实路径
+ 　　2.response对象
+ 　　response对象包含了响应客户请求的有关信息，但在JSP中很少直接用到它。它是HttpServletResponse类的实例。
+ 　　序号 方 法 说 明
+ 　　1 String getCharacterEncoding() 返回响应用的是何种字符编码
+ 　　2 ServletOutputStream getOutputStream() 返回响应的一个二进制输出流
+ 　　3 PrintWriter getWriter() 返回可以向客户端输出字符的一个对象
+ 　　4 void setContentLength(int len) 设置响应头长度
+ 　　5 void setContentType(String type) 设置响应的MIME类型
+ 　　6 sendRedirect(java.lang.String location) 重新定向客户端的请求
+ 　　3.session对象
+ 　　session对象指的是客户端与服务器的一次会话，从客户端连到服务器的一个WebApplication开始，直到客户端与服务器断开连接为止。它是HttpSession类的实例.
+ 　　序号 方 法 说 明
+ 　　1 long getCreationTime() 返回SESSION创建时间
+ 　　2 public String getId() 返回SESSION创建时JSP引擎为它设的惟一ID号
+ 　　3 long getLastAccessedTime() 返回此SESSION里客户端最近一次请求时间
+ 　　4 int getMaxInactiveInterval() 返回两次请求间隔多长时间此SESSION被取消(ms)
+ 　　5 String[] getValueNames() 返回一个包含此SESSION中所有可用属性的数组
+ 　　6 void invalidate() 取消SESSION，使SESSION不可用
+ 　　7 boolean isNew() 返回服务器创建的一个SESSION,客户端是否已经加入
+ 　　8 void removeValue(String name) 删除SESSION中指定的属性
+ 　　9 void setMaxInactiveInterval() 设置两次请求间隔多长时间此SESSION被取消(ms)
+ 　　4.out对象
+ 　　out对象是JspWriter类的实例,是向客户端输出内容常用的对象
+ 　　序号 方 法 说 明
+ 　　1 void clear() 清除缓冲区的内容
+ 　　2 void clearBuffer() 清除缓冲区的当前内容
+ 　　3 void flush() 清空流
+ 　　4 int getBufferSize() 返回缓冲区以字节数的大小，如不设缓冲区则为0
+ 　　5 int getRemaining() 返回缓冲区还剩余多少可用
+ 　　6 boolean isAutoFlush() 返回缓冲区满时，是自动清空还是抛出异常
+ 　　7 void close() 关闭输出流
+ 　　5.page对象
+ 　　page对象就是指向当前JSP页面本身，有点象类中的this指针，它是java.lang.Object类的实例
+ 　　序号 方 法 说 明
+ 　　1 class getClass 返回此Object的类
+ 　　2 int hashCode() 返回此Object的hash码
+ 　　3 boolean equals(Object obj) 判断此Object是否与指定的Object对象相等
+ 　　4 void copy(Object obj) 把此Object拷贝到指定的Object对象中
+ 　　5 Object clone() 克隆此Object对象
+ 　　6 String toString() 把此Object对象转换成String类的对象
+ 　　7 void notify() 唤醒一个等待的线程
+ 　　8 void notifyAll() 唤醒所有等待的线程
+ 　　9 void wait(int timeout) 使一个线程处于等待直到timeout结束或被唤醒
+ 　　10 void wait() 使一个线程处于等待直到被唤醒
+ 　　11 void enterMonitor() 对Object加锁
+ 　　12 void exitMonitor() 对Object开锁
+ 　　6.application对象
+ 　　
+ 　　application对象实现了用户间数据的共享，可存放全局变量。它开始于服务器的启动，直到服务器的关闭，在此期间，此对象将一直存在；这样在用户的前后连接或不同用户之间的连接中，可以对此对象的同一属性进行操作；在任何地方对此对象属性的操作，都将影响到其他用户对此的访问。服务器的启动和关闭决定了application对象的生命。它是ServletContext类的实例。
+ 　　序号 方 法 说 明
+ 　　1 Object getAttribute(String name) 返回给定名的属性值
+ 　　2 Enumeration getAttributeNames() 返回所有可用属性名的枚举
+ 　　3 void setAttribute(String name,Object obj) 设定属性的属性值
+ 　　4 void removeAttribute(String name) 删除一属性及其属性值
+ 　　5 String getServerInfo() 返回JSP(SERVLET)引擎名及版本号
+ 　　6 String getRealPath(String path) 返回一虚拟路径的真实路径
+ 　　7 ServletContext getContext(String uripath) 返回指定WebApplication的application对象
+ 　　8 int getMajorVersion() 返回服务器支持的Servlet API的最大版本号
+ 　　9 int getMinorVersion() 返回服务器支持的Servlet API的最大版本号
+ 　　10 String getMimeType(String file) 返回指定文件的MIME类型
+ 　　11 URL getResource(String path) 返回指定资源(文件及目录)的URL路径
+ 　　12 InputStream getResourceAsStream(String path) 返回指定资源的输入流
+ 　　13 RequestDispatcher getRequestDispatcher(String uripath) 返回指定资源的RequestDispatcher对象
+ 　　14 Servlet getServlet(String name) 返回指定名的Servlet
+ 　　15 Enumeration getServlets() 返回所有Servlet的枚举
+ 　　16 Enumeration getServletNames() 返回所有Servlet名的枚举
+ 　　17 void log(String msg) 把指定消息写入Servlet的日志文件
+ 　　18 void log(Exception exception,String msg) 把指定异常的栈轨迹及错误消息写入Servlet的日志文件
+ 　　19 void log(String msg,Throwable throwable) 把栈轨迹及给出的Throwable异常的说明信息 写入Servlet的日志文件
+ 　　7.exception对象
+ 　　exception对象是一个例外对象，当一个页面在运行过程中发生了例外，就产生这个对象。如果一个JSP页面要应用此对象，就必须把isErrorPage设为true，否则无法编译。他实际上是java.lang.Throwable的对象
+ 　　序号 方 法 说 明
+ 　　1 String getMessage() 返回描述异常的消息
+ 　　2 String toString() 返回关于异常的简短描述消息
+ 　　3 void printStackTrace() 显示异常及其栈轨迹
+ 　　4 Throwable FillInStackTrace() 重写异常的执行栈轨迹
+ 　　8.pageContext对象
+ 　　pageContext对象提供了对JSP页面内所有的对象及名字空间的访问，也就是说他可以访问到本页所在的SESSION，也可以取本页面所在的application的某一属性值，他相当于页面中所有功能的集大成者，它的本类名也叫pageContext。
+ 　　序号 方 法 说 明
+ 　　1 JspWriter getOut() 返回当前客户端响应被使用的JspWriter流(out)
+ 　　2 HttpSession getSession() 返回当前页中的HttpSession对象(session)
+ 　　3 Object getPage() 返回当前页的Object对象(page)
+ 　　4 ServletRequest getRequest() 返回当前页的ServletRequest对象(request)
+ 　　5 ServletResponse getResponse() 返回当前页的ServletResponse对象(response)
+ 　　6 Exception getException() 返回当前页的Exception对象(exception)
+ 　　7 ServletConfig getServletConfig() 返回当前页的ServletConfig对象(config)
+ 　　8 ServletContext getServletContext() 返回当前页的ServletContext对象(application)
+ 　　9 void setAttribute(String name,Object attribute) 设置属性及属性值
+ 　　10 void setAttribute(String name,Object obj,int scope) 在指定范围内设置属性及属性值
+ 　　11 public Object getAttribute(String name) 取属性的值
+ 　　12 Object getAttribute(String name,int scope) 在指定范围内取属性的值
+ 　　13 public Object findAttribute(String name) 寻找一属性,返回起属性值或NULL
+ 　　14 void removeAttribute(String name) 删除某属性
+ 　　15 void removeAttribute(String name,int scope) 在指定范围删除某属性
+ 　　16 int getAttributeScope(String name) 返回某属性的作用范围
+ 　　17 Enumeration getAttributeNamesInScope(int scope) 返回指定范围内可用的属性名枚举
+ 　　18 void release() 释放pageContext所占用的资源
+ 　　19 void forward(String relativeUrlPath) 使当前页面重导到另一页面
+ 　　20 void include(String relativeUrlPath) 在当前位置包含另一文件
+ 　　9.config对象
+ 　　config对象是在一个Servlet初始化时，JSP引擎向它传递信息用的，此信息包括Servlet初始化时所要用到的参数（通过属性名和属性值构成）以及服务器的有关信息（通过传递一个ServletContext对象）
+ 　　序号 方 法 说 明
+ 　　1 ServletContext getServletContext() 返回含有服务器相关信息的ServletContext对象
+ 　　2 String getInitParameter(String name) 返回初始化参数的值
+ 　　3 Enumeration getInitParameterNames() 返回Servlet初始化所需所有参数的枚举
+</code></pre></li>
+<li><p>表连接,左右内连接</p>
+<pre><code>联接可分为以下几类：    
+1、内联接（典型的联接运算，使用像 =  或 &lt;&gt; 之类的比较运算符）。包括相等联接和自然联接。     
+内联接使用比较运算符根据每个表共有的列的值匹配两个表中的行。例如，检索 students和courses表中学生标识号相同的所有行。   
+
+2、外联接。外联接可以是左向外联接、右向外联接或完整外部联接。     
+在 FROM子句中指定外联接时，可以由下列几组关键字中的一组指定：     
+
+1）LEFT  JOIN或LEFT OUTER JOIN     
+左向外联接的结果集包括  LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。       
+
+2）RIGHT  JOIN 或 RIGHT  OUTER  JOIN     
+右向外联接是左向外联接的反向联接。将返回右表的所有行。如果右表的某行在左表中没有匹配行，则将为左表返回空值。       
+3）FULL  JOIN 或 FULL OUTER JOIN
+完整外部联接返回左表和右表中的所有行。当某行在另一个表中没有匹配行时，则另一个表的选择列表列包含空值。如果表之间有匹配行，则整个结果集行包含基表的数据值。   
+
+3、交叉联接   
+交叉联接返回左表中的所有行，左表中的每一行与右表中的所有行组合。交叉联接也称作笛卡尔积。    
+
+FROM 子句中的表或视图可通过内联接或完整外部联接按任意顺序指定；但是，用左或右向外联接指定表或视图时，表或视图的顺序很重要。有关使用左或右向外联接排列表的更多信息，请参见使用外联接。     
+</code></pre></li>
+<li><p>什么是事务？什么是锁？</p>
+<pre><code>数据库事务(Database Transaction) ，是指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。
+事务具有原子性，一致性，隔离性，持久性。        
+原子性：事务必须是一个自动工作的单元，要么全部执行，要么全部不执行。
+一致性：事务结束的时候，所有的内部数据都是正确的。
+隔离性：并发多个事务时，各个事务不干涉内部数据，处理的都是另外一个事务处理之前或之后的数据。
+持久性：事务提交之后，数据是永久性的，不可再回滚。
+
+锁是指一个事务对每个数据对象进行操作时，需要对数据对象加对应锁。这样其他事务最此数据对象访问就受限。当操作结束后事务释放此锁。
+</code></pre></li>
+<li><p>NIO</p>
+<pre><code>参考：http://ifeve.com/overview/
+Java NIO 由以下几个核心部分组成：
+Channels
+Buffers
+Selectors
+Java NIO和IO之间第一个最大的区别是，IO是面向流的，NIO是面向缓冲区的。 Java IO面向流意味着每次从流中读一个或多个字节，直至读取所有字节，它们没有被缓存在任何地方。此外，它不能前后移动流中的数据。如果需要前后移动从流中读取的数据，需要先将它缓存到一个缓冲区。 Java NIO的缓冲导向方法略有不同。数据读取到一个它稍后处理的缓冲区，需要时可在缓冲区中前后移动。这就增加了处理过程中的灵活性。但是，还需要检查是否该缓冲区中包含所有您需要处理的数据。而且，需确保当更多的数据读入缓冲区时，不要覆盖缓冲区里尚未处理的数据。
+</code></pre></li>
+<li><p>Java8新特性</p>
+<pre><code>参考:http://www.importnew.com/11908.html
+</code></pre></li>
+<li><p>==和equals（）</p>
+<pre><code>==，比较的是一个对象在内存中的地址值，
+equals的情况比较复杂，它是java.lang.Object类中的一个方法。因为java中所有的类都默认继承于Object，所以所有的类都有这个方法。
+在Object类源码中是这样写的。
+public boolean equals(Object obj) {
+return (this == obj);
+}
+他同样使用==号进行内存地址的比较。但是许多java类中都重写了这个方法，比如String。
+public boolean equals(Object anObject) {
+if (this == anObject) {
+return true;
+}
+if (anObject instanceof String) {
+String anotherString = (String)anObject;
+int n = count;
+if (n == anotherString.count) {
+char v1[] = value;
+char v2[] = anotherString.value;
+int i = offset;
+int j = anotherString.offset;
+while (n-- != 0) {
+if (v1[i++] != v2[j++])
+return false;
+}
+return true;
+}
+}
+return false;
+}
+String里的方法，如果==号比较不相等，还会进行一下值的比较。
+所以equals方法具体的作用要看当前的那个类是如何实现重写父类中该方法的。如果没有重写该方法，那么他和==号等价。
+</code></pre></li>
+<li>线程的几种使用方式？你喜欢哪一种，为什么？<pre><code>Java多线程实现方式主要有三种：继承Thread类、实现Runnable接口、使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种方式线程执行完后都没有返回值，只有最后一种是带返回值的。
+</code></pre></li>
+<li><p>写出下面两个代码的输出:<br><code></code></p>
+<pre><code>public class ms1 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Integer f1=100,f2=100,f3=150,f4=150;
+
+        System.out.println(f1==f2);
+        System.out.println(f3==f4);
+    }
+    /*output:
+     * true
+     * false
+     * 
+     * 1.==在比较对象类型的时候是比较地址值的
+     * 2.Integer有一个常量池在-128~127的时候，
+     * 生成的Integer对象是同一个地址值，所以为true
+     * 当超过这个范围产生的就是不同的对象，所以用==比较为false
+     * */
+}
+</code></pre></li>
+</ol>
+<p><br><code></code></p>
+<pre><code>//面试代码题题2
+public class ms2 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        System.out.println(f());
+
+    }
+    static boolean f() {
+        try {
+//            System.out.println(&quot;try中....&quot;);
+//            System.exit(0); 如果程序中断了，就只会执行到这里不会进行下一步
+            return true;
+
+        } finally {
+            System.out.println(&quot;finally中....&quot;);
+            return false;
+        }
+    }
+}
+/*output
+ * false
+ * 因为finally只要不中断程序就一定会执行。。。。  
+ *栈中先放入true,然后栈中再放入false,然后就返回栈中的第一个了  
+ * 
+ * Return并不是让函数马上返回
+ * 而是return语句执行后，
+ * 将把返回结果放置进函数栈中，
+ * 此时函数并不是马上返回，
+ * 它要执行finally语句后才真正开始返回。
+ * */
+</code></pre><p></p>
+<ol>
+<li><p>为什么ArrayL查找快，增删慢</p>
+<p>arraylist类似于数组形式，数据只要给定索引就可以直接得到数字，arraylist也一样，但是如果要增删，就要移动后面的说有元素，这样就慢了，而linklist是使用类似于链表来存储的，与arraylist相反，增删只要添加一个连接就可以了，不要移动后面的所有元素</p>
+<h3 id="2017-7-19"><a href="#2017-7-19" class="headerlink" title="2017/7/19"></a>2017/7/19</h3></li>
+<li>java中可以将一个数组赋值给另一个数组，其实真正做的只是一个引用，两个引用都指向的同一块内存。通过两个引用都可以修改数组内的值.</li>
+<li>取得某类成员的访问权的唯一途径是：<ol>
+<li>使该成员成为public</li>
+<li>通过不加访问权限修饰词并将其他类放置于同一个包内的方式给成员赋予包访问权</li>
+<li>继承。继承的类可以访问public protected 但不能访问private</li>
+<li>提供访问器和变异器(gt/set方法)</li>
+</ol>
+</li>
+<li>任何可以肯定只是一个该类的一个助手方法的方法，都可以把它指定为private<h3 id="2017-7-18"><a href="#2017-7-18" class="headerlink" title="2017/7/18"></a>2017/7/18</h3></li>
 <li><p>Foreach语法 表示不必创建int变量去对由访问项构成的序列进行计数，foreach将自动产生每一项。</p>
 </li>
 <li><p>return：一方面指定一个方法返回什么值，另一方面会导致当前的方法退出，并返回那个值</p>
@@ -173,6 +450,20 @@
 <li>this关键字.this关键字只能在方法内部使用，表示对 调用方法的那个对象的 引用。比如，当需要返回对当前对象的引用，常常在写 return this.            </li>
 <li>清理：对象可能不被垃圾回收；垃圾回收并不等于析构；垃圾回收只与内存有关</li>
 <li>垃圾回收的存在不能完全代替析构函数，而且绝对不嗯呢该直接调用finalize();无论是垃圾回收还是终结，都不保证一定会发生。如果jvm并未面临内存耗尽的情况，它是不会浪费时间去执行垃圾回收以恢复内存的。                                                                          </li>
+</ol>
+<h3 id="2017-7-17"><a href="#2017-7-17" class="headerlink" title="2017/7/17"></a>2017/7/17</h3><ol>
+<li>尽管Java是基于C++的，但Java是一种更纯粹的面向对象程序设计(OOP)语言。</li>
+<li>一切被视为对象！操作的标识符实际上是对对象的一个 引用</li>
+<li>New 的意思是 给我一个新对象</li>
+<li>对象存储在堆中。（寄存器，堆栈（对象引用存在其中），堆，常量存储，非ARM存储)</li>
+<li>基本类型是不用new来创建的 ，而是创建一个并非是引用的自动变量。这个变量直接存储值，并放置在堆栈中。</li>
+<li>基本类型 大小-包装器类型:boolean-Boolean,char 16 bits-Character,byte 8 bits-Byte,short 16 bits-Short,int 32 bits-Integer,long 64 bits-Long,float 32 bits-Float,double 64 bits-Double,void-Void </li>
+<li>高精度数字 BigInteger 和BigDecimal</li>
+<li>常用注释方式 //和/<strong>/ 文档注释/</strong> */</li>
+<li>标签实例:<br> 1.@see classname/@see full-qualified-class/@see fully-fully-qualified-classname#method-name引用其他类 ，加入一个具有超链接的条目<br> 2.{@link package.class#member label}用于行内 并是用label作为超链接文本<br> 3.{@docRoot} 该标签产生到文档根目录的相对路径，用于文档树页面的显式超链接<br> 4.@version version-information 版本信息<br> 5.@author author-info<br> 6.{@inheritDoc}从当前这个类最直接的基类中继承相关文档到当前的文档注释中<br> 7.@since 允许指定程序代码最早使用的版本<br> 8.@param parameter-name description 残生标识符<br> 9.@return description 用来描述返回值的含义，可以延续数行<br> 10.@throws fully-qualified-class-name description 异常<br> 11.deprecated 指出一些旧特性已由新特性取代 建议用户不要使用这些旧特性 </li>
+<li>编码风格 类名大驼峰，其余的小驼峰</li>
+<li>Java在进行一个浮点数转化为Int型时候，总是对改数字执行截尾操作。如果想要对数字进行四舍五入操作，就需要使用java.Math.round方法()。</li>
+<li>Math库里静态方法grandom(),产生[0,1)之间的一个double值</li>
 </ol>
 
       
