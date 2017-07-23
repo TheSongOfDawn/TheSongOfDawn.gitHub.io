@@ -20,7 +20,7 @@ HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并
 HashMap,HashTable区别
 HashMap和Hashtable都实现了Map接口，但决定用哪一个之前先要弄清楚它们之间的分别。主要的区别有：线程安全性，同步(synchronization)，以及速度。
 HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并可以接受null(HashMap可以接受为null的键值(key">
-<meta property="og:updated_time" content="2017-07-23T02:59:54.402Z">
+<meta property="og:updated_time" content="2017-07-23T03:04:56.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ThinkingInJava》笔记">
 <meta name="twitter:description" content="2017/7/21
@@ -382,7 +382,8 @@ return false;
 String里的方法，如果==号比较不相等，还会进行一下值的比较。
 所以equals方法具体的作用要看当前的那个类是如何实现重写父类中该方法的。如果没有重写该方法，那么他和==号等价。
 </code></pre></li>
-<li>线程的几种使用方式？你喜欢哪一种，为什么？<pre><code>Java多线程实现方式主要有三种：继承Thread类、实现Runnable接口、使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种方式线程执行完后都没有返回值，只有最后一种是带返回值的。
+<li><p>线程的几种使用方式？你喜欢哪一种，为什么？</p>
+<pre><code>Java多线程实现方式主要有三种：继承Thread类、实现Runnable接口、使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种方式线程执行完后都没有返回值，只有最后一种是带返回值的。
 </code></pre></li>
 <li><p>写出下面两个代码的输出:<br><code></code></p>
 <pre><code>public class ms1 {
@@ -442,7 +443,9 @@ public class ms2 {
 <ol>
 <li><p>为什么ArrayL查找快，增删慢</p>
 <p>arraylist类似于数组形式，数据只要给定索引就可以直接得到数字，arraylist也一样，但是如果要增删，就要移动后面的说有元素，这样就慢了，而linklist是使用类似于链表来存储的，与arraylist相反，增删只要添加一个连接就可以了，不要移动后面的所有元素</p>
-<h3 id="2017-7-19"><a href="#2017-7-19" class="headerlink" title="2017/7/19"></a>2017/7/19</h3></li>
+</li>
+</ol>
+<h3 id="2017-7-19"><a href="#2017-7-19" class="headerlink" title="2017/7/19"></a>2017/7/19</h3><ol>
 <li>java中可以将一个数组赋值给另一个数组，其实真正做的只是一个引用，两个引用都指向的同一块内存。通过两个引用都可以修改数组内的值.</li>
 <li>取得某类成员的访问权的唯一途径是：<ol>
 <li>使该成员成为public</li>
