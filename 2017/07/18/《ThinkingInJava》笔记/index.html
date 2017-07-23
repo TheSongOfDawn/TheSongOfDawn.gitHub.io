@@ -20,7 +20,7 @@ HashMap和Hashtable都实现了Map接口，但决定用哪一个之前先要弄�
 HashMap,HashTable区别
 
 HashMap和Hashtable都实现了Map接口，但决定用哪一个之前先要弄清楚它们之间的分别。主要的区别有：线程安全性，同步(synchronization)，以及速度。HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并可以接受null(HashMap可以接受为null的键值(key">
-<meta property="og:updated_time" content="2017-07-23T09:38:41.112Z">
+<meta property="og:updated_time" content="2017-07-23T09:50:56.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ThinkingInJava》笔记">
 <meta name="twitter:description" content="2017/7/21
@@ -226,65 +226,57 @@ return false;
 }
 </code></pre><p>String里的方法，如果==号比较不相等，还会进行一下值的比较。<br>所以equals方法具体的作用要看当前的那个类是如何实现重写父类中该方法的。如果没有重写该方法，那么他和==号等价。</p>
 <ol>
-<li><p>线程的几种使用方式？你喜欢哪一种，为什么？</p>
-<pre><code>Java多线程实现方式主要有三种：继承Thread类、实现Runnable接口、使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种方式线程执行完后都没有返回值，只有最后一种是带返回值的。
-</code></pre></li>
+<li><p>线程的几种使用方式？你喜欢哪一种，为什么？<br>Java多线程实现方式主要有三种：继承Thread类、实现Runnable接口、使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种方式线程执行完后都没有返回值，只有最后一种是带返回值的。</p>
+</li>
 <li><p>写出下面两个代码的输出:</p>
-<pre><code>//面试中遇到的一个代码题
-public class ms1 {
+<p>//面试中遇到的一个代码题<br>public class ms1 {</p>
+<pre><code>public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    Integer f1=100,f2=100,f3=150,f4=150;
 
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        Integer f1=100,f2=100,f3=150,f4=150;
-
-        System.out.println(f1==f2);
-        System.out.println(f3==f4);
-    }
-    /*output:
-     * true
-     * false
-     * 
-     * 1.==在比较对象类型的时候是比较地址值的
-     * 2.Integer有一个常量池在-128~127的时候，
-     * 生成的Integer对象是同一个地址值，所以为true
-     * 当超过这个范围产生的就是不同的对象，所以用==比较为false
-     * */
+    System.out.println(f1==f2);
+    System.out.println(f3==f4);
 }
-</code></pre><p>&emsp;&emsp;</p>
-<pre><code>//面试代码题题2
-public class ms2 {
-
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        System.out.println(f());
-
-    }
-    static boolean f() {
-        try {
-//            System.out.println(&quot;try中....&quot;);
-//            System.exit(0); 如果程序中断了，就只会执行到这里不会进行下一步
-            return true;
-
-        } finally {
-            System.out.println(&quot;finally中....&quot;);
-            return false;
-        }
-    }
-}
-/*output
+/*output:
+ * true
  * false
- * 因为finally只要不中断程序就一定会执行。。。。  
- *栈中先放入true,然后栈中再放入false,然后就返回栈中的第一个了  
  * 
- * Return并不是让函数马上返回
- * 而是return语句执行后，
- * 将把返回结果放置进函数栈中，
- * 此时函数并不是马上返回，
- * 它要执行finally语句后才真正开始返回。
+ * 1.==在比较对象类型的时候是比较地址值的
+ * 2.Integer有一个常量池在-128~127的时候，
+ * 生成的Integer对象是同一个地址值，所以为true
+ * 当超过这个范围产生的就是不同的对象，所以用==比较为false
  * */
-</code></pre></li>
-<li><p>为什么ArrayL查找快，增删慢</p>
-<p>arraylist类似于数组形式，数据只要给定索引就可以直接得到数字，arraylist也一样，但是如果要增删，就要移动后面的说有元素，这样就慢了，而linklist是使用类似于链表来存储的，与arraylist相反，增删只要添加一个连接就可以了，不要移动后面的所有元素</p>
+</code></pre><p>}<br>//面试代码题题2</p>
+<p>public class ms2 {</p>
+<pre><code>public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    System.out.println(f());
+
+}
+static boolean f() {
+    try {
+</code></pre><p>//            System.out.println(“try中….”);<br>//            System.exit(0); 如果程序中断了，就只会执行到这里不会进行下一步</p>
+<pre><code>        return true;
+
+    } finally {
+        System.out.println(&quot;finally中....&quot;);
+        return false;
+    }
+}
+</code></pre><p>}<br>/*output</p>
+<ul>
+<li>false</li>
+<li>因为finally只要不中断程序就一定会执行。。。。<br>*栈中先放入true,然后栈中再放入false,然后就返回栈中的第一个了  </li>
+<li></li>
+<li>Return并不是让函数马上返回</li>
+<li>而是return语句执行后，</li>
+<li>将把返回结果放置进函数栈中，</li>
+<li>此时函数并不是马上返回，</li>
+<li>它要执行finally语句后才真正开始返回。</li>
+<li>*/</li>
+</ul>
+</li>
+<li><p>为什么ArrayL查找快，增删慢<br>arraylist类似于数组形式，数据只要给定索引就可以直接得到数字，arraylist也一样，但是如果要增删，就要移动后面的说有元素，这样就慢了，而linklist是使用类似于链表来存储的，与arraylist相反，增删只要添加一个连接就可以了，不要移动后面的所有元素</p>
 </li>
 <li><p>protected，private,public与默认的区别</p>
 <pre><code>         作用域    当前类  同包 子类 其他
@@ -302,26 +294,24 @@ private       √        ×      ×      ×
 <li><p>“static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？<br>Static表示静态的意思，可用于修饰成员变量和成员函数，被静态修饰的成员函数只能访问静态成员，不可以访问非静态成员。静态是随着类的加载而加载的，因此可以直接用类进行访问。 重写是子类中的方法和子类继承的父类中的方法一样（函数名，参数，参数类型，反回值类型），但是子类中的访问权限要不低于父类中的访问权限。重写的前提是必须要继承，private修饰不支持继承，因此被私有的方法不可以被重写。静态方法形式上可以被重写，即子类中可以重写父类中静态的方法。但是实际上从内存的角度上静态方法不可以被重写。</p>
 </li>
 <li><p>用递归来写斐波那契数列</p>
-<pre><code>package com.lk.thread;        
-import java.util.Scanner;        
-public class test {
-    public static int result(int n) {
-        if (n == 1 || n == 2) {
-            return 1;
-        }
-        return result(n - 1) + result(n - 2);
+<p>package com.lk.thread;<br>import java.util.Scanner;<br>public class test {</p>
+<pre><code>public static int result(int n) {
+    if (n == 1 || n == 2) {
+        return 1;
     }
+    return result(n - 1) + result(n - 2);
+}
 
-    public static &lt;result&gt; void main(String[] args) {
-        System.out.println(&quot;Input Number：&quot;);
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        for (int i = 1; i &lt; n; i++) {
-            System.out.print(result(i) + &quot; &quot;);
-        }
+public static &lt;result&gt; void main(String[] args) {
+    System.out.println(&quot;Input Number：&quot;);
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    for (int i = 1; i &lt; n; i++) {
+        System.out.print(result(i) + &quot; &quot;);
     }
 }
-</code></pre></li>
+</code></pre><p>}</p>
+</li>
 <li>java中float,double利用BigDecimal运算的区别<br>参考：<a href="https://yq.aliyun.com/articles/19371" target="_blank" rel="external">https://yq.aliyun.com/articles/19371</a><br>参考2：<a href="http://blog.csdn.net/yztezhl/article/details/18699319" target="_blank" rel="external">http://blog.csdn.net/yztezhl/article/details/18699319</a><br>float、double两种基本类型在运算的时候容易引起精度丢失。</li>
 <li>javaweb中基本框架<br>参考：<a href="http://www.cnblogs.com/byqh/p/5595384.html" target="_blank" rel="external">http://www.cnblogs.com/byqh/p/5595384.html</a></li>
 <li><p>java有什么模板引擎</p>
